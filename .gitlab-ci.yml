@@ -1,0 +1,59 @@
+image: python:3.6
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  untracked: true
+  key: "test"
+  paths:
+    - .cache/pip
+    - venv/
+
+before_script:
+  - python --version
+  - pip install virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
+  #- pip install -r requirements.txt
+
+stages:
+  - flake8
+  - radon
+  - bandit
+
+flake8:
+  stage: flake8
+  artifacts:
+    when: on_failure
+    paths:
+      - ci-flake8.txt
+      - .cache/pip
+      - venv
+  script:
+    - pip install flake8
+    - flake8 --ignore=E501 --exclude='.git,venv,*migrations*,static/lib' ./bsserver/backend/views.py | tee ci-flake8.txt
+
+radon:
+  stage: radon
+  artifacts:
+    paths:
+      - .cache/pip
+      - venv
+  script:
+    - pip install radon
+    - radon cc -s -a --ignore='venv' ./bsserver/backend/views.py
+    - radon mi -s --ignore='venv' ./bsserver/backend/views.py
+
+bandit:
+  stage: bandit
+  artifacts:
+    when: on_failure
+    paths:
+      - .cache/pip
+      - venv
+      - ci-bandit.txt
+  script:
+    - pip install bandit
+    - bandit -lll -r --exclude='venv' ./bsserver/backend/views.py | tee ci-bandit.txt
+

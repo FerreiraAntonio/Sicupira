@@ -1,0 +1,11 @@
+*.pyc
+*~
+__pycache__
+myvenv
+venv
+db.sqlite3
+/static
+.DS_Store
+.openvas/data/openvas
+tasks.db*
+./vulnwhisperer/data/openvas/*.json
