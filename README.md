@@ -15,9 +15,17 @@ Docentes*
 Discentes*
 *Com preenchimento automático pela integração da plataforma lattes
 
+# Template HTML (Layout do programa)
+
+Acesse com o browser a estrutura do site em 
+
+```
+sicupira/sicupira/layout_html/index.html
+´´´´
+
 # Executando o sistema
-´´´
+```
 source myvenv/bin/activate
 python manage.py nserver
-```
+´´´´
 chame no browser http://127.0.0.01:8000
