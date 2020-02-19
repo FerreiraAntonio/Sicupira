@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333; 
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+.subnav .subnavbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color:gray;
+}
+
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color:gray;
+  width: 100%;
+  z-index: 1;
+}
+
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+
+.subnav-content a:hover {
+  background-color: #eee;
+  color: black;
+}
+
+.subnav:hover .subnav-content {
+  display: block;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+
+  <div style="color: white; float: right;padding: 3px; color: gray;"> SICUPIRA <img src="./images/logo.png" style="height: 30px;"> </div>
+  <a href="#home">Inicio</a>
+
+  <div class="subnav">
+    <button class="subnavbtn">Programa <i class="fa fa-caret-down"></i></button>
+    <div class="subnav-content">
+      <a href="dadoscadastrais.html">Dados Cadastrais</a>
+      <a href="linhasdepesquisa.html">Linhas de pesquisa</a>
+      <a href="disciplinas.html">Disciplinas</a>
+      <a href="turmas.html">Turmas</a>
+    </div>
+  </div>   
+
+  <a href="docentes.html">Docentes</a>
+  <a href="discentes.html">Discentes</a>
+
+
+  <div class="subnav">
+    <button class="subnavbtn">Sobre <i class="fa fa-caret-down"></i></button>
+    <div class="subnav-content">
+      <a href="#documentacao">Documentação</a>
+      <a href="#equipe">Equipe</a>      
+    </div>
+  </div>   
+
+</div>
+
+<div style="padding:0 16px">
+  
+  
+  <h3> <img src="./images/logo.png" style="height: 70px;"> Dados cadastrais do Programa</h3>
+  <p>    
+   
+   <form>
+		<input type="checkbox" id="ckeck_instituicao" name="ckeck_instituicao" value="True" checked>
+		<label for="ckeck_instituicao">Instituição de Ensino Superior:</label>
+		<input type="text" id="text_instituicao" name="instituicao" value="" size="50" />
+		<br/>
+		<br/>
+
+		<input type="checkbox" id="ckeck_programa" name="ckeck_programa" value="True">
+		<label for="ckeck_programa">Programa:</label>
+		<input type="text" id="text_programa" name="programa" value="" size="50" />
+		<br/>
+		<br/>
+
+		<input type="checkbox" id="ckeck_area_basica" name="ckeck_area_basica" value="True">
+		<label for="ckeck_area_basica">Área Básica:</label>
+		<input type="text" id="text_area_basica" name="area_basica" value="" size="50" />
+		<br/>
+		<br/>
+
+		<input type="checkbox" id="ckeck_area_de_avaliacao" name="ckeck_area_de_avaliacao" value="True">
+		<label for="ckeck_area_de_avaliacao">Área de Avaliação:</label>
+		<input type="text" id="text_area_de_avaliacao" name="area_de_avaliacao" value="" size="50" />
+		<br/>
+		<br/>
+
+		<input type="checkbox" id="ckeck_nota_do_curso" name="ckeck_nota_do_curso" value="True">
+		<label for="ckeck_nota_do_curso">Nota do Curso:</label>
+			<input type="checkbox" id="ckeck_nota_do_curso_1" name="ckeck_nota_do_curso_1" value="True">
+			<label for="ckeck_nota_do_curso_1">1</label>
+			<input type="checkbox" id="ckeck_nota_do_curso_2" name="ckeck_nota_do_curso_2" value="True">
+			<label for="ckeck_nota_do_curso_2">2</label>
+			<input type="checkbox" id="ckeck_nota_do_curso_3" name="ckeck_nota_do_curso_3" value="True">
+			<label for="ckeck_nota_do_curso_3">3</label>
+			<input type="checkbox" id="ckeck_nota_do_curso_4" name="ckeck_nota_do_curso_4" value="True">
+			<label for="ckeck_nota_do_curso_4">4</label>
+			<input type="checkbox" id="ckeck_nota_do_curso_5" name="ckeck_nota_do_curso_5" value="True">
+			<label for="ckeck_nota_do_curso_5">5</label>
+			<input type="checkbox" id="ckeck_nota_do_curso_6" name="ckeck_nota_do_curso_6" value="True">
+			<label for="ckeck_nota_do_curso_6">6</label>
+			<input type="checkbox" id="ckeck_nota_do_curso_7" name="ckeck_nota_do_curso_7" value="True">
+			<label for="ckeck_nota_do_curso_7">7</label>
+			<input type="checkbox" id="ckeck_nota_do_curso_A" name="ckeck_nota_do_curso_A" value="True">
+			<label for="ckeck_nota_do_curso_A">A</label>
+		<br/>
+		<br/>
+	
+		<input type="checkbox" id="ckeck_situacao_do_programa" name="ckeck_situacao_do_programa" value="True">
+		<label for="ckeck_situacao_do_programa">Situação do Programa:</label>
+				<select id="select_situacao_do_programa">
+				  <option value="0" selected="selected">-- SELECIONE --</option>
+				  <option value="em_funcionamento">EM FUNCIONAMENTO</option>
+				  <option value="em_projeto">EM PROJETO</option>
+				  <option value="desativado">DESATIVADO</option>
+				  <option value="em_desativacao">EM DESATIVACAO</option>
+				</select>
+		<br/>
+		<br/>
+
+		<input type="checkbox" id="ckeck_modalidade" name="ckeck_modalidade" value="True">
+		<label for="ckeck_modalidade">Modalidade:</label>
+				<select id="select_modalidade">
+				  <option value="0" selected="selected">-- SELECIONE --</option>
+				  <option value="academico">ACADÊMICO</option>
+				  <option value="profissional">PROFISSIONAL</option>
+				</select>
+		<br/>
+		<br/>
+   
+		<input type="checkbox" id="ckeck_regiao" name="ckeck_regiao" value="True">
+		<label for="ckeck_regiao">Região:</label>
+				<select id="select_regiao">
+				  <option value="0" selected="selected">-- SELECIONE --</option>
+				  <option value="centroeste">Centro-oeste</option>
+				  <option value="nordeste">Nordeste</option>
+				  <option value="norte">Norte</option>
+				  <option value="sudeste">Sudeste</option>
+				  <option value="sul">Sul</option>
+				</select>
+		<br/>
+		<br/>
+ 
+		<input type="checkbox" id="ckeck_uf" name="ckeck_uf" value="True">
+		<label for="ckeck_uf">UF:</label>
+				<select id="select_uf">
+					<option value="0" selected="selected">-- SELECIONE --</option>
+					<option value="1">Acre</option>
+					<option value="2">Alagoas</option>
+					<option value="3">Amap&aacute;</option>
+					<option value="4">Amazonas</option>
+					<option value="5">Bahia</option>
+					<option value="6">Cear&aacute;</option>
+					<option value="7">Distrito Federal</option>
+					<option value="8">Esp&iacute;rito Santo</option>
+					<option value="9">Goi&aacute;s</option>
+					<option value="10">Maranh&atilde;o</option>
+					<option value="11">Mato Grosso</option>
+					<option value="12">Mato Grosso do Sul</option>
+					<option value="13">Minas Gerais</option>
+					<option value="16">Par&aacute;</option>
+					<option value="15">Para&iacute;ba</option>
+					<option value="14">Paran&aacute;</option>
+					<option value="17">Pernambuco</option>
+					<option value="18">Piau&iacute;</option>
+					<option value="19">Rio de Janeiro</option>
+					<option value="20">Rio Grande do Norte</option>
+					<option value="21">Rio Grande do Sul</option>
+					<option value="22">Rond&ocirc;nia</option>
+					<option value="23">Roraima</option>
+					<option value="24">Santa Catarina</option>
+					<option value="26">S&atilde;o Paulo</option>
+					<option value="25">Sergipe</option>
+					<option value="27">Tocantins</option>
+				</select>
+		<br/>
+		<br/>
+		
+	<input type="checkbox" id="ckeck_apenas_cooperacao" name="ckeck_apenas_cooperacao" value="True">
+	<label for="ckeck_apenas_cooperacao">Apenas programas que possuem Projetos de Cooperação entre Instituições</label>
+	<br/>
+	<br/>
+
+	<input type="checkbox" id="ckeck_apenas_rede" name="ckeck_apenas_rede" value="True">
+	<label for="ckeck_apenas_rede">Apenas programas em rede</label>
+	<br/>
+	<br/>
+	
+	<input id="inserir" type="submit" name="inserir" value="Inserir" />
+	<input id="consultar" type="submit" name="consultar" value="Consultar" />
+	<input id="cancelar" type="submit" name="cancelar" value="Cancelar"/>
+	<a id="gerarXLS" href="#" onclick="">Gerar XLS</a>
+   </form>
+   
+   
+           <br/>
+	<br/>
+		
+   <hr>
+   
+   <br/>
+	<br/>
+   
+   <table>
+	  <tr>
+		<th>Código</th>
+		<th>Programa</th>
+		<th>Instituição de ensino</th>
+		<th>Área de avaliação</th>
+		<th>Área Básica</th>
+		<th>Situação</th>
+		<th>Mod.</th>
+		<th>ME</th>
+		<th>DO</th>
+		<th>MP</th>
+		<th>DP</th>
+		<th>Apagar/Editar</th>		
+	  </tr>
+	  <tr>
+		<td>32069014001P9</td>
+		<td>CIÊNCIA E TECNOLOGIA DAS RADIAÇÕES, MINERAIS E MATERIAIS</td>
+		<td>CENTRO DE DESENVOLVIMENTO DA TECNOLOGIA NUCLEAR (CDTN)</td>
+		<td>ENGENHARIAS II</td>
+		<td>INSTRUMENTAÇÃO PARA MEDIDA E CONTROLE DE RADIAÇÃO</td>
+		<td>EM FUNCIONAMENTO</td>
+		<td>Aca.</td>
+		<td>4</td>
+		<td>4</td>
+		<td>-</td>
+		<td>-</td>		
+		<td>X E</td>
+	  </tr>
+	</table>
+	
+	 <br/>
+	<br/>
+   
+Aca.: Acadêmico<br/>
+Prof.: Profissional<br/>
+ME: Mestrado Acadêmico<br/>
+DO: Doutorado<br/>
+MP: Mestrado Profissional<br/>
+DP: Doutorado Profissional<br/>
+
+  </p>
+</div>
+
+</body>
+</html>

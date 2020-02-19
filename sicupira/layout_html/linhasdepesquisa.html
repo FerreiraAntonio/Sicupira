@@ -66,6 +66,21 @@ body {
 .subnav:hover .subnav-content {
   display: block;
 }
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 </style>
 </head>
 <body>
@@ -85,9 +100,8 @@ body {
     </div>
   </div>   
 
-  <a href="docentes.html">Docentes</a>
-  <a href="discentes.html">Discentes</a>
-
+  <a href="#doccentes">Docentes</a>
+  <a href="#discentes">Discentes</a>
 
   <div class="subnav">
     <button class="subnavbtn">Sobre <i class="fa fa-caret-down"></i></button>
@@ -102,9 +116,71 @@ body {
 <div style="padding:0 16px">
   
   
-  <h3> <img src="./images/logo.png" style="height: 70px;"> Projeto Sicupira</h3>
+  <h3> <img src="./images/logo.png" style="height: 70px;"> Linhas de Pesquisa</h3>
   <p>    
-    Projeto desenvolvido como forma de avaliação da disciplina de DSC do IME 2020. O objetivo é desenvolver um sistema inspirado no Sucupira da CAPES com os módulos de Dados Cadastrais do Programa, Linhas de pesquisa, Turmas, Docentes e Discentes.
+   
+   <form>
+		
+		<label for="label_ano">Ano:</label>
+		<input type="text" id="text_ano" name="ano" value="2020" size="4" />
+		<br/>
+		<br/>
+   
+		<input type="checkbox" id="ckeck_instituicao" name="ckeck_instituicao" value="True" checked>
+		<label for="ckeck_instituicao">Instituição de Ensino Superior:</label>
+		<input type="text" id="text_instituicao" name="instituicao" value="" size="50" />
+		<br/>
+		<br/>
+
+		<input type="checkbox" id="ckeck_programa" name="ckeck_programa" value="True">
+		<label for="ckeck_programa">Programa:</label>
+		<input type="text" id="text_programa" name="programa" value="" size="50" />
+		<br/>
+		<br/>
+
+		<input type="checkbox" id="ckeck_linha_de_pesquisa" name="ckeck_linha_de_pesquisa" value="True">
+		<label for="ckeck_programa">Linha de Pesquisa:</label>
+		<input type="text" id="text_linha_de_pesquisa" name="linha_de_pesquisa" value="" size="50" />
+		<br/>
+		<br/>
+	
+	<input id="inserir" type="submit" name="inserir" value="Inserir" />
+	<input id="consultar" type="submit" name="consultar" value="Consultar" />
+	<input id="cancelar" type="submit" name="cancelar" value="Cancelar"/>
+   </form>
+   
+   
+      
+    <br/>
+	<br/>
+		
+   <hr>
+   
+   <br/>
+   <br/>
+   
+   <table>
+	  <tr>
+		<th>Código do Programa</th>
+		<th>Programa</th>
+		<th>Nome</th>
+		<th>Área de Concentração</th>
+		<th>Data de inicio</th>
+		<th>Data fim</th>		
+		<th>Apagar/Editar</th>		
+	  </tr>
+	  <tr>
+		<td>42051010001P4</td>
+		<td>DIREITO</td>
+		<td>EFETIVIDADE DO DIREITO, DA DEMOCRACIA E DA SUSTENTABILIDADE	</td>
+		<td>DIREITO</td>
+		<td>01/03/2017</td>
+		<td>-</td>
+		<td>X E</td>
+	  </tr>
+	</table>
+   
+   
   </p>
 </div>
 
