@@ -21,7 +21,7 @@ Acesse com o browser a estrutura do site em
 
 ```
 sicupira/sicupira/layout_html/index.html
-´´´´
+´´´
 
 # Executando o sistema
 ```
