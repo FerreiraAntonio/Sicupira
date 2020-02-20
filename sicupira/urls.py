@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.urls import include
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('sicupira/', include('sicupira.urls')),
+    path('instituicao', views.InstituicaoList.as_view(), name='instituicao_list'),
+    path('instituicao/view/<int:pk>', views.InstituicaoView.as_view(), name='instituicao_view'),
+    path('instituicao/new', views.InstituicaoCreate.as_view(), name='instituicao_new'),
+    path('instituicao/edit/<int:pk>', views.InstituicaoUpdate.as_view(), name='instituicao_edit'),
+    path('instituicao/delete/<int:pk>', views.InstituicaoDelete.as_view(), name='instituicao_delete'),
 ]
