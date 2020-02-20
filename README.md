@@ -26,6 +26,6 @@ sicupira/sicupira/layout_html/index.html
 # Executando o sistema
 ```
 source myvenv/bin/activate
-python manage.py nserver
+python manage.py runserver
 ```
 chame no browser http://127.0.0.01:8000
