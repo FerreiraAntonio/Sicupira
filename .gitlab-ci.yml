@@ -32,7 +32,7 @@ flake8:
       - venv
   script:
     - pip install flake8
-    - flake8 --ignore=E501 --exclude='.git,venv,*migrations*,static/lib' ./bsserver/backend/views.py | tee ci-flake8.txt
+    - flake8 --ignore=E501 --exclude='.git,venv,*migrations*,static/lib' ./sicupira/sicupira/views.py | tee ci-flake8.txt
 
 radon:
   stage: radon
@@ -42,8 +42,8 @@ radon:
       - venv
   script:
     - pip install radon
-    - radon cc -s -a --ignore='venv' ./bsserver/backend/views.py
-    - radon mi -s --ignore='venv' ./bsserver/backend/views.py
+    - radon cc -s -a --ignore='venv' ./sicupira/sicupira/views.py
+    - radon mi -s --ignore='venv' ./sicupira/sicupira/views.py
 
 bandit:
   stage: bandit
@@ -55,5 +55,5 @@ bandit:
       - ci-bandit.txt
   script:
     - pip install bandit
-    - bandit -lll -r --exclude='venv' ./bsserver/backend/views.py | tee ci-bandit.txt
+    - bandit -lll -r --exclude='venv' ./sicupira/sicupira/views.py | tee ci-bandit.txt
 
