@@ -1,0 +1,39 @@
+{% extends 'sicupira/base.html' %}
+
+{% block content %}
+{% load static %} 
+
+<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> UFs</h3>
+
+<div style="width: 90%;margin: auto;">
+
+    <table class="table table-striped">
+        <thead>
+            
+        
+            <tr>
+                <th>nome</th>
+                <th>sigla</th>                
+                <th>Ver</th>
+                <th>Alterar</th>
+                <th>Apagar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for uf in object_list %}
+            <tr>
+            <td>{{ uf.nome }}</td>
+            <td>{{ uf.sigla }}</td>
+            <td><a href="{% url "uf_view" uf.id %}"><span class="label label-info">ver</span></a></td>
+            <td><a href="{% url "uf_edit" uf.id %}"><span class="label label-warning">alterar</span></a></td>
+            <td><a href="{% url "uf_delete" uf.id %}"><span class="label label-danger">apagar</span></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        
+
+        <a href="{% url "uf_new" %}">Novo</a>
+</div>
+
+{% endblock %}

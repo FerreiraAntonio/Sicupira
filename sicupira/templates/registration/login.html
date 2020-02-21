@@ -1,0 +1,23 @@
+{% extends 'registration/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+{% load static %} 
+<div class="panel panel-default" style="width: 400px;margin: auto;">
+  <div class="panel-heading panel-default"><h2><img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Login</h2></div>
+  <div class="panel-body">
+    <form method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
+
+  
+{% endblock %}
+
