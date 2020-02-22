@@ -71,3 +71,25 @@ O Admin pode ser acessado para gerenciar usuários e tabelas através da url:
 
 http://127.0.0.01:8000/admin
 
+# Equipe
+
+| Papel           | Nome           | Avatar                                                                 | Atuação      | 
+| --------------- | -------------- | ---------------------------------------------------------------------- | ------------ |
+| Product Owner   | Ricardo Choren |                                                                        |              |
+| Scrum Master    | Antonio Horta  | ![](https://www.gravatar.com/avatar/8e4c634fa51e80d59cad9fe9da5cbaf4)  | Planejamento, Apresentação |
+| Modelagem       | Treice Moreira |                                                                        | Planejamento |
+| Modelagem       | Nicole Santos  |                                                                        | Planejamento |
+| Desenvolvimento |                |                                                                        | Sprint 1, Sprint 2  |
+| Desenvolvimento |                |                                                                        | Sprint 2     |
+| Desenvolvimento |                |                                                                        | Sprint 3     |
+| Desenvolvimento |                |                                                                        | Sprint 3     |
+| Desenvolvimento |                |                                                                        | Sprint 2     |
+| Testes          |                |                                                                        | Sprint 4     |
+| Testes          |                |                                                                        | Sprint 4     |
+| Testes          |                |                                                                        | Sprint 4     |
+| Documentação    |                |                                                                        | Sprint 5     |
+| Documentação    |                |                                                                        | Sprint 5     |
+| Apresentação    |                |                                                                        | Apresentação |
+| Apresentação    |                |                                                                        | Apresentação |
+
+
