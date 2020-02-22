@@ -15,6 +15,9 @@ Docentes*
 Discentes*
 *Com preenchimento automático pela integração da plataforma lattes
 
+# Estrutura de dados do sistema Sicupira
+
+![](https://www.lucidchart.com/publicSegments/view/486f446d-019e-48af-a495-183c24526d79/image.png)
 
 # Executando o sistema
 
