@@ -15,17 +15,56 @@ Docentes*
 Discentes*
 *Com preenchimento automático pela integração da plataforma lattes
 
-# Template HTML (Layout do programa)
-
-Acesse com o browser a estrutura do site em 
-
-```
-sicupira/sicupira/layout_html/index.html
-```
 
 # Executando o sistema
+
+Tenha certeza que o python está instalado no sistema
+
+
+Faça download do repositório
+
 ```
+
+git clone https://gitlab.com/ime-dsc-2020/sicupira.git
+cd sucupira
+python3 -m venv myvenv
 source myvenv/bin/activate
-python manage.py runserver
+pip install -r requirements.txt
+
 ```
+
+Crie o banco de dados
+
+```
+
+./manage.py makemigrations
+./manage.py migrate
+
+```
+
+Crie um superusuario
+
+```
+
+./manage.py createsuperuser
+
+```
+
+Execute o servidor
+
+```
+
+./manage.py runserver
+
+```
+
 chame no browser http://127.0.0.01:8000
+
+Efetue o login com as credenciais criadas
+
+# Admin
+
+O Admin pode ser acessado para gerenciar usuários e tabelas através da url:
+
+http://127.0.0.01:8000/admin
+
