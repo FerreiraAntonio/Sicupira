@@ -73,14 +73,16 @@ http://127.0.0.01:8000/admin
 
 # Equipe
 
-| Papel           | Nome           | Avatar                                                                 | Atuação      | 
+| Papel           | Nome           | Avatar                                                                 | Participação | 
 | --------------- | -------------- | ---------------------------------------------------------------------- | ------------ |
-| Product Owner   | Ricardo Choren |                                                                        |              |
-| Scrum Master    | Antonio Horta  | ![](https://www.gravatar.com/avatar/8e4c634fa51e80d59cad9fe9da5cbaf4)  | Planejamento, Apresentação |
-| Modelagem       | Treice Moreira |                                                                        | Planejamento |
-| Modelagem       | Nicole Santos  |                                                                        | Planejamento |
+| Product Owner   | Ricardo Choren | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  |              |
+| Scrum Master    | Antonio Horta  | ![](https://www.gravatar.com/avatar/8e4c634fa51e80d59cad9fe9da5cbaf4)  | Planejamento, Prototipação, Modelagem, Documentação, Wiki, Apresentação |
+| Modelagem       | Treice Moreira | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  | Planejamento |
+| Modelagem       | Nicole Santos  | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  | Planejamento |
+| Desenvolvimento | Gilvan         | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  | Prototipação, Wiki |
+| Desenvolvimento | Valdecir       | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  | Wiki |
+| Desenvolvimento | Igor           | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  | Módulo Lattes |
 | Desenvolvimento |                |                                                                        | Sprint 1, Sprint 2  |
-| Desenvolvimento |                |                                                                        | Sprint 2     |
 | Desenvolvimento |                |                                                                        | Sprint 3     |
 | Desenvolvimento |                |                                                                        | Sprint 3     |
 | Desenvolvimento |                |                                                                        | Sprint 2     |
