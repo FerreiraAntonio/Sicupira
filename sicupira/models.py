@@ -2,6 +2,23 @@ from django.db import models
 from django.urls import reverse
 
 
+###########################################################
+# ATENÇÃO: CADA DESENVOLVEDOR DEVE DUPLICAR               #
+# UM BLOCO PARA CADA CLASSE E RENOMEAR PARA               #
+# O NOME DA NOVA CLASSE.                                  #
+# A ESTRUTURA DEVE RESPEITAR AS REGRAS                    #
+# DO MODELO DE DADOS DO SISTEMA QUE ESTA NO WIKI          #
+# Mais informações sobre modelagem python:                #
+# https://docs.djangoproject.com/en/3.0/topics/db/models/ #
+###########################################################
+
+
+##################################################
+# Inicio do Bloco [UF]
+# by Antonio Horta
+##################################################
+
+
 class UF(models.Model):
     nome = models.CharField(max_length=50)
     sigla = models.CharField(max_length=2)
@@ -11,6 +28,17 @@ class UF(models.Model):
 
     def get_absolute_url(self):
         return reverse('uf_edit', kwargs={'pk': self.pk})
+
+
+##################################################
+# FIM do Bloco [UF]
+##################################################
+
+
+##################################################
+# Inicio do Bloco [Instituicao]
+# by Antonio Horta
+##################################################
 
 
 class Instituicao(models.Model):
@@ -37,3 +65,7 @@ class Instituicao(models.Model):
 
     def get_absolute_url(self):
         return reverse('instituicao_edit', kwargs={'pk': self.pk})
+
+##################################################
+# FIM do Bloco [Instituicao]
+##################################################

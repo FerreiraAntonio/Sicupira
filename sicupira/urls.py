@@ -17,7 +17,13 @@ Including another URLconf
 from django.urls import path
 from . import views
 
-urlpatterns = [    
+################################################
+# CADA NOVA VIEW DEVE SER INSERIDA ABAIXO
+# SEGUINDO OS PADRÕES DAS ANTERIORES E DE ACORDO
+# COM OS NOMES DEFINIDOS PARA AS VIEWS CRIADAS
+################################################
+
+urlpatterns = [
     path('index', views.index, name='index'),
     path('instituicao', views.InstituicaoList.as_view(), name='instituicao_list'),
     path('instituicao/view/<int:pk>', views.InstituicaoView.as_view(), name='instituicao_view'),

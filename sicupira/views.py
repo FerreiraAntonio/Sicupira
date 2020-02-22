@@ -10,6 +10,19 @@ from sicupira.models import Instituicao, UF
 def index(request):
     return render(request, 'sicupira/index.html', {})
 
+##################################################
+# ATENÇÃO: CADA DESENVOLVEDOR DEVE DUPLICAR      #
+# UM BLOCO PARA CADA CLASSE. PARA ISSO BASTA     #
+# COPIAR, COLAR E DEPOIS RENOMEAR A CLASSE PARA  #
+# O NOME DA NOVA CLASSE.                         #
+##################################################
+
+
+##################################################
+# Inicio do Bloco [Instituicao]
+# by Antonio Horta
+##################################################
+
 
 class InstituicaoList(ListView):
     model = Instituicao
@@ -35,6 +48,15 @@ class InstituicaoDelete(DeleteView):
     model = Instituicao
     success_url = reverse_lazy('instituicao_list')
 
+##################################################
+# Fim do Bloco [Instituicao]
+##################################################
+
+##################################################
+# Inicio do Bloco [UF]
+# by Antonio Horta
+##################################################
+
 
 class UFList(ListView):
     model = UF
@@ -59,3 +81,7 @@ class UFUpdate(UpdateView):
 class UFDelete(DeleteView):
     model = UF
     success_url = reverse_lazy('uf_list')
+
+##################################################
+# Fim do Bloco [UF]
+##################################################
