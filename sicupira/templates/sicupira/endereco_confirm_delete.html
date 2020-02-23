@@ -3,9 +3,9 @@
 {% block content %}
 {% load static %} 
 
-<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Apaga Instituição</h3>
+<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Apaga Endereço</h3>
 <form method="post">{% csrf_token %}
-    Voce realmente quer apagar "{{ instituicao.nome }}" ?<br/>
+    Voce realmente quer apagar "{{ endereco.nome }}" ?<br/>
     <input type="submit" value="Apagar" class="btn btn-danger" />
 </form>
 

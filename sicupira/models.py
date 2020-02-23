@@ -36,12 +36,12 @@ class UF(models.Model):
 
 
 ##################################################
-# Inicio do Bloco [Instituicao]
+# Inicio do Bloco [Endereco]
 # by Antonio Horta
 ##################################################
 
 
-class Instituicao(models.Model):
+class Endereco(models.Model):
     nome = models.CharField(max_length=200)
     uf = models.ForeignKey(UF, on_delete=models.SET_NULL, null=True)
     cep = models.IntegerField()
@@ -64,8 +64,8 @@ class Instituicao(models.Model):
         return self.nome
 
     def get_absolute_url(self):
-        return reverse('instituicao_edit', kwargs={'pk': self.pk})
+        return reverse('endereco_edit', kwargs={'pk': self.pk})
 
 ##################################################
-# FIM do Bloco [Instituicao]
+# FIM do Bloco [Endereco]
 ##################################################

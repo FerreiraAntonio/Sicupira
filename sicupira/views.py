@@ -4,7 +4,8 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
-from sicupira.models import Instituicao, UF
+from sicupira.models import Endereco
+from sicupira.models import UF
 
 
 def index(request):
@@ -19,37 +20,37 @@ def index(request):
 
 
 ##################################################
-# Inicio do Bloco [Instituicao]
+# Inicio do Bloco [Endereco]
 # by Antonio Horta
 ##################################################
 
 
-class InstituicaoList(ListView):
-    model = Instituicao
+class EnderecoList(ListView):
+    model = Endereco
 
 
-class InstituicaoView(DetailView):
-    model = Instituicao
+class EnderecoView(DetailView):
+    model = Endereco
 
 
-class InstituicaoCreate(CreateView):
-    model = Instituicao
+class EnderecoCreate(CreateView):
+    model = Endereco
     fields = ['nome', 'uf', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'fax', 'telefone', 'ramal', 'email', 'url', 'inicio', 'fim', 'latitude', 'longitude']
-    success_url = reverse_lazy('instituicao_list')
+    success_url = reverse_lazy('endereco_list')
 
 
-class InstituicaoUpdate(UpdateView):
-    model = Instituicao
+class EnderecoUpdate(UpdateView):
+    model = Endereco
     fields = ['nome', 'uf', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'fax', 'telefone', 'ramal', 'email', 'url', 'inicio', 'fim', 'latitude', 'longitude']
-    success_url = reverse_lazy('instituicao_list')
+    success_url = reverse_lazy('endereco_list')
 
 
-class InstituicaoDelete(DeleteView):
-    model = Instituicao
-    success_url = reverse_lazy('instituicao_list')
+class EnderecoDelete(DeleteView):
+    model = Endereco
+    success_url = reverse_lazy('endereco_list')
 
 ##################################################
-# Fim do Bloco [Instituicao]
+# Fim do Bloco [Endereco]
 ##################################################
 
 ##################################################

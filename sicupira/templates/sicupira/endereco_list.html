@@ -1,0 +1,66 @@
+{% extends 'sicupira/base.html' %}
+
+{% block content %}
+{% load static %} 
+  
+  <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Endereços</h3>
+
+  <div style="width: 90%;margin: auto;">
+
+    <table class="table table-striped">
+        <thead>
+        
+            <tr>
+                <th>nome</th>
+                <th>cep</th>
+                <th>logradouro</th>    
+                <th>numero</th>
+                <th>complemento</th>
+                <th>bairro</th>
+                <th>municipio</th>
+                <th>fax</th>
+                <th>telefone</th>
+                <th>ramal</th>
+                <th>email</th>
+                <th>url</th>
+                <th>inicio</th>
+                <th>fim</th>
+                <th>latitude</th>
+                <th>longitude</th>
+                <th>Ver</th>
+                <th>Alterar</th>
+                <th>Apagar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for endereco in object_list %}
+            <tr>
+            <td>{{ endereco.nome }}</td>
+            <td>{{ endereco.cep }}</td>
+            <td>{{ endereco.logradouro }}</td>
+            <td>{{ endereco.numero }}</td>
+            <td>{{ endereco.complemento }}</td>
+            <td>{{ endereco.bairro }}</td>
+            <td>{{ endereco.municipio }}</td>
+            <td>{{ endereco.fax }}</td>
+            <td>{{ endereco.telefone }}</td>
+            <td>{{ endereco.ramal }}</td>
+            <td>{{ endereco.email }}</td>
+            <td>{{ endereco.url }}</td>
+            <td>{{ endereco.inicio }}</td>
+            <td>{{ endereco.fim }}</td>
+            <td>{{ endereco.latitude }}</td>
+            <td>{{ endereco.longitude }}</td>
+            <td><a href="{% url "endereco_view" endereco.id %}"><span class="label label-info">ver</span></a></td>
+            <td><a href="{% url "endereco_edit" endereco.id %}"><span class="label label-warning">alterar</span></a></td>
+            <td><a href="{% url "endereco_delete" endereco.id %}"><span class="label label-danger">apagar</span></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        
+
+        <a href="{% url "endereco_new" %}">Novo</a>
+</div>
+
+{% endblock %}
