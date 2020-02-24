@@ -4,6 +4,8 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
+from django.core.paginator import Paginator
+
 from sicupira.models import Endereco
 from sicupira.models import UF
 
@@ -26,6 +28,7 @@ def index(request):
 
 
 class EnderecoList(ListView):
+    paginate_by = 10
     model = Endereco
 
 
@@ -60,6 +63,7 @@ class EnderecoDelete(DeleteView):
 
 
 class UFList(ListView):
+    paginate_by = 10
     model = UF
 
 

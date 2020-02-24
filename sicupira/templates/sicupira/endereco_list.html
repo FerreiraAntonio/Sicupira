@@ -61,8 +61,25 @@
         </tbody>
         </table>
         
+        <a href="{% url "endereco_new" %}" style="float: left;">Novo</a>        
 
-        <a href="{% url "endereco_new" %}">Novo</a>
+        <div class="pagination" style="padding-left: 35%;">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; primeiro</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+                {% endif %}
+        
+                <span class="current">
+                    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">próximo</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">último &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
 </div>
 
 {% endblock %}
