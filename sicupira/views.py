@@ -31,6 +31,16 @@ class EnderecoList(ListView):
     paginate_by = 10
     model = Endereco
 
+    def get_queryset(self):
+        queryset = super(EnderecoList, self).get_queryset()
+        queryset = queryset.order_by("nome")
+        if 'uf' in self.request.GET:
+            queryset = queryset.filter(uf__sigla__icontains=self.request.GET['uf'])
+        if 'nome' in self.request.GET:
+            queryset = queryset.filter(nome__icontains=self.request.GET['nome'])
+
+        return queryset
+
 
 class EnderecoView(DetailView):
     model = Endereco
@@ -65,6 +75,16 @@ class EnderecoDelete(DeleteView):
 class UFList(ListView):
     paginate_by = 10
     model = UF
+
+    def get_queryset(self):
+        queryset = super(UFList, self).get_queryset()
+        queryset = queryset.order_by("nome")
+        if 'sigla' in self.request.GET:
+            queryset = queryset.filter(sigla__icontains=self.request.GET['sigla'])
+        if 'nome' in self.request.GET:
+            queryset = queryset.filter(nome__icontains=self.request.GET['nome'])
+
+        return queryset
 
 
 class UFView(DetailView):

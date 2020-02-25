@@ -7,6 +7,43 @@
 
 <div style="width: 90%;margin: auto;">
 
+    <div class="container">
+        <h4>Filtro</h2>
+        <form action="/uf" method="get">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="input" class="form-control" id="nome" name="nome" value="" list="lista_nome">                
+                <datalist id="lista_nome">
+                    {% for uf in page_obj %}
+                        <option value="{{ uf.nome }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="sel1">Sigla:</label>
+                <select class="form-control" id="sigla" name="sigla">
+                {% for uf in page_obj %}
+                  <option value="{{ uf.sigla }}">{{ uf.sigla }}</option>
+                {% endfor %}
+                </select>
+            </div>            
+            <button type="submit" class="btn btn-default">Buscar</button>                    
+            <button type="reset"  class="btn btn-warning" id="btnReset" onclick="Reset();" >Limpar</button>
+        </form>
+    </div>
+    <script>
+        // Script para manipular via DOM as buscas
+        document.getElementById('nome').value = urlParams.get('nome')
+        document.getElementById('sigla').value = urlParams.get('sigla')        
+        
+        //Reseta formulario. Troque pela url correta
+        function Reset() {
+            location.replace('/uf');
+        }
+    </script>
+
+    <hr/>
+
     <table class="table table-striped">
         <thead>
             <tr>

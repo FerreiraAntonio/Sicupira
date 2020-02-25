@@ -77,11 +77,11 @@ http://127.0.0.01:8000/admin
 | --------------- | -------------- | ---------------------------------------------------------------------- | ------------ |
 | Product Owner   | Ricardo Choren | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  |              |
 | Scrum Master    | Antonio Horta  | ![](https://www.gravatar.com/avatar/8e4c634fa51e80d59cad9fe9da5cbaf4)  | Planejamento, Prototipação, Modelagem, Documentação, Wiki, Apresentação |
-| Modelagem       | Treice Moreira | ![](https://www.gravatar.com/avatar/b3d9451c693674676811851277c69b98)  | Planejamento |
-| Modelagem       | Nicole Santos  | ![](https://www.gravatar.com/avatar/9e807b92146cb292cb311e5b449a8f64)  | Planejamento |
+| Modelagem       | Treice Moreira | ![](https://www.gravatar.com/avatar/b3d9451c693674676811851277c69b98)  | Modelagem |
+| Modelagem       | Nicole Santos  | ![](https://www.gravatar.com/avatar/9e807b92146cb292cb311e5b449a8f64)  | Modelagem |
 | Desenvolvimento | Gilvan Almeida | ![](https://www.gravatar.com/avatar/9d9a022baf8aaa57e60df7a6c076fcbe)  | Prototipação, Wiki |
 | Desenvolvimento | Valdecir       | ![](https://www.gravatar.com/avatar/ee70d8d86a7bf46a23f88caf35e6ec14)  | Wiki |
-| Desenvolvimento | Igor Maffei    | ![](https://www.gravatar.com/avatar/2952373d5701776691c1ac9e216ec3fb)  | Módulo Lattes |
+| Desenvolvimento | Igor Maffei    | ![](https://www.gravatar.com/avatar/2952373d5701776691c1ac9e216ec3fb)  | Modelagem, Módulo Lattes, Wiki |
 | Desenvolvimento |                |                                                                        | Sprint 1, Sprint 2  |
 | Desenvolvimento |                |                                                                        | Sprint 3     |
 | Desenvolvimento |                |                                                                        | Sprint 3     |
