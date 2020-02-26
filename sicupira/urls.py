@@ -25,6 +25,7 @@ from . import views
 
 urlpatterns = [
     path('index', views.index, name='index'),
+    path('importaxml', views.importaxml, name='importaxml'),
     path('endereco', views.EnderecoList.as_view(), name='endereco_list'),
     path('endereco/view/<int:pk>', views.EnderecoView.as_view(), name='endereco_view'),
     path('endereco/new', views.EnderecoCreate.as_view(), name='endereco_new'),

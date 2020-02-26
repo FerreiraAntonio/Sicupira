@@ -4,6 +4,9 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+
 from django.core.paginator import Paginator
 
 from sicupira.models import Endereco
@@ -12,6 +15,19 @@ from sicupira.models import UF
 
 def index(request):
     return render(request, 'sicupira/index.html', {})
+
+
+def importaxml(request):
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        return render(request, 'sicupira/importaxml.html', {
+            'uploaded_file_url': uploaded_file_url
+        })
+    return render(request, 'sicupira/importaxml.html', {})
+
 
 ##################################################
 # ATENÇÃO: CADA DESENVOLVEDOR DEVE DUPLICAR      #
