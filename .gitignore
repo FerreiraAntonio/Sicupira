@@ -9,6 +9,7 @@ db.sqlite3
 .openvas/data/openvas
 tasks.db*
 ./vulnwhisperer/data/openvas/*.json
+/media
 
 # Created by https://www.gitignore.io/api/visualstudiocode
 # Edit at https://www.gitignore.io/?templates=visualstudiocode

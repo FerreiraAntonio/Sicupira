@@ -1,0 +1,24 @@
+
+
+{% extends 'sicupira/base.html' %}
+
+{% block content %}
+
+{% load static %} 
+
+<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Importa Curriculo Lattes</h3>
+
+<div style="width: 90%;margin: auto;">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile" class="btn btn-default">
+    <br/>
+    <button type="submit" class="btn btn-primary">Upload</button>   
+  </form>
+
+  {% if uploaded_file_url %}
+    <p>Arquivo : <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+  {% endif %}
+</div>
+
+  {% endblock %}
