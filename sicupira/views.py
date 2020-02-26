@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -12,21 +12,30 @@ from django.core.paginator import Paginator
 from sicupira.models import Endereco
 from sicupira.models import UF
 
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
 
 def index(request):
-    return render(request, 'sicupira/index.html', {})
+    if request.user.is_authenticated:
+        return render(request, 'sicupira/index.html', {})
+    else:
+        return redirect('login')
 
 
 def importaxml(request):
-    if request.method == 'POST' and request.FILES['myfile']:
-        myfile = request.FILES['myfile']
-        fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
-        uploaded_file_url = fs.url(filename)
-        return render(request, 'sicupira/importaxml.html', {
-            'uploaded_file_url': uploaded_file_url
-        })
-    return render(request, 'sicupira/importaxml.html', {})
+    if request.user.is_authenticated:
+        if request.method == 'POST' and request.FILES['myfile']:
+            myfile = request.FILES['myfile']
+            fs = FileSystemStorage()
+            filename = fs.save(myfile.name, myfile)
+            uploaded_file_url = fs.url(filename)
+            return render(request, 'sicupira/importaxml.html', {
+                'uploaded_file_url': uploaded_file_url
+            })
+        return render(request, 'sicupira/importaxml.html', {})
+    else:
+        return redirect('login')
 
 
 ##################################################
@@ -42,7 +51,7 @@ def importaxml(request):
 # by Antonio Horta
 ##################################################
 
-
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class EnderecoList(ListView):
     paginate_by = 10
     model = Endereco
@@ -58,22 +67,26 @@ class EnderecoList(ListView):
         return queryset
 
 
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class EnderecoView(DetailView):
     model = Endereco
 
 
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class EnderecoCreate(CreateView):
     model = Endereco
     fields = ['nome', 'uf', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'fax', 'telefone', 'ramal', 'email', 'url', 'inicio', 'fim', 'latitude', 'longitude']
     success_url = reverse_lazy('endereco_list')
 
 
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class EnderecoUpdate(UpdateView):
     model = Endereco
     fields = ['nome', 'uf', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'fax', 'telefone', 'ramal', 'email', 'url', 'inicio', 'fim', 'latitude', 'longitude']
     success_url = reverse_lazy('endereco_list')
 
 
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class EnderecoDelete(DeleteView):
     model = Endereco
     success_url = reverse_lazy('endereco_list')
@@ -88,6 +101,7 @@ class EnderecoDelete(DeleteView):
 ##################################################
 
 
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class UFList(ListView):
     paginate_by = 10
     model = UF
@@ -103,22 +117,26 @@ class UFList(ListView):
         return queryset
 
 
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class UFView(DetailView):
     model = UF
 
 
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class UFCreate(CreateView):
     model = UF
     fields = ['nome', 'sigla']
     success_url = reverse_lazy('uf_list')
 
 
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class UFUpdate(UpdateView):
     model = UF
     fields = ['nome', 'sigla']
     success_url = reverse_lazy('uf_list')
 
 
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class UFDelete(DeleteView):
     model = UF
     success_url = reverse_lazy('uf_list')
