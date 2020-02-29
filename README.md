@@ -15,6 +15,10 @@ Docentes*
 Discentes*
 *Com preenchimento automático pela integração da plataforma lattes
 
+# Demo
+
+O DEMO do projeto está disponível em [https://ajhorta.pythonanywhere.com](https://ajhorta.pythonanywhere.com)
+
 # Estrutura de dados do sistema Sicupira
 
 ![](https://www.lucidchart.com/publicSegments/view/486f446d-019e-48af-a495-183c24526d79/image.png)
@@ -76,7 +80,7 @@ http://127.0.0.01:8000/admin
 | Papel           | Nome           | Avatar                                                                 | Participação | 
 | --------------- | -------------- | ---------------------------------------------------------------------- | ------------ |
 | Product Owner   | Ricardo Choren | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  |              |
-| Scrum Master    | Antonio Horta  | ![](https://www.gravatar.com/avatar/8e4c634fa51e80d59cad9fe9da5cbaf4)  | Planejamento, Prototipação, Modelagem, Documentação, Wiki, Apresentação |
+| PM/Scrum Master | Antonio Horta  | ![](https://www.gravatar.com/avatar/8e4c634fa51e80d59cad9fe9da5cbaf4)  | Planejamento, Prototipação, Modelagem, Documentação, Wiki, Apresentação |
 | Modelagem       | Treice Moreira | ![](https://www.gravatar.com/avatar/b3d9451c693674676811851277c69b98)  | Modelagem |
 | Modelagem       | Nicole Santos  | ![](https://www.gravatar.com/avatar/9e807b92146cb292cb311e5b449a8f64)  | Modelagem |
 | Desenvolvimento | Gilvan Almeida | ![](https://www.gravatar.com/avatar/9d9a022baf8aaa57e60df7a6c076fcbe)  | Prototipação, Wiki |
