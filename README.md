@@ -5,14 +5,16 @@ Projeto desenvolvido como forma de avaliação da disciplina de DSC do IME 2020.
 # Escopo do programa
 
 Dentro de https://sucupira.capes.gov.br/sucupira/
-Opção Coleta Capes
 
-Dados cadastrais
-Linha de pesquisa
-Disciplinas
-Turmas
-Docentes*
-Discentes*
+## Opção Coleta Capes
+
+* Dados cadastrais
+* Linha de pesquisa
+* Disciplinas
+* Turmas
+* Docentes*
+* Discentes*
+
 *Com preenchimento automático pela integração da plataforma lattes
 
 # Demo
