@@ -9,13 +9,13 @@
 
     <div class="container">
         <h4>Filtro</h2>
-        <form action="/uf" method="get">
+        <form action="/estado" method="get">
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="input" class="form-control" id="nome" name="nome" value="" list="lista_nome">                
                 <datalist id="lista_nome">
                     {% for uf in page_obj %}
-                        <option value="{{ uf.nome }}"></option>
+                        <option value="{{ estado.nome }}"></option>
                     {% endfor %}
                 </datalist>
             </div>
@@ -23,7 +23,7 @@
                 <label for="sel1">Sigla:</label>
                 <select class="form-control" id="sigla" name="sigla">
                 {% for uf in page_obj %}
-                  <option value="{{ uf.sigla }}">{{ uf.sigla }}</option>
+                  <option value="{{ estado.sigla }}">{{ estado.sigla }}</option>
                 {% endfor %}
                 </select>
             </div>            
@@ -38,7 +38,7 @@
         
         //Reseta formulario. Troque pela url correta
         function Reset() {
-            location.replace('/uf');
+            location.replace('/estado');
         }
     </script>
 
@@ -55,19 +55,19 @@
             </tr>
         </thead>
         <tbody>
-            {% for uf in page_obj %}
+            {% for estado in page_obj %}
             <tr>
-            <td>{{ uf.nome }}</td>
-            <td>{{ uf.sigla }}</td>
-            <td><a href="{% url "uf_view" uf.id %}"><span class="label label-info">ver</span></a></td>
-            <td><a href="{% url "uf_edit" uf.id %}"><span class="label label-warning">alterar</span></a></td>
-            <td><a href="{% url "uf_delete" uf.id %}"><span class="label label-danger">apagar</span></a></td>
+            <td>{{ estado.nome }}</td>
+            <td>{{ estado.sigla }}</td>
+            <td><a href="{% url "estado_view" estado.id %}"><span class="label label-info">ver</span></a></td>
+            <td><a href="{% url "estado_edit" estado.id %}"><span class="label label-warning">alterar</span></a></td>
+            <td><a href="{% url "estado_delete" estado.id %}"><span class="label label-danger">apagar</span></a></td>
             </tr>
             {% endfor %}
         </tbody>
         </table>
 
-        <a href="{% url "uf_new" %}" style="float: left;">Novo</a> 
+        <a href="{% url "estado_new" %}" style="float: left;">Novo</a> 
 
         <div class="pagination" style="padding-left: 35%;">
             <span class="step-links">

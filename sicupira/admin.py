@@ -18,5 +18,3 @@ admin.site.register(SituacaoMatricula)
 admin.site.register(PeriodoLetivo)
 admin.site.register(VincluloIES)
 
-
-
