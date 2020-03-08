@@ -9,8 +9,11 @@ from django.core.files.storage import FileSystemStorage
 
 from django.core.paginator import Paginator
 
-from sicupira.models import Endereco
-from sicupira.models import UF
+from sicupira.models import EnderecoPrograma as Endereco
+from sicupira.models import Estado
+from sicupira.models import LinhaPesquisa
+from sicupira.models import Disciplina
+
 
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -59,8 +62,8 @@ class EnderecoList(ListView):
     def get_queryset(self):
         queryset = super(EnderecoList, self).get_queryset()
         queryset = queryset.order_by("nome")
-        if 'uf' in self.request.GET:
-            queryset = queryset.filter(uf__sigla__icontains=self.request.GET['uf'])
+        if 'estado' in self.request.GET:
+            queryset = queryset.filter(estado__sigla__icontains=self.request.GET['estado'])
         if 'nome' in self.request.GET:
             queryset = queryset.filter(nome__icontains=self.request.GET['nome'])
 
@@ -75,14 +78,14 @@ class EnderecoView(DetailView):
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class EnderecoCreate(CreateView):
     model = Endereco
-    fields = ['nome', 'uf', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'fax', 'telefone', 'ramal', 'email', 'url', 'inicio', 'fim', 'latitude', 'longitude']
+    fields = ['nome', 'estado', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'fax', 'telefone', 'ramal', 'email', 'url', 'inicio', 'fim', 'latitude', 'longitude']
     success_url = reverse_lazy('endereco_list')
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class EnderecoUpdate(UpdateView):
     model = Endereco
-    fields = ['nome', 'uf', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'fax', 'telefone', 'ramal', 'email', 'url', 'inicio', 'fim', 'latitude', 'longitude']
+    fields = ['nome', 'estado', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'fax', 'telefone', 'ramal', 'email', 'url', 'inicio', 'fim', 'latitude', 'longitude']
     success_url = reverse_lazy('endereco_list')
 
 
@@ -102,12 +105,12 @@ class EnderecoDelete(DeleteView):
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
-class UFList(ListView):
+class EstadoList(ListView):
     paginate_by = 10
-    model = UF
+    model = Estado
 
     def get_queryset(self):
-        queryset = super(UFList, self).get_queryset()
+        queryset = super(EstadoList, self).get_queryset()
         queryset = queryset.order_by("nome")
         if 'sigla' in self.request.GET:
             queryset = queryset.filter(sigla__icontains=self.request.GET['sigla'])
@@ -118,29 +121,133 @@ class UFList(ListView):
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
-class UFView(DetailView):
-    model = UF
+class EstadoView(DetailView):
+    model = Estado
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
-class UFCreate(CreateView):
-    model = UF
+class EstadoCreate(CreateView):
+    model = Estado
     fields = ['nome', 'sigla']
-    success_url = reverse_lazy('uf_list')
+    success_url = reverse_lazy('estado_list')
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
-class UFUpdate(UpdateView):
-    model = UF
+class EstadoUpdate(UpdateView):
+    model = Estado
     fields = ['nome', 'sigla']
-    success_url = reverse_lazy('uf_list')
+    success_url = reverse_lazy('estado_list')
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
-class UFDelete(DeleteView):
-    model = UF
-    success_url = reverse_lazy('uf_list')
+class EstadoDelete(DeleteView):
+    model = Estado
+    success_url = reverse_lazy('estado_list')
 
 ##################################################
 # Fim do Bloco [UF]
+##################################################
+
+
+##################################################
+# Inicio do Bloco [LinhaPesquisa]
+# by Antonio Horta
+##################################################
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class LinhaPesquisaList(ListView):
+    paginate_by = 10
+    model = LinhaPesquisa
+
+    def get_queryset(self):
+        queryset = super(LinhaPesquisaList, self).get_queryset()
+        queryset = queryset.order_by("desc_linha_pesquisa")
+        if 'desc_linha_pesquisa' in self.request.GET:
+            queryset = queryset.filter(desc_linha_pesquisa__icontains=self.request.GET['desc_linha_pesquisa'])
+
+        return queryset
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class LinhaPesquisaView(DetailView):
+    model = LinhaPesquisa
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class LinhaPesquisaCreate(CreateView):
+    model = LinhaPesquisa
+    fields = ['desc_linha_pesquisa']
+    success_url = reverse_lazy('linhapesquisa_list')
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class LinhaPesquisaUpdate(UpdateView):
+    model = LinhaPesquisa
+    fields = ['desc_linha_pesquisa']
+    success_url = reverse_lazy('linhapesquisa_list')
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class LinhaPesquisaDelete(DeleteView):
+    model = LinhaPesquisa
+    success_url = reverse_lazy('linhapesquisa_list')
+
+##################################################
+# Fim do Bloco [LinhaPesquisa]
+##################################################
+
+##################################################
+# Inicio do Bloco [Disciplina]
+# by Antonio Horta
+# nome_disciplina = models.CharField(max_length=100, unique=True)
+# sigla = models.CharField(max_length=20, unique=True)
+# numero = models.CharField(max_length=450, unique=True)
+# creditos = models.IntegerField(default=0)
+# ementa = models.TextField(blank=True, null=True)
+# bibliografia = models.TextField(blank=True, null=True)
+##################################################
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class DisciplinaList(ListView):
+    paginate_by = 10
+    model = Disciplina
+
+    def get_queryset(self):
+        queryset = super(DisciplinaList, self).get_queryset()
+        queryset = queryset.order_by("nome_disciplina")
+        if 'sigla' in self.request.GET:
+            queryset = queryset.filter(sigla__icontains=self.request.GET['sigla'])
+        if 'nome_disciplina' in self.request.GET:
+            queryset = queryset.filter(nome_disciplina__icontains=self.request.GET['nome_disciplina'])
+
+        return queryset
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class DisciplinaView(DetailView):
+    model = Disciplina
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class DisciplinaCreate(CreateView):
+    model = Disciplina
+    fields = ['nome_disciplina', 'sigla', 'numero', 'creditos', 'ementa', 'bibliografia']
+    success_url = reverse_lazy('disciplina_list')
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class DisciplinaUpdate(UpdateView):
+    model = Disciplina
+    fields = ['nome_disciplina', 'sigla', 'numero', 'creditos', 'ementa', 'bibliografia']
+    success_url = reverse_lazy('disciplina_list')
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class DisciplinaDelete(DeleteView):
+    model = Disciplina
+    success_url = reverse_lazy('disciplina_list')
+
+##################################################
+# Fim do Bloco [Disciplina]
 ##################################################
