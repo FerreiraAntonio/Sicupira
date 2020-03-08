@@ -1,0 +1,127 @@
+{% extends 'sicupira/base.html' %}
+
+{% block content %}
+{% load static %} 
+  
+  <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Endereços</h3>
+
+  <div style="width: 90%;margin: auto;">
+
+
+    <div class="container">
+        <h4>Filtro</h2>
+        <form action="/enderecoprograma" method="get">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="search" class="form-control" id="logradouro" name="logradouro" value="" list="lista_logradouro">                
+                <datalist id="lista_logradouro">
+                    {% for enderecoprograma in page_obj %}
+                        <option value="{{ enderecoprograma.logradouro }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="uf">UF:</label>
+                <select class="form-control" id="uf" name="uf">
+                    {% for enderecoprograma in page_obj %}
+                      <option value="{{ enderecoprograma.estado_id.sigla }}">{{ enderecoprograma.estado_id.sigla }}</option>
+                    {% endfor %}
+                </select>
+            </div>            
+            <button type="submit" class="btn btn-default">Buscar</button>        
+            <button type="reset"  class="btn btn-warning" id="btnReset" onclick="Reset();" >Limpar</button>      
+        </form>
+    </div>
+    <script>
+        // Script para manipular via DOM as buscas
+        document.getElementById('logradouro').value = urlParams.get('logradouro')
+        document.getElementById('uf').value = urlParams.get('uf')  
+
+        //Reseta formulario. Troque pela url correta
+        function Reset() {
+            location.replace('/enderecoprograma');
+        }
+
+    </script>
+
+<hr/>
+
+    <table class="table table-striped">
+        <thead>
+        
+            <tr>
+
+
+            <th>programa_id</th>
+                <th>estado_id</th>
+                    <th>cep</th>
+                        <th>logradouro</th>
+                            <th>numero</th>
+                                <th>complemento</th>
+                                    <th>bairro</th>
+                                        <th>municipio</th>
+                                            <th>fax</th>
+                                                <th>telefone</th>
+                                                    <th>ramal</th>
+                                                        <th>email</th>
+                                                            <th>web_site</th>
+                                                                <th>inicio</th>
+                                                                    <th>fim</th>
+                                                                        <th>latitude</th>
+                                                                            <th>longitude</th>
+                <th>Ver</th>
+                <th>Alterar</th>
+                <th>Apagar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for enderecoprograma in object_list %}
+            <tr>
+            <td>{{ enderecoprograma.programa_id }}</td>
+            <td>{{ enderecoprograma.estado_id }}</td>
+            <td>{{ enderecoprograma.cep }}</td>
+            <td>{{ enderecoprograma.logradouro }}</td>
+            <td>{{ enderecoprograma.numero }}</td>
+            <td>{{ enderecoprograma.complemento }}</td>
+            <td>{{ enderecoprograma.bairro }}</td>
+            <td>{{ enderecoprograma.municipio }}</td>
+            <td>{{ enderecoprograma.fax }}</td>
+            <td>{{ enderecoprograma.telefone }}</td>
+            <td>{{ enderecoprograma.ramal }}</td>
+            <td>{{ enderecoprograma.email }}</td>
+            <td>{{ enderecoprograma.web_site }}</td>
+            <td>{{ enderecoprograma.inicio }}</td>
+            <td>{{ enderecoprograma.fim }}</td>
+            <td>{{ enderecoprograma.latitude }}</td>
+            <td>{{ enderecoprograma.longitude }}</td>
+            
+            <td><a href="{% url "enderecoprograma_view" enderecoprograma.id %}"><span class="label label-info">ver</span></a></td>
+            <td><a href="{% url "enderecoprograma_edit" enderecoprograma.id %}"><span class="label label-warning">alterar</span></a></td>
+            <td><a href="{% url "enderecoprograma_delete" enderecoprograma.id %}"><span class="label label-danger">apagar</span></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        
+        <a href="{% url "enderecoprograma_new" %}" style="float: left;">Novo</a>        
+
+        <div class="pagination" style="padding-left: 35%;">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; primeiro</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+                {% endif %}
+        
+                <span class="current">
+                    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">próximo</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">último &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+</div>
+
+{% endblock %}

@@ -23,7 +23,7 @@ O DEMO do projeto está disponível em [https://ajhorta.pythonanywhere.com](http
 
 # Estrutura de dados do sistema Sicupira
 
-![](https://www.lucidchart.com/publicSegments/view/486f446d-019e-48af-a495-183c24526d79/image.png)
+![mer_sicupira_v3](uploads/00c081f58407a43e7e2f054c844a2239/mer_sicupira_v3.png)
 
 # Executando o sistema
 
@@ -85,6 +85,8 @@ http://127.0.0.01:8000/admin
 | PM/Scrum Master | Antonio Horta  | ![](https://www.gravatar.com/avatar/8e4c634fa51e80d59cad9fe9da5cbaf4)  | Planejamento, Prototipação, Modelagem, Documentação, Wiki, Apresentação |
 | Modelagem       | Treice Moreira | ![](https://www.gravatar.com/avatar/b3d9451c693674676811851277c69b98)  | Modelagem |
 | Modelagem       | Nicole Santos  | ![](https://www.gravatar.com/avatar/9e807b92146cb292cb311e5b449a8f64)  | Modelagem |
+| Modelagem   | Ricardo Lopes  | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  | Modelagem, MER |
+| Modelagem   | Ricardo Villafan | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  | Modelagem, MER |
 | Desenvolvimento | Gilvan Almeida | ![](https://www.gravatar.com/avatar/9d9a022baf8aaa57e60df7a6c076fcbe)  | Prototipação, Wiki |
 | Desenvolvimento | Valdecir       | ![](https://www.gravatar.com/avatar/ee70d8d86a7bf46a23f88caf35e6ec14)  | Wiki |
 | Desenvolvimento | Igor Maffei    | ![](https://www.gravatar.com/avatar/2952373d5701776691c1ac9e216ec3fb)  | Modelagem, Módulo Lattes, Wiki |
@@ -92,7 +94,7 @@ http://127.0.0.01:8000/admin
 | Desenvolvimento |                |                                                                        | Sprint 3     |
 | Desenvolvimento |                |                                                                        | Sprint 3     |
 | Desenvolvimento |                |                                                                        | Sprint 2     |
-| Testes          |                |                                                                        | Sprint 4     |
+| Testes          | Wagner Sodré   |                                                                        | Testes, Sprint 3 |
 | Testes          |                |                                                                        | Sprint 4     |
 | Testes          |                |                                                                        | Sprint 4     |
 | Documentação    |                |                                                                        | Sprint 5     |

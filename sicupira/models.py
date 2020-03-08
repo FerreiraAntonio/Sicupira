@@ -310,7 +310,7 @@ class EnderecoPrograma(models.Model):
     longitude = models.FloatField()
 
     def __str__(self):
-        return '%s, %s' % (self.logradouro, self.numero)
+        return '%s, %d' % (self.logradouro, self.numero)
 
     def get_absolute_url(self):
         return reverse('enderecoprograma_edit', kwargs={'pk': self.pk})

@@ -9,10 +9,12 @@ from django.core.files.storage import FileSystemStorage
 
 from django.core.paginator import Paginator
 
-from sicupira.models import EnderecoPrograma as Endereco
+from sicupira.models import EnderecoPrograma
 from sicupira.models import Estado
 from sicupira.models import LinhaPesquisa
 from sicupira.models import Disciplina
+from sicupira.models import Turma
+from sicupira.models import Programa
 
 
 from django.contrib.auth.decorators import login_required
@@ -50,52 +52,70 @@ def importaxml(request):
 
 
 ##################################################
-# Inicio do Bloco [Endereco]
+# Inicio do Bloco [EnderecoPrograma]
 # by Antonio Horta
+# programa_id = models.ForeignKey(Programa,on_delete=models.CASCADE, related_name='ProgramaEndereco')
+# estado_id = models.ForeignKey(Estado, on_delete=models.SET_NULL, null=True)
+# cep = models.IntegerField()
+# logradouro = models.CharField(max_length=200)
+# numero = models.CharField(max_length=20)
+# complemento = models.CharField(max_length=300, null=True, blank=True)
+# bairro = models.CharField(max_length=100)
+# municipio = models.CharField(max_length=100)
+# fax = models.CharField(max_length=20)
+# telefone = models.CharField(max_length=20)
+# ramal = models.CharField(max_length=20)
+# email = models.EmailField(max_length=255, null=True, blank=True)
+# web_site = models.CharField(max_length=255,null=True, blank=True)
+# inicio = models.DateField()
+# fim = models.DateField()
+# latitude = models.FloatField()
+# longitude = models.FloatField()
 ##################################################
 
+
 @method_decorator(login_required(login_url='login'), name='dispatch')
-class EnderecoList(ListView):
+class EnderecoProgramaList(ListView):
     paginate_by = 10
-    model = Endereco
+    model = EnderecoPrograma
 
     def get_queryset(self):
-        queryset = super(EnderecoList, self).get_queryset()
-        queryset = queryset.order_by("nome")
+        queryset = super(EnderecoProgramaList, self).get_queryset()
+        queryset = queryset.order_by("logradouro")
         if 'estado' in self.request.GET:
             queryset = queryset.filter(estado__sigla__icontains=self.request.GET['estado'])
-        if 'nome' in self.request.GET:
-            queryset = queryset.filter(nome__icontains=self.request.GET['nome'])
+        if 'logradouro' in self.request.GET:
+            queryset = queryset.filter(logradouro__icontains=self.request.GET['logradouro'])
 
         return queryset
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
-class EnderecoView(DetailView):
-    model = Endereco
+class EnderecoProgramaView(DetailView):
+    model = EnderecoPrograma
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
-class EnderecoCreate(CreateView):
-    model = Endereco
-    fields = ['nome', 'estado', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'fax', 'telefone', 'ramal', 'email', 'url', 'inicio', 'fim', 'latitude', 'longitude']
-    success_url = reverse_lazy('endereco_list')
+class EnderecoProgramaCreate(CreateView):
+    model = EnderecoPrograma
+    fields = ['programa_id', 'estado_id', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'fax', 'telefone', 'ramal', 'email', 'web_site', 'inicio', 'fim', 'latitude', 'longitude']
+    success_url = reverse_lazy('enderecoprograma_list')
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
-class EnderecoUpdate(UpdateView):
-    model = Endereco
-    fields = ['nome', 'estado', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'fax', 'telefone', 'ramal', 'email', 'url', 'inicio', 'fim', 'latitude', 'longitude']
-    success_url = reverse_lazy('endereco_list')
+class EnderecoProgramaUpdate(UpdateView):
+    model = EnderecoPrograma
+    fields = ['programa_id', 'estado_id', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'fax', 'telefone', 'ramal', 'email', 'web_site', 'inicio', 'fim', 'latitude', 'longitude']
+    success_url = reverse_lazy('enderecoprograma_list')
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
-class EnderecoDelete(DeleteView):
-    model = Endereco
-    success_url = reverse_lazy('endereco_list')
+class EnderecoProgramaDelete(DeleteView):
+    model = EnderecoPrograma
+    success_url = reverse_lazy('enderecoprograma_list')
 
 ##################################################
-# Fim do Bloco [Endereco]
+# Fim do Bloco [EnderecoPrograma]
 ##################################################
 
 ##################################################
@@ -250,4 +270,118 @@ class DisciplinaDelete(DeleteView):
 
 ##################################################
 # Fim do Bloco [Disciplina]
+##################################################
+
+
+##################################################
+# Inicio do Bloco [Turma]
+# by Antonio Horta
+# curso_id = models.ForeignKey(Curso, on_delete=models.CheckConstraint, related_name='TurmaCurso')
+# disciplina_id = models.ForeignKey(Disciplina, on_delete=models.CheckConstraint, related_name='TurmaDiscipliana')
+# ano = models.IntegerField(default=0)
+# periodo_letivo_id = models.ForeignKey(PeriodoLetivo, on_delete=models.CheckConstraint, related_name='TurmaPeriodoLeitivo')
+##################################################
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class TurmaList(ListView):
+    paginate_by = 10
+    model = Turma
+
+    def get_queryset(self):
+        queryset = super(TurmaList, self).get_queryset()
+        queryset = queryset.order_by("nome_turma")
+        if 'nome_disciplina' in self.request.GET:
+            queryset = queryset.filter(nome_disciplina__icontains=self.request.GET['nome_turma'])
+        return queryset
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class TurmaView(DetailView):
+    model = Turma
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class TurmaCreate(CreateView):
+    model = Turma
+    fields = ['curso_id', 'disciplina_id', 'ano', 'periodo_letivo_id']
+    success_url = reverse_lazy('turma_list')
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class TurmaUpdate(UpdateView):
+    model = Turma
+    fields = ['curso_id', 'disciplina_id', 'ano', 'periodo_letivo_id']
+    success_url = reverse_lazy('turma_list')
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class TurmaDelete(DeleteView):
+    model = Turma
+    success_url = reverse_lazy('turma_list')
+
+##################################################
+# Fim do Bloco [Turma]
+##################################################
+
+
+##################################################
+# Inicio do Bloco [Programa]
+# by Antonio Horta
+# codigo_programa = models.CharField(max_length=20, unique=True)
+# nome_programa = models.CharField(max_length=200, unique=True)
+# nome_ingles = models.CharField(max_length=200, unique=True)
+# nota = models.ForeignKey(Nota, on_delete=models.SET_NULL, null=True, related_name='NotaPrograma')
+# flg_cooperacao = models.IntegerField(default=0)
+# flg_rede = models.IntegerField(default=0)
+# modalidade_id = models.ForeignKey(Modalidade, on_delete=models.SET_NULL, null=True, related_name='ModlidadePrograma')
+# regime_letivo_id = models.ForeignKey(RegimeLetivo, on_delete=models.SET_NULL, null=True, related_name='RegimeLetivoPrograma')
+# estado_id = models.ForeignKey(Estado, on_delete=models.SET_NULL, null=True, related_name='EstadoPrograma')
+# regiao_id = models.ForeignKey(Regiao, on_delete=models.SET_NULL, null=True, related_name='RegiaoPrograma')
+# situacao_id = models.ForeignKey(Situacao, on_delete=models.SET_NULL, null=True, related_name='SituacaoPrograma')
+# linha_pesquisa_id = models.ForeignKey(LinhaPesquisa, on_delete=models.SET_NULL, null=True, related_name='LinhaPesquisaPrograma')
+##################################################
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class ProgramaList(ListView):
+    paginate_by = 10
+    model = Programa
+
+    def get_queryset(self):
+        queryset = super(ProgramaList, self).get_queryset()
+        queryset = queryset.order_by("nome_programa")
+        if 'codigo_programa' in self.request.GET:
+            queryset = queryset.filter(codigo_programa__icontains=self.request.GET['codigo_programa'])
+        if 'nome_programa' in self.request.GET:
+            queryset = queryset.filter(nome_programa__icontains=self.request.GET['nome_programa'])
+
+        return queryset
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class ProgramaView(DetailView):
+    model = Programa
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class ProgramaCreate(CreateView):
+    model = Programa
+    fields = ['codigo_programa', 'nome_programa', "nome_ingles", 'nota', 'flg_cooperacao', 'flg_rede', 'modalidade_id', 'regime_letivo_id', 'estado_id', 'regiao_id', 'situacao_id', 'linha_pesquisa_id']
+    success_url = reverse_lazy('programa_list')
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class ProgramaUpdate(UpdateView):
+    model = Programa
+    fields = ['codigo_programa', 'nome_programa', "nome_ingles", 'nota', 'flg_cooperacao', 'flg_rede', 'modalidade_id', 'regime_letivo_id', 'estado_id', 'regiao_id', 'situacao_id', 'linha_pesquisa_id']
+    success_url = reverse_lazy('programa_list')
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class ProgramaDelete(DeleteView):
+    model = Programa
+    success_url = reverse_lazy('programa_list')
+
+##################################################
+# Fim do Bloco [Programa]
 ##################################################
