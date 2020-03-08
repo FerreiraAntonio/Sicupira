@@ -9,8 +9,8 @@ from django.core.files.storage import FileSystemStorage
 
 from django.core.paginator import Paginator
 
-from sicupira.models import Endereco
-from sicupira.models import UF
+from sicupira.models import EnderecoPrograma as Endereco
+from sicupira.models import Estado as UF
 
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
