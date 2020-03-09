@@ -185,7 +185,12 @@ class LinhaPesquisaList(ListView):
         queryset = queryset.order_by("desc_linha_pesquisa")
         if 'desc_linha_pesquisa' in self.request.GET:
             queryset = queryset.filter(desc_linha_pesquisa__icontains=self.request.GET['desc_linha_pesquisa'])
-
+        if 'instituicao' in self.request.GET:
+            queryset = queryset.filter(curso_id__programa_id__instituicao__nome__icontains=self.request.GET['instituicao'])
+        if 'programa' in self.request.GET:
+            queryset = queryset.filter(curso_id__programa_id__nome_programa__icontains=self.request.GET['programa'])
+        if 'ano' in self.request.GET:
+            queryset = queryset.filter(ano=self.request.GET['ano'])
         return queryset
 
 
@@ -290,8 +295,14 @@ class TurmaList(ListView):
     def get_queryset(self):
         queryset = super(TurmaList, self).get_queryset()
         queryset = queryset.order_by("nome_turma")
-        if 'nome_disciplina' in self.request.GET:
-            queryset = queryset.filter(nome_disciplina__icontains=self.request.GET['nome_turma'])
+        if 'nome' in self.request.GET:
+            queryset = queryset.filter(nome_turma__icontains=self.request.GET['nome'])
+        if 'instituicao' in self.request.GET:
+            queryset = queryset.filter(curso_id__programa_id__instituicao__nome__icontains=self.request.GET['instituicao'])
+        if 'programa' in self.request.GET:
+            queryset = queryset.filter(curso_id__programa_id__nome_programa__icontains=self.request.GET['programa'])
+        if 'ano' in self.request.GET:
+            queryset = queryset.filter(ano=self.request.GET['ano'])
         return queryset
 
 
@@ -303,14 +314,14 @@ class TurmaView(DetailView):
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class TurmaCreate(CreateView):
     model = Turma
-    fields = ['curso_id', 'disciplina_id', 'ano', 'periodo_letivo_id']
+    fields = ['nome_turma', 'curso_id', 'disciplina_id', 'ano', 'periodo_letivo_id']
     success_url = reverse_lazy('turma_list')
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class TurmaUpdate(UpdateView):
     model = Turma
-    fields = ['curso_id', 'disciplina_id', 'ano', 'periodo_letivo_id']
+    fields = ['nome_turma', 'curso_id', 'disciplina_id', 'ano', 'periodo_letivo_id']
     success_url = reverse_lazy('turma_list')
 
 
@@ -354,6 +365,26 @@ class ProgramaList(ListView):
             queryset = queryset.filter(codigo_programa__icontains=self.request.GET['codigo_programa'])
         if 'nome_programa' in self.request.GET:
             queryset = queryset.filter(nome_programa__icontains=self.request.GET['nome_programa'])
+        if 'instituicao' in self.request.GET:
+            queryset = queryset.filter(instituicao__nome__icontains=self.request.GET['instituicao'])
+        if 'areabasica' in self.request.GET:
+            queryset = queryset.filter(linha_pesquisa_id__desc_linha_pesquisa__icontains=self.request.GET['areabasica'])
+        if 'areaavaliacao' in self.request.GET:
+            queryset = queryset.filter(area_avaliacao__area_avaliacao__icontains=self.request.GET['areaavaliacao'])
+        if 'nota' in self.request.GET:
+            queryset = queryset.filter(nota__desc_nota__icontains=self.request.GET['nota'])
+        if 'situacao' in self.request.GET:
+            queryset = queryset.filter(situacao_id__desc_situacao__icontains=self.request.GET['situacao'])
+        if 'modalidade' in self.request.GET:
+            queryset = queryset.filter(modalidade_id__desc_modalidade__icontains=self.request.GET['modalidade'])
+        if 'regiao' in self.request.GET:
+            queryset = queryset.filter(regiao_id__desc_regiao__icontains=self.request.GET['regiao'])
+        if 'sigla' in self.request.GET:
+            queryset = queryset.filter(estado_id__sigla__icontains=self.request.GET['sigla'])
+        if 'cooperacao' in self.request.GET:
+            queryset = queryset.filter(flg_cooperacao__icontains=self.request.GET['cooperacao'])
+        if 'rede' in self.request.GET:
+            queryset = queryset.filter(flg_rede__icontains=self.request.GET['rede'])
 
         return queryset
 
@@ -366,14 +397,14 @@ class ProgramaView(DetailView):
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class ProgramaCreate(CreateView):
     model = Programa
-    fields = ['codigo_programa', 'nome_programa', "nome_ingles", 'nota', 'flg_cooperacao', 'flg_rede', 'modalidade_id', 'regime_letivo_id', 'estado_id', 'regiao_id', 'situacao_id', 'linha_pesquisa_id']
+    fields = ['codigo_programa', 'nome_programa', 'nome_ingles', 'nota', 'flg_cooperacao', 'flg_rede', 'modalidade_id', 'regime_letivo_id', 'estado_id', 'regiao_id', 'situacao_id', 'linha_pesquisa_id', 'instituicao', 'area_avaliacao']
     success_url = reverse_lazy('programa_list')
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class ProgramaUpdate(UpdateView):
     model = Programa
-    fields = ['codigo_programa', 'nome_programa', "nome_ingles", 'nota', 'flg_cooperacao', 'flg_rede', 'modalidade_id', 'regime_letivo_id', 'estado_id', 'regiao_id', 'situacao_id', 'linha_pesquisa_id']
+    fields = ['codigo_programa', 'nome_programa', 'nome_ingles', 'nota', 'flg_cooperacao', 'flg_rede', 'modalidade_id', 'regime_letivo_id', 'estado_id', 'regiao_id', 'situacao_id', 'linha_pesquisa_id', 'instituicao', 'area_avaliacao']
     success_url = reverse_lazy('programa_list')
 
 

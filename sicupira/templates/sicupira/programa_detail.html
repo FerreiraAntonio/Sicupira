@@ -1,0 +1,21 @@
+{% extends 'sicupira/base.html' %}
+
+{% block content %}
+{% load static %} 
+
+<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Detalhes da Programa</h3>
+    <h4>Nome: {{ programa.nome_programa}}</h4>
+    Código Programa: {{ programa.codigo_programa }}<br/>    
+    Instituição: {{ programa.instituicao.nome }}<br/>    
+    Nome Inglês: {{ programa.nome_ingles }}<br/>    
+    Nota: {{ programa.nota }}<br/>    
+    Flag Cooperação: {{ programa.flg_cooperacao }}<br/>    
+    Flag rede: {{ programa.flg_rede }}<br/>    
+    Modalidade: {{ programa.modalidade_id }}<br/>    
+    Regime Letivo: {{ programa.regime_letivo_id }}<br/>    
+    Estado: {{ programa.estado_id }}<br/>    
+    Região: {{ programa.regiao_id }}<br/>    
+    Situação: {{ programa.situacao_id }}<br/>    
+    Linha de Pesquisa: {{ programa.linha_pesquisa_id }}<br/>    
+        
+{% endblock %}

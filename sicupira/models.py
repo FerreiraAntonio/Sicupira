@@ -60,6 +60,21 @@ class Regiao(models.Model):
         return reverse('regiao_edit', kwargs={'pk': self.pk})
 
 ##################################################
+# Inicio do Bloco [Área Avaliação]
+##################################################
+
+
+class AreaAvaliacao(models.Model):
+    area_avaliacao = models.CharField(max_length=60, unique=True)
+
+    def __str__(self):
+        return self.area_avaliacao
+
+    def get_absolute_url(self):
+        return reverse('areaavaliacao_edit', kwargs={'pk': self.pk})
+
+
+##################################################
 # Inicio do Bloco LinhaPesquisa Antigo [Área Base]
 ##################################################
 
@@ -253,6 +268,8 @@ class Programa(models.Model):
     codigo_programa = models.CharField(max_length=20, unique=True)
     nome_programa = models.CharField(max_length=200, unique=True)
     nome_ingles = models.CharField(max_length=200, unique=True)
+    instituicao = models.ForeignKey(Instituicao, on_delete=models.SET_NULL, null=True, related_name='NomeInstituicao')
+    area_avaliacao = models.ForeignKey(AreaAvaliacao, on_delete=models.SET_NULL, null=True, related_name='AreaAvaliacao')
     nota = models.ForeignKey(Nota, on_delete=models.SET_NULL, null=True, related_name='NotaPrograma')
     flg_cooperacao = models.IntegerField(default=0)
     flg_rede = models.IntegerField(default=0)
@@ -406,13 +423,14 @@ class AreaConcentracaoxDisciplina(models.Model):
 
 
 class Turma(models.Model):
+    nome_turma = models.CharField(max_length=45)
     curso_id = models.ForeignKey(Curso, on_delete=models.CheckConstraint, related_name='TurmaCurso')
     disciplina_id = models.ForeignKey(Disciplina, on_delete=models.CheckConstraint, related_name='TurmaDiscipliana')
     ano = models.IntegerField(default=0)
     periodo_letivo_id = models.ForeignKey(PeriodoLetivo, on_delete=models.CheckConstraint, related_name='TurmaPeriodoLeitivo')
 
     def __str__(self):
-        return '%s - %s' % (self.curso_id, self.disciplina_id)
+        return self.nome_turma
 
     def get_absolute_url(self):
         return reverse('turma_edit', kwargs={'pk': self.pk})

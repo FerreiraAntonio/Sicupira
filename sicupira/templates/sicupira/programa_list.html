@@ -1,0 +1,191 @@
+{% extends 'sicupira/base.html' %}
+
+{% block content %}
+{% load static %} 
+
+<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Programas</h3>
+
+<div style="width: 90%;margin: auto;">
+
+    <div class="container">
+        <h4>Filtro</h2>
+        <form action="/programa" method="get">
+            <div class="form-group">
+                <label for="instituicao">Instituição de Ensino:</label>
+                <input type="input" class="form-control" id="instituicao" name="instituicao" value="" list="lista_instituicao">                
+                <datalist id="lista_instituicao">
+                    {% for programa in page_obj %}
+                        <option value="{{ programa.instituicao.nome }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="input" class="form-control" id="nome" name="nome" value="" list="lista_nome">                
+                <datalist id="lista_nome">
+                    {% for programa in page_obj %}
+                        <option value="{{ programa.nome_programa }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="areabasica">Área Básica:</label>
+                <input type="input" class="form-control" id="areabasica" name="areabasica" value="" list="lista_areabasica">                
+                <datalist id="lista_areabasica">
+                    {% for programa in page_obj %}
+                        <option value="{{ programa.linha_pesquisa_id.desc_linha_pesquisa  }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="areaavaliacao">Área Avaliação:</label>
+                <input type="input" class="form-control" id="areaavaliacao" name="areaavaliacao" value="" list="lista_areaavaliacao">                
+                <datalist id="lista_areaavaliacao">
+                    {% for programa in page_obj %}
+                        <option value="{{ programa.area_avaliacao.area_avaliacao }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="sel0">Nota:</label>
+                <select class="form-control" id="nota" name="nota">
+                {% for programa in page_obj %}
+                  <option value="{{ programa.nota.desc_nota }}">{{ programa.nota.desc_nota }}</option>
+                {% endfor %}
+                </select>
+            </div>            
+            <div class="form-group">
+                <label for="sel1">Situação do programa:</label>
+                <select class="form-control" id="situacao" name="situacao">
+                {% for programa in page_obj %}
+                  <option value="{{ programa.situacao_id.desc_situacao }}">{{ programa.situacao_id.desc_situacao }}</option>
+                {% endfor %}
+                </select>
+            </div>            
+            <div class="form-group">
+                <label for="sel2">Modalidade:</label>
+                <select class="form-control" id="modalidade" name="modalidade">
+                {% for programa in page_obj %}
+                  <option value="{{ programa.modalidade_id.desc_modalidade }}">{{ programa.modalidade_id.desc_modalidade }}</option>
+                {% endfor %}
+                </select>
+            </div>            
+            <div class="form-group">
+                <label for="sel3">Região:</label>
+                <select class="form-control" id="regiao" name="regiao">
+                {% for programa in page_obj %}
+                  <option value="{{ programa.regiao_id.desc_regiao }}">{{ programa.regiao_id.desc_regiao }}</option>
+                {% endfor %}
+                </select>
+            </div>            
+            <div class="form-group">
+                <label for="sel4">Sigla:</label>
+                <select class="form-control" id="sigla" name="sigla">
+                {% for programa in page_obj %}
+                  <option value="{{ programa.estado_id.sigla }}">{{ programa.estado_id.sigla }}</option>
+                {% endfor %}
+                </select>
+            </div>      
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <div class="checkbox">
+                    <label><input type="checkbox" id="cooperacao" name="cooperacao" value="1"> Apenas programas que possuem Projetos de Cooperação entre Instituições</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <div class="checkbox">
+                    <label><input type="checkbox" id="rede" name="rede" value="1"> Apenas programas em rede</label>
+                  </div>
+                </div>
+              </div>      
+            <button type="submit" class="btn btn-default">Buscar</button>                    
+            <button type="reset"  class="btn btn-warning" id="btnReset" onclick="Reset();" >Limpar</button>
+        </form>
+    </div>
+    <script>
+        // Script para manipular via DOM as buscas
+        document.getElementById('instituicao').value = urlParams.get('instituicao')
+        document.getElementById('nome').value = urlParams.get('nome')
+        document.getElementById('areabasica').value = urlParams.get('areabasica')
+        document.getElementById('areaavaliacao').value = urlParams.get('areaavaliacao')
+        document.getElementById('nota').value = urlParams.get('nota')        
+        document.getElementById('situacao').value = urlParams.get('situacao')        
+        document.getElementById('modalidade').value = urlParams.get('modalidade')        
+        document.getElementById('regiao').value = urlParams.get('regiao')        
+        document.getElementById('sigla').value = urlParams.get('sigla')        
+        if (urlParams.get('cooperacao') == '1') {
+            document.getElementById('cooperacao').checked = true
+        }   
+        if (urlParams.get('rede') == '1') {
+            document.getElementById('rede').checked = true
+        }   
+
+
+        //Reseta formulario. Troque pela url correta
+        function Reset() {
+            location.replace('/programa');
+        }
+    </script>
+
+    <hr/>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>nome</th>
+                <th>Instituição de Ensino</th>
+                <th>Área Avaliação</th>                
+                <th>Área Básica</th>                
+                <th>Situação</th>                
+                <th>Modalidade</th>                
+                <th>Nota</th>                
+                <th>Ver</th>
+                <th>Alterar</th>
+                <th>Apagar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for programa in page_obj %}
+            <tr>
+                <td>{{ programa.codigo_programa }}</td>
+                <td>{{ programa.nome_programa }}</td>
+                <td>{{ programa.instituicao.nome }}</td>
+                <td>{{ programa.area_avaliacao.area_avaliacao }}</td>
+                <td>{{ programa.linha_pesquisa_id.desc_linha_pesquisa }}</td>
+                <td>{{ programa.situacao_id.desc_situacao }}</td>
+                <td>{{ programa.modalidade_id.desc_modalidade }}</td>
+                <td>{{ programa.nota.desc_nota }}</td>
+            <td><a href="{% url "programa_view" programa.id %}"><span class="label label-info">ver</span></a></td>
+            <td><a href="{% url "programa_edit" programa.id %}"><span class="label label-warning">alterar</span></a></td>
+            <td><a href="{% url "programa_delete" programa.id %}"><span class="label label-danger">apagar</span></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+        <a href="{% url "programa_new" %}" style="float: left;">Novo</a> 
+
+        <div class="pagination" style="padding-left: 35%;">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; primeiro</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+                {% endif %}
+        
+                <span class="current">
+                    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">próximo</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">último &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+
+</div>
+
+{% endblock %}

@@ -17,4 +17,8 @@ admin.site.register(Sexo)
 admin.site.register(SituacaoMatricula)
 admin.site.register(PeriodoLetivo)
 admin.site.register(VincluloIES)
+admin.site.register(Curso)
+admin.site.register(RegimeLetivo)
+admin.site.register(AreaAvaliacao)
+
 

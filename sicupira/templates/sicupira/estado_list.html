@@ -22,7 +22,7 @@
             <div class="form-group">
                 <label for="sel1">Sigla:</label>
                 <select class="form-control" id="sigla" name="sigla">
-                {% for uf in page_obj %}
+                {% for estado in page_obj %}
                   <option value="{{ estado.sigla }}">{{ estado.sigla }}</option>
                 {% endfor %}
                 </select>

@@ -3,13 +3,13 @@
 {% block content %}
 {% load static %} 
 
-<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Linhas de Pesquisa</h3>
+<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Turmas</h3>
 
 <div style="width: 90%;margin: auto;">
 
     <div class="container">
         <h4>Filtro</h2>
-        <form action="/linhapesquisa" method="get">
+        <form action="/turma" method="get">
             <div class="form-group">
                 <label for="ano">Ano:</label>
                 <input type="input" class="form-control" id="ano" name="ano" value="" list="ano">                
@@ -38,11 +38,11 @@
                 </datalist>
             </div>
             <div class="form-group">
-                <label for="desc_linha_pesquisa">Nome:</label>
-                <input type="input" class="form-control" id="desc_linha_pesquisa" name="desc_linha_pesquisa" value="" list="lista_desc_linha_pesquisa">                
-                <datalist id="lista_desc_linha_pesquisa">
-                    {% for linhapesquisa in page_obj %}
-                        <option value="{{ linhapesquisa.desc_linha_pesquisa }}"></option>
+                <label for="nome">Nome:</label>
+                <input type="input" class="form-control" id="nome" name="nome" value="" list="lista_nome">                
+                <datalist id="lista_nome">
+                    {% for turma in page_obj %}
+                        <option value="{{ turma.nome_turma }}"></option>
                     {% endfor %}
                 </datalist>
             </div>
@@ -52,14 +52,14 @@
     </div>
     <script>
         // Script para manipular via DOM as buscas
-        document.getElementById('desc_linha_pesquisa').value = urlParams.get('desc_linha_pesquisa')      
         document.getElementById('ano').value = urlParams.get('ano')
         document.getElementById('instituicao').value = urlParams.get('instituicao')
-        document.getElementById('programa').value = urlParams.get('programa')        
+        document.getElementById('programa').value = urlParams.get('programa')
+        document.getElementById('nome').value = urlParams.get('nome')
         
         //Reseta formulario. Troque pela url correta
         function Reset() {
-            location.replace('/linhapesquisa');
+            location.replace('/turma');
         }
     </script>
 
@@ -68,25 +68,31 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th>Periodo/Ano</th>
                 <th>nome</th>
+                <th>Disciplina</th>
+                <th>Curso</th>
                 <th>Ver</th>
                 <th>Alterar</th>
                 <th>Apagar</th>
             </tr>
         </thead>
         <tbody>
-            {% for linhapesquisa in page_obj %}
+            {% for turma in page_obj %}            
             <tr>
-            <td>{{ linhapesquisa.desc_linha_pesquisa }}</td>
-            <td><a href="{% url "linhapesquisa_view" linhapesquisa.id %}"><span class="label label-info">ver</span></a></td>
-            <td><a href="{% url "linhapesquisa_edit" linhapesquisa.id %}"><span class="label label-warning">alterar</span></a></td>
-            <td><a href="{% url "linhapesquisa_delete" linhapesquisa.id %}"><span class="label label-danger">apagar</span></a></td>
+            <td>{{ turma.periodo_letivo_id.desc_periodo_letivo }}/{{ turma.ano }}</td>
+            <td>{{ turma.nome_turma }}</td>
+            <td>{{ turma.disciplina_id.nome_disciplina }}</td>
+            <td>{{ turma.curso_id.nome_curso }}</td>
+            <td><a href="{% url "turma_view" turma.id %}"><span class="label label-info">ver</span></a></td>
+            <td><a href="{% url "turma_edit" turma.id %}"><span class="label label-warning">alterar</span></a></td>
+            <td><a href="{% url "turma_delete" turma.id %}"><span class="label label-danger">apagar</span></a></td>
             </tr>
             {% endfor %}
         </tbody>
         </table>
 
-        <a href="{% url "linhapesquisa_new" %}" style="float: left;">Novo</a> 
+        <a href="{% url "turma_new" %}" style="float: left;">Novo</a> 
 
         <div class="pagination" style="padding-left: 35%;">
             <span class="step-links">
