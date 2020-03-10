@@ -322,7 +322,7 @@ class EnderecoPrograma(models.Model):
     email = models.EmailField(max_length=255, null=True, blank=True)
     web_site = models.CharField(max_length=255,null=True, blank=True)
     inicio = models.DateField()
-    fim = models.DateField()
+    fim = models.DateField(null=True, blank=True)
     latitude = models.FloatField(null=True, blank=True)
     longitude = models.FloatField(null=True, blank=True)
 
