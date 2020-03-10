@@ -10,8 +10,107 @@
 <div style="width: 90%;margin: auto;">
     <form method="post">
       {% csrf_token %}
-      {{ form|crispy }}      
-      <input type="submit" value="Salvar" class="btn btn-primary" />
+      
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.codigo_programa|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.nome_programa|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.nome_ingles|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row field-instituicao">
+        <div class="form-group">
+          <div class="related-widget-wrapper">
+            {{ form.instituicao|as_crispy_field }}
+            <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+            <script>
+              // Rotina para CRUD inline dentro de outro template
+              $(document).ready(function(){
+                  $("select.select").change(function(){
+                      var id_instituicao = $(this).children("option:selected").val();
+                      if (id_instituicao !== "") {                      
+                        document.getElementById('change_id_instituicao').href = '/admin/sicupira/instituicao/' + id_instituicao + '/change/?_to_field=id&_popup=1'
+                        document.getElementById('delete_id_instituicao').href = '/admin/sicupira/instituicao/' + id_instituicao + '/delete/?_to_field=id&_popup=1'
+                      }
+                  });
+              });
+              </script>
+            <a class="related-widget-wrapper-link change-related" id="change_id_instituicao" href="/admin/sicupira/instituicao/add/?_to_field=id&_popup=1" title="Alterar instituicao selecionada">
+              <img src="/static/admin/img/icon-changelink.svg" alt="Modificar">
+            </a>
+            <a class="related-widget-wrapper-link add-related" id="add_id_instituicao" href="/admin/sicupira/instituicao/add/?_to_field=id&_popup=1" title="Adicionar outra instituicao">
+              <img src="/static/admin/img/icon-addlink.svg" alt="Adicionar">
+            </a>
+            <a class="related-widget-wrapper-link delete-related" id="delete_id_instituicao" href="/admin/sicupira/instituicao/add/?_to_field=id&_popup=1" title="Excluir instituicao selecionada">
+              <img src="/static/admin/img/icon-deletelink.svg" alt="Apagar">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.nota|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.flg_cooperacao|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.flg_rede|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.modalidade_id|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.regime_letivo_id|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.estado_id|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.regiao_id|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.situacao_id|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.linha_pesquisa_id|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.area_avaliacao|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <input type="submit" value="Salvar" class="btn btn-primary" />  
+        </div>
+      </div>
+      
     </form>
 </div>
 {% endblock %}
