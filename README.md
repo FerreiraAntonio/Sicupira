@@ -88,7 +88,7 @@ http://127.0.0.01:8000/admin
 | Modelagem   | Ricardo Lopes  | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  | Modelagem, MER |
 | Modelagem   | Ricardo Villafan | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  | Modelagem, MER |
 | Desenvolvimento | Gilvan Almeida | ![](https://www.gravatar.com/avatar/9d9a022baf8aaa57e60df7a6c076fcbe)  | Prototipação, Wiki |
-| Desenvolvimento | Valdecir       | ![](https://www.gravatar.com/avatar/ee70d8d86a7bf46a23f88caf35e6ec14)  | Wiki |
+| Desenvolvimento | Valdecir       | ![](https://www.gravatar.com/avatar/ee70d8d86a7bf46a23f88caf35e6ec14)  | Wiki, Desenvolvimeto |
 | Desenvolvimento | Igor Maffei    | ![](https://www.gravatar.com/avatar/2952373d5701776691c1ac9e216ec3fb)  | Modelagem, Módulo Lattes, Wiki |
 | Desenvolvimento |                |                                                                        | Sprint 1, Sprint 2  |
 | Desenvolvimento |                |                                                                        | Sprint 3     |

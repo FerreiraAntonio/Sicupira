@@ -95,7 +95,7 @@ class LinhaPesquisa(models.Model):
 
 class Instituicao(models.Model):
     nome = models.CharField(max_length=100, unique=True)
-    codigo_cnpq = models.CharField(max_length=20, unique=True)
+    codigo_cnpq = models.CharField(max_length=20, unique=True, null=True, blank=True)
 
     def __str__(self):
         return self.nome
@@ -316,15 +316,15 @@ class EnderecoPrograma(models.Model):
     complemento = models.CharField(max_length=300, null=True, blank=True)
     bairro = models.CharField(max_length=100)
     municipio = models.CharField(max_length=100)
-    fax = models.CharField(max_length=20)
+    fax = models.CharField(max_length=20, null=True, blank=True)
     telefone = models.CharField(max_length=20)
-    ramal = models.CharField(max_length=20)
+    ramal = models.CharField(max_length=20, null=True, blank=True)
     email = models.EmailField(max_length=255, null=True, blank=True)
     web_site = models.CharField(max_length=255,null=True, blank=True)
     inicio = models.DateField()
     fim = models.DateField()
-    latitude = models.FloatField()
-    longitude = models.FloatField()
+    latitude = models.FloatField(null=True, blank=True)
+    longitude = models.FloatField(null=True, blank=True)
 
     def __str__(self):
         return '%s, %d' % (self.logradouro, self.numero)

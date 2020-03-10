@@ -20,5 +20,6 @@ admin.site.register(VincluloIES)
 admin.site.register(Curso)
 admin.site.register(RegimeLetivo)
 admin.site.register(AreaAvaliacao)
+admin.site.register(Programa)
 
 
