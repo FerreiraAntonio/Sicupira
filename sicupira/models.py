@@ -74,19 +74,7 @@ class AreaAvaliacao(models.Model):
         return reverse('areaavaliacao_edit', kwargs={'pk': self.pk})
 
 
-##################################################
-# Inicio do Bloco LinhaPesquisa Antigo [Área Base]
-##################################################
 
-
-class LinhaPesquisa(models.Model):
-    desc_linha_pesquisa = models.CharField(max_length=60, unique=True)
-
-    def __str__(self):
-        return self.desc_linha_pesquisa
-
-    def get_absolute_url(self):
-        return reverse('linhapesquisa_edit', kwargs={'pk': self.pk})
 
 
 ##################################################
@@ -316,6 +304,24 @@ class AreaConcentracao(models.Model):
 
     def get_absolute_url(self):
         return reverse('areaconcentracao_edit', kwargs={'pk': self.pk})
+
+##################################################
+# Inicio do Bloco LinhaPesquisa
+##################################################
+
+
+class LinhaPesquisa(models.Model):
+    nome_linha_pesquisa = models.CharField(null=True, max_length=100, unique=True)    
+    data_inicio = models.DateField(null=True)
+    data_fim = models.DateField(null=True, blank=True)
+    desc_linha_pesquisa = models.TextField(null=True)
+    area_concentracao_id = models.ForeignKey(AreaConcentracao, on_delete=models.SET_NULL, null=True, related_name='LinhaArea')
+
+    def __str__(self):
+        return self.nome_linha_pesquisa
+
+    def get_absolute_url(self):
+        return reverse('linhapesquisa_edit', kwargs={'pk': self.pk})
 
 ##################################################
 # Inicio do Bloco [Endereco]

@@ -182,9 +182,9 @@ class LinhaPesquisaList(ListView):
 
     def get_queryset(self):
         queryset = super(LinhaPesquisaList, self).get_queryset()
-        queryset = queryset.order_by("desc_linha_pesquisa")
-        if 'desc_linha_pesquisa' in self.request.GET:
-            queryset = queryset.filter(desc_linha_pesquisa__icontains=self.request.GET['desc_linha_pesquisa'])
+        queryset = queryset.order_by("nome_linha_pesquisa")
+        if 'nome_linha_pesquisa' in self.request.GET:
+            queryset = queryset.filter(nome_linha_pesquisa__icontains=self.request.GET['nome_linha_pesquisa'])
         if 'instituicao' in self.request.GET:
             queryset = queryset.filter(curso_id__programa_id__instituicao__nome__icontains=self.request.GET['instituicao'])
         if 'programa' in self.request.GET:
@@ -202,14 +202,14 @@ class LinhaPesquisaView(DetailView):
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class LinhaPesquisaCreate(CreateView):
     model = LinhaPesquisa
-    fields = ['desc_linha_pesquisa']
+    fields = ['nome_linha_pesquisa', 'data_inicio', 'data_fim', 'desc_linha_pesquisa', 'area_concentracao_id']
     success_url = reverse_lazy('linhapesquisa_list')
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class LinhaPesquisaUpdate(UpdateView):
     model = LinhaPesquisa
-    fields = ['desc_linha_pesquisa']
+    fields = ['nome_linha_pesquisa', 'data_inicio', 'data_fim', 'desc_linha_pesquisa', 'area_concentracao_id']
     success_url = reverse_lazy('linhapesquisa_list')
 
 
