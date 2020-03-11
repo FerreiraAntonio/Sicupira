@@ -33,7 +33,7 @@
                 <input type="input" class="form-control" id="areabasica" name="areabasica" value="" list="lista_areabasica">                
                 <datalist id="lista_areabasica">
                     {% for programa in page_obj %}
-                        <option value="{{ programa.linha_pesquisa_id.desc_linha_pesquisa  }}"></option>
+                        <option value="{{ programa.area_basica.desc_area_basica }}"></option>
                     {% endfor %}
                 </datalist>
             </div>
@@ -154,7 +154,7 @@
                 <td>{{ programa.nome_programa }}</td>
                 <td>{{ programa.instituicao.nome }}</td>
                 <td>{{ programa.area_avaliacao.area_avaliacao }}</td>
-                <td>{{ programa.linha_pesquisa_id.desc_linha_pesquisa }}</td>
+                <td>{{ programa.area_basica.desc_area_basica }}</td>
                 <td>{{ programa.situacao_id.desc_situacao }}</td>
                 <td>{{ programa.modalidade_id.desc_modalidade }}</td>
                 <td>{{ programa.nota.desc_nota }}</td>

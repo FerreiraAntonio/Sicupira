@@ -368,7 +368,7 @@ class ProgramaList(ListView):
         if 'instituicao' in self.request.GET:
             queryset = queryset.filter(instituicao__nome__icontains=self.request.GET['instituicao'])
         if 'areabasica' in self.request.GET:
-            queryset = queryset.filter(linha_pesquisa_id__desc_linha_pesquisa__icontains=self.request.GET['areabasica'])
+            queryset = queryset.filter(area_basica__desc_area_basica__icontains=self.request.GET['areabasica'])
         if 'areaavaliacao' in self.request.GET:
             queryset = queryset.filter(area_avaliacao__area_avaliacao__icontains=self.request.GET['areaavaliacao'])
         if 'nota' in self.request.GET:
@@ -397,14 +397,14 @@ class ProgramaView(DetailView):
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class ProgramaCreate(CreateView):
     model = Programa
-    fields = ['codigo_programa', 'nome_programa', 'nome_ingles', 'nota', 'flg_cooperacao', 'flg_rede', 'modalidade_id', 'regime_letivo_id', 'estado_id', 'regiao_id', 'situacao_id', 'linha_pesquisa_id', 'instituicao', 'area_avaliacao']
+    fields = ['codigo_programa', 'nome_programa', 'nome_ingles', 'nota', 'flg_cooperacao', 'flg_rede', 'modalidade_id', 'regime_letivo_id', 'estado_id', 'regiao_id', 'situacao_id', 'instituicao', 'area_avaliacao', 'area_basica']
     success_url = reverse_lazy('programa_list')
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class ProgramaUpdate(UpdateView):
     model = Programa
-    fields = ['codigo_programa', 'nome_programa', 'nome_ingles', 'nota', 'flg_cooperacao', 'flg_rede', 'modalidade_id', 'regime_letivo_id', 'estado_id', 'regiao_id', 'situacao_id', 'linha_pesquisa_id', 'instituicao', 'area_avaliacao']
+    fields = ['codigo_programa', 'nome_programa', 'nome_ingles', 'nota', 'flg_cooperacao', 'flg_rede', 'modalidade_id', 'regime_letivo_id', 'estado_id', 'regiao_id', 'situacao_id', 'instituicao', 'area_avaliacao', 'area_basica']
     success_url = reverse_lazy('programa_list')
 
 
