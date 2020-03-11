@@ -186,11 +186,11 @@ class LinhaPesquisaList(ListView):
         if 'nome_linha_pesquisa' in self.request.GET:
             queryset = queryset.filter(nome_linha_pesquisa__icontains=self.request.GET['nome_linha_pesquisa'])
         if 'instituicao' in self.request.GET:
-            queryset = queryset.filter(curso_id__programa_id__instituicao__nome__icontains=self.request.GET['instituicao'])
+            queryset = queryset.filter(area_concentracao_id__programa_id__instituicao__nome__icontains=self.request.GET['instituicao'])
         if 'programa' in self.request.GET:
-            queryset = queryset.filter(curso_id__programa_id__nome_programa__icontains=self.request.GET['programa'])
-        if 'ano' in self.request.GET:
-            queryset = queryset.filter(ano=self.request.GET['ano'])
+            queryset = queryset.filter(area_concentracao_id__programa_id__nome_programa__icontains=self.request.GET['programa'])
+        if 'data_inicio' in self.request.GET:
+            queryset = queryset.filter(ano=self.request.GET['data_inicio'])
         return queryset
 
 
