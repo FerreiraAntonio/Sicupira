@@ -86,9 +86,30 @@
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          {{ form.linha_pesquisa_id|as_crispy_field }}
-        </div>
+        <div class="form-group areabasica">
+          {{ form.area_basica|as_crispy_field }}
+          <script>
+            // Rotina para CRUD inline dentro de outro template
+            $(document).ready(function(){
+                $("select.select").change(function(){
+                    var id_area_basica = $(this).children("option:selected").val();
+                    if (id_area_basica !== "") {                      
+                      document.getElementById('change_id_area_basica').href = '/admin/sicupira/areabasica/' + id_area_basica + '/change/?_to_field=id&_popup=1'
+                      document.getElementById('delete_id_area_basica').href = '/admin/sicupira/areabasica/' + id_area_basica + '/delete/?_to_field=id&_popup=1'
+                    }
+                });
+            });
+            </script>
+          <a class="related-widget-wrapper-link change-related" id="change_id_area_basica" href="/admin/sicupira/areabasica/add/?_to_field=id&_popup=1" title="Alterar área básica selecionada">
+            <img src="/static/admin/img/icon-changelink.svg" alt="Modificar">
+          </a>
+          <a class="related-widget-wrapper-link add-related" id="add_id_area_basica" href="/admin/sicupira/areabasica/add/?_to_field=id&_popup=1" title="Adicionar outra área básica">
+            <img src="/static/admin/img/icon-addlink.svg" alt="Adicionar">
+          </a>
+          <a class="related-widget-wrapper-link delete-related" id="delete_id_area_basica" href="/admin/sicupira/areabasica/add/?_to_field=id&_popup=1" title="Excluir área básica selecionada">
+            <img src="/static/admin/img/icon-deletelink.svg" alt="Apagar">
+          </a>
+      </div>
       </div>
       <div class="form-row">
         <div class="form-group">

@@ -88,6 +88,21 @@ class LinhaPesquisa(models.Model):
     def get_absolute_url(self):
         return reverse('linhapesquisa_edit', kwargs={'pk': self.pk})
 
+
+##################################################
+# Inicio do Bloco AreaBasica
+##################################################
+
+
+class AreaBasica(models.Model):
+    desc_area_basica = models.CharField(max_length=60, unique=True)
+
+    def __str__(self):
+        return self.desc_area_basica
+
+    def get_absolute_url(self):
+        return reverse('areabasica_edit', kwargs={'pk': self.pk})
+
 ##################################################
 # Inicio do Bloco [Instituíção]
 ##################################################
@@ -278,7 +293,7 @@ class Programa(models.Model):
     estado_id = models.ForeignKey(Estado, on_delete=models.SET_NULL, null=True, related_name='EstadoPrograma')
     regiao_id = models.ForeignKey(Regiao, on_delete=models.SET_NULL, null=True, related_name='RegiaoPrograma')
     situacao_id = models.ForeignKey(Situacao, on_delete=models.SET_NULL, null=True, related_name='SituacaoPrograma')
-    linha_pesquisa_id = models.ForeignKey(LinhaPesquisa, on_delete=models.SET_NULL, null=True, related_name='LinhaPesquisaPrograma')
+    area_basica = models.ForeignKey(AreaBasica, on_delete=models.SET_NULL, null=True, related_name='AreaBasica')
 
     def __str__(self):
         return '%s - %s' % (self.codigo_programa, self.nome_programa)
