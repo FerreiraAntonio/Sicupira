@@ -1,0 +1,84 @@
+{% extends 'sicupira/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% load static %} 
+
+<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Formulário de Curso</h3>
+
+<div style="width: 90%;margin: auto;">
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.programa_id|as_crispy_field }}
+          <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+          <script>
+            // Rotina para CRUD inline dentro de outro template
+            $(document).ready(function(){
+                $("select.select").change(function(){
+                    var id_programa = $(this).children("option:selected").val();
+                    if (id_programa !== "") {                      
+                      document.getElementById('change_id_programa_id').href = '/admin/sicupira/programa/' + id_programa + '/change/?_to_field=id&_popup=1'
+                      document.getElementById('delete_id_programa_id').href = '/admin/sicupira/programa/' + id_programa + '/delete/?_to_field=id&_popup=1'
+                    }
+                });
+            });
+            </script>
+          <a class="related-widget-wrapper-link change-related" id="change_id_programa_id" href="/admin/sicupira/programa/add/?_to_field=id&_popup=1" title="Alterar programa selecionadoa">
+            <img src="/static/admin/img/icon-changelink.svg" alt="Modificar">
+          </a>
+          <a class="related-widget-wrapper-link add-related" id="add_id_programa_id" href="/admin/sicupira/programa/add/?_to_field=id&_popup=1" title="Adicionar outro programa">
+            <img src="/static/admin/img/icon-addlink.svg" alt="Adicionar">
+          </a>
+          <a class="related-widget-wrapper-link delete-related" id="delete_id_programa_id" href="/admin/sicupira/programa/add/?_to_field=id&_popup=1" title="Excluir programa selecionado">
+            <img src="/static/admin/img/icon-deletelink.svg" alt="Apagar">
+          </a>
+  
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.nome_curso|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.nivel_id|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.situacao_id|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.creditos_titulacao|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.disciplina|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.trabalho_conclusao|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.outros|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.equivalencia_hora|as_crispy_field }}
+        </div>
+      </div>
+      <input type="submit" value="Salvar" class="btn btn-primary" />
+    </form>
+</div>
+{% endblock %}

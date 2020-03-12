@@ -12,7 +12,16 @@
         <h4>Filtro</h2>
         <form action="/enderecoprograma" method="get">
             <div class="form-group">
-                <label for="nome">Nome:</label>
+                <label for="programa">Nome do Programa:</label>
+                <input type="input" class="form-control" id="programa" name="programa" value="" list="lista_programa">                
+                <datalist id="lista_programa">
+                    {% for enderecoprograma in page_obj %}
+                        <option value="{{ enderecoprograma.programa_id.nome_programa }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="logradouro">Logradouro:</label>
                 <input type="search" class="form-control" id="logradouro" name="logradouro" value="" list="lista_logradouro">                
                 <datalist id="lista_logradouro">
                     {% for enderecoprograma in page_obj %}
@@ -36,6 +45,7 @@
         // Script para manipular via DOM as buscas
         document.getElementById('logradouro').value = urlParams.get('logradouro')
         document.getElementById('uf').value = urlParams.get('uf')  
+        document.getElementById('programa').value = urlParams.get('programa')  
 
         //Reseta formulario. Troque pela url correta
         function Reset() {

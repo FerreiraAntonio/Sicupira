@@ -15,6 +15,7 @@ from sicupira.models import LinhaPesquisa
 from sicupira.models import Disciplina
 from sicupira.models import Turma
 from sicupira.models import Programa
+from sicupira.models import Curso
 
 
 from django.contrib.auth.decorators import login_required
@@ -86,6 +87,8 @@ class EnderecoProgramaList(ListView):
             queryset = queryset.filter(estado__sigla__icontains=self.request.GET['estado'])
         if 'logradouro' in self.request.GET:
             queryset = queryset.filter(logradouro__icontains=self.request.GET['logradouro'])
+        if 'programa' in self.request.GET:
+            queryset = queryset.filter(programa_id__nome_programa__icontains=self.request.GET['programa'])
 
         return queryset
 
@@ -117,6 +120,67 @@ class EnderecoProgramaDelete(DeleteView):
 ##################################################
 # Fim do Bloco [EnderecoPrograma]
 ##################################################
+
+
+##################################################
+# Inicio do Bloco [Curso]
+# by Antonio Horta
+# programa_id = models.ForeignKey(Programa, on_delete=models.SET_NULL, related_name='ProgramaCurso', null=True)
+# nome_curso = models.CharField(max_length=100, unique=True)
+# nivel_id = models.ForeignKey(NivelGraduacao, on_delete=models.SET_NULL, related_name='NivelCurso', null=True)
+# situacao_id = models.ForeignKey(Situacao, on_delete=models.SET_NULL, related_name='SituacaoCurso', null=True)
+# creditos_titulacao = models.IntegerField(default=0)
+# disciplina = models.IntegerField(default=0)
+# trabalho_conclusao = models.IntegerField(default=0)
+# outros = models.IntegerField(default=0)
+# equivalencia_hora = models.IntegerField(default=0)
+##################################################
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class CursoList(ListView):
+    paginate_by = 10
+    model = Curso
+
+    def get_queryset(self):
+        queryset = super(CursoList, self).get_queryset()
+        queryset = queryset.order_by("nome_curso")
+        if 'nome' in self.request.GET:
+            queryset = queryset.filter(nome_curso__icontains=self.request.GET['nome'])
+        if 'programa' in self.request.GET:
+            queryset = queryset.filter(programa_id__nome_programa__icontains=self.request.GET['programa'])
+
+        return queryset
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class CursoView(DetailView):
+    model = Curso
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class CursoCreate(CreateView):
+    model = Curso
+    fields = ['programa_id', 'nome_curso', 'nivel_id', 'situacao_id', 'creditos_titulacao', 'disciplina', 'trabalho_conclusao', 'outros', 'equivalencia_hora']
+    success_url = reverse_lazy('curso_list')
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class CursoUpdate(UpdateView):
+    model = Curso
+    fields = ['programa_id', 'nome_curso', 'nivel_id', 'situacao_id', 'creditos_titulacao', 'disciplina', 'trabalho_conclusao', 'outros', 'equivalencia_hora']
+    success_url = reverse_lazy('curso_list')
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class CursoDelete(DeleteView):
+    model = Curso
+    success_url = reverse_lazy('curso_list')
+
+##################################################
+# Fim do Bloco [Curso]
+##################################################
+
 
 ##################################################
 # Inicio do Bloco [UF]

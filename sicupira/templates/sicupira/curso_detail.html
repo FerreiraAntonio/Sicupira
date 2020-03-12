@@ -1,0 +1,17 @@
+{% extends 'sicupira/base.html' %}
+
+{% block content %}
+{% load static %} 
+
+<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Detalhes do Curso</h3>
+    <h4>Nome: {{curso.nome_curso}}</h4>
+    Programa: {{curso.programa_id.nome_programa}}<br/>
+    Nível: {{curso.nivel_id.desc_nivel_graduacao}}<br/>
+    Situação: {{curso.situacao_id.desc_situacao}}<br/>
+    Créditos Titulação: {{curso.creditos_titulacao}}<br/>
+    Disciplinas: {{curso.disciplina}}<br/>
+    Trabalho de conclusão:  {{curso.trabalho_conclusao}}<br/>
+    Outros: {{curso.outros}}<br/>
+    Equivalência hora: {{curso.equivalencia_hora}}<br/>    
+    
+{% endblock %}
