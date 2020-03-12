@@ -38,11 +38,11 @@
                 </datalist>
             </div>
             <div class="form-group">
-                <label for="desc_linha_pesquisa">Nome:</label>
-                <input type="input" class="form-control" id="desc_linha_pesquisa" name="desc_linha_pesquisa" value="" list="lista_desc_linha_pesquisa">                
-                <datalist id="lista_desc_linha_pesquisa">
+                <label for="nome_linha_pesquisa">Nome:</label>
+                <input type="input" class="form-control" id="nome_linha_pesquisa" name="nome_linha_pesquisa" value="" list="lista_nome_linha_pesquisa">                
+                <datalist id="lista_nome_linha_pesquisa">
                     {% for linhapesquisa in page_obj %}
-                        <option value="{{ linhapesquisa.desc_linha_pesquisa }}"></option>
+                        <option value="{{ linhapesquisa.nome_linha_pesquisa }}"></option>
                     {% endfor %}
                 </datalist>
             </div>
@@ -52,7 +52,7 @@
     </div>
     <script>
         // Script para manipular via DOM as buscas
-        document.getElementById('desc_linha_pesquisa').value = urlParams.get('desc_linha_pesquisa')      
+        document.getElementById('nome_linha_pesquisa').value = urlParams.get('nome_linha_pesquisa')      
         document.getElementById('ano').value = urlParams.get('ano')
         document.getElementById('instituicao').value = urlParams.get('instituicao')
         document.getElementById('programa').value = urlParams.get('programa')        
@@ -68,7 +68,12 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>nome</th>
+                <th>Código do Programa</th>
+                <th>Programa</th>
+                <th>Nome</th>
+                <th>Área de Concentração</th>
+                <th>Data de Início</th>
+                <th>Data de Fim</th>
                 <th>Ver</th>
                 <th>Alterar</th>
                 <th>Apagar</th>
@@ -77,7 +82,12 @@
         <tbody>
             {% for linhapesquisa in page_obj %}
             <tr>
-            <td>{{ linhapesquisa.desc_linha_pesquisa }}</td>
+            <td>{{ linhapesquisa.area_concentracao_id.programa_id.codigo_programa }}</td>
+            <td>{{ linhapesquisa.area_concentracao_id.programa_id.nome_programa }}</td>
+            <td>{{ linhapesquisa.nome_linha_pesquisa }}</td>
+            <td>{{ linhapesquisa.area_concentracao_id }}</td>
+            <td>{{ linhapesquisa.data_inicio }}</td>
+            <td>{{ linhapesquisa.data_fim }}</td>
             <td><a href="{% url "linhapesquisa_view" linhapesquisa.id %}"><span class="label label-info">ver</span></a></td>
             <td><a href="{% url "linhapesquisa_edit" linhapesquisa.id %}"><span class="label label-warning">alterar</span></a></td>
             <td><a href="{% url "linhapesquisa_delete" linhapesquisa.id %}"><span class="label label-danger">apagar</span></a></td>
