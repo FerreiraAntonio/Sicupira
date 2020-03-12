@@ -1,0 +1,94 @@
+{% extends 'sicupira/base.html' %}
+
+{% block content %}
+{% load static %} 
+
+<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Cursos</h3>
+
+<div style="width: 90%;margin: auto;">
+
+    <div class="container">
+        <h4>Filtro</h2>
+        <form action="/curso" method="get">
+            <div class="form-group">
+                <label for="nome">Curso:</label>
+                <input type="input" class="form-control" id="nome" name="nome" value="" list="lista_nome">                
+                <datalist id="lista_nome">
+                    {% for curso in page_obj %}
+                        <option value="{{ curso.nome_curso }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="nome">Programa:</label>
+                <input type="input" class="form-control" id="programa" name="programa" value="" list="lista_programa">                
+                <datalist id="lista_programa">
+                    {% for curso in page_obj %}
+                        <option value="{{ curso.programa_id.nome_programa }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+
+            <button type="submit" class="btn btn-default">Buscar</button>                    
+            <button type="reset"  class="btn btn-warning" id="btnReset" onclick="Reset();" >Limpar</button>
+        </form>
+    </div>
+    <script>
+        // Script para manipular via DOM as buscas
+        document.getElementById('nome').value = urlParams.get('nome')
+        document.getElementById('programa').value = urlParams.get('programa')
+        
+        //Reseta formulario. Troque pela url correta
+        function Reset() {
+            location.replace('/curso');
+        }
+    </script>
+
+    <hr/>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Programa</th>
+                <th>Curso</th>                
+                <th>Ver</th>
+                <th>Alterar</th>
+                <th>Apagar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for curso in page_obj %}
+            <tr>
+            <td>{{ curso.programa_id.nome_programa }}</td>
+            <td>{{ curso.nome_curso }}</td>
+            <td><a href="{% url "curso_view" curso.id %}"><span class="label label-info">ver</span></a></td>
+            <td><a href="{% url "curso_edit" curso.id %}"><span class="label label-warning">alterar</span></a></td>
+            <td><a href="{% url "curso_delete" curso.id %}"><span class="label label-danger">apagar</span></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+        <a href="{% url "curso_new" %}" style="float: left;">Novo</a> 
+
+        <div class="pagination" style="padding-left: 35%;">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; primeiro</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+                {% endif %}
+        
+                <span class="current">
+                    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">próximo</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">último &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+
+</div>
+
+{% endblock %}
