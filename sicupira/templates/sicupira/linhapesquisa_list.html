@@ -11,11 +11,11 @@
         <h4>Filtro</h2>
         <form action="/linhapesquisa" method="get">
             <div class="form-group">
-                <label for="data_inicio">Ano:</label>
-                <input type="input" class="form-control" id="data_inicio" name="data_inicio" value="" list="data_inicio">                
+                <label for="ano">Ano:</label>
+                <input type="input" class="form-control" id="ano" name="ano" value="" list="ano">                
                 <datalist id="lista_ano">
-                    {% for linhapesquisa in page_obj %}
-                        <option value="{{ linhapesquisa.data_inicio }}"></option>
+                    {% for programa in page_obj %}
+                        <option value="{{ programa.ano }}"></option>
                     {% endfor %}
                 </datalist>
             </div>
