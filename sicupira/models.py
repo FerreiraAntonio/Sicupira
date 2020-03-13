@@ -306,7 +306,7 @@ class AreaConcentracao(models.Model):
         return reverse('areaconcentracao_edit', kwargs={'pk': self.pk})
 
 ##################################################
-# Inicio do Bloco [LinhaPesquisa]
+# Inicio do Bloco LinhaPesquisa
 ##################################################
 
 
