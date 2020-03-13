@@ -235,7 +235,7 @@ class EstadoDelete(DeleteView):
 
 ##################################################
 # Inicio do Bloco [LinhaPesquisa]
-# by Antonio Horta
+# by Guilherme Bernieri
 ##################################################
 
 
@@ -254,7 +254,7 @@ class LinhaPesquisaList(ListView):
         if 'programa' in self.request.GET:
             queryset = queryset.filter(area_concentracao_id__programa_id__nome_programa__icontains=self.request.GET['programa'])
         if 'data_inicio' in self.request.GET:
-            queryset = queryset.filter(ano=self.request.GET['data_inicio'])
+            queryset = queryset.filter(data_inicio__icontains=self.request.GET['data_inicio'])
         return queryset
 
 
