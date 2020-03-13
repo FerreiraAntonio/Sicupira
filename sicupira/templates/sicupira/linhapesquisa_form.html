@@ -3,15 +3,70 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-{% load static %} 
+{% load static %}
 
-<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Formulário de Linha de Pesquisa</h3>
+<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Formulário de Linha de Pesquisa
+</h3>
 
 <div style="width: 90%;margin: auto;">
-    <form method="post">
-      {% csrf_token %}
-      {{ form|crispy }}      
-      <input type="submit" value="Salvar" class="btn btn-primary" />
-    </form>
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="form-row">
+      <div class="form-group">
+        {{ form.nome_linha_pesquisa|as_crispy_field }}
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        {{ form.data_inicio|as_crispy_field }}
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.data_fim|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.desc_linha_pesquisa|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          {{ form.area_concentracao_id|as_crispy_field }}
+          <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+          <script>
+            // Rotina para CRUD inline dentro de outro template
+            $(document).ready(function () {
+              $("select.select").change(function () {
+                var id_area_concentracao = $(this).children("option:selected").val();
+                if (id_area_concentracao !== "") {
+                  document.getElementById('change_id_area_concentracao_id').href = '/admin/sicupira/areaconcentracao/' + id_area_concentracao + '/change/?_to_field=id&_popup=1'
+                  document.getElementById('delete_id_area_concentracao_id').href = '/admin/sicupira/areaconcentracao/' + id_area_concentracao + '/delete/?_to_field=id&_popup=1'
+                }
+              });
+            });
+          </script>
+          <a class="related-widget-wrapper-link change-related" id="change_id_area_concentracao_id"
+            href="/admin/sicupira/areaconcentracao/add/?_to_field=id&_popup=1" title="Alterar programa selecionadoa">
+            <img src="/static/admin/img/icon-changelink.svg" alt="Modificar">
+          </a>
+          <a class="related-widget-wrapper-link add-related" id="add_id_area_concentracao_id"
+            href="/admin/sicupira/areaconcentracao/add/?_to_field=id&_popup=1" title="Adicionar outro programa">
+            <img src="/static/admin/img/icon-addlink.svg" alt="Adicionar">
+          </a>
+          <a class="related-widget-wrapper-link delete-related" id="delete_id_area_concentracao_id"
+            href="/admin/sicupira/areaconcentracao/add/?_to_field=id&_popup=1" title="Excluir programa selecionado">
+            <img src="/static/admin/img/icon-deletelink.svg" alt="Apagar">
+          </a>
+
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <input type="submit" value="Salvar" class="btn btn-primary" />
+        </div>
+      </div>
+  </form>
 </div>
 {% endblock %}
