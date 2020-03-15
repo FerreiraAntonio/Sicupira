@@ -313,7 +313,11 @@ class TurmaList(ListView):
         if 'programa' in self.request.GET:
             queryset = queryset.filter(curso_id__programa_id__nome_programa__icontains=self.request.GET['programa'])
         if 'ano' in self.request.GET:
-            queryset = queryset.filter(ano=self.request.GET['ano'])
+            if (self.request.GET['ano'] != ""): 
+                if (isinstance(self.request.GET['ano'], int)):
+                    queryset = queryset.filter(ano=self.request.GET['ano']) 
+                else:
+                    queryset = queryset.filter(ano=-1) 
         return queryset
 
 

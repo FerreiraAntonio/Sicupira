@@ -16,7 +16,7 @@
         <form action="/turma" method="get">
             <div class="form-group">
                 <label for="ano">Ano:</label>
-                <input type="input" class="form-control" id="ano" name="ano" value="" list="ano">                
+                <input type="number" min="1950" max="2050" class="form-control" id="ano" name="ano" value="" list="ano">                
                 <datalist id="lista_ano">
                     {% for programa in page_obj %}
                         <option value="{{ programa.ano }}"></option>
