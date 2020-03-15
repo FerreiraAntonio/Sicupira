@@ -1,5 +1,9 @@
 {% extends 'sicupira/base.html' %}
 
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'enderecoprograma_list' %}">Lista de endereços de programas</a>
+{% endblock %}
+
 {% block content %}
 {% load static %} 
   

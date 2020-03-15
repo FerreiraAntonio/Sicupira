@@ -1,5 +1,9 @@
 {% extends 'sicupira/base.html' %}
 
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'curso_delete' curso.id %}">Apagar curso</a>
+{% endblock %}
+
 {% block content %}
 {% load static %} 
 

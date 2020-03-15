@@ -1,5 +1,9 @@
 {% extends 'sicupira/base.html' %}
 
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'linhapesquisa_list' %}">Lista de linhas de pesquisa</a>
+{% endblock %}
+
 {% block content %}
 {% load static %} 
 

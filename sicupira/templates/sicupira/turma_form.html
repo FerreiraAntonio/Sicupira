@@ -1,5 +1,9 @@
 {% extends 'sicupira/base.html' %}
 
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'turma_edit' turma.id %}">Formulário do turma</a>
+{% endblock %}
+
 {% load crispy_forms_tags %}
 
 {% block content %}

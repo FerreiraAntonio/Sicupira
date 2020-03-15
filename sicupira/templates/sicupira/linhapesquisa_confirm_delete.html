@@ -1,5 +1,9 @@
 {% extends 'sicupira/base.html' %}
 
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'linhapesquisa_delete' linhapesquisa.id %}">Apagar linha pesquisa</a>
+{% endblock %}
+
 {% block content %}
 {% load static %} 
 

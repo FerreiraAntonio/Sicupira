@@ -1,5 +1,9 @@
 {% extends 'sicupira/base.html' %}
 
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'disciplina_list' %}">Lista de discilinas</a>
+{% endblock %}
+
 {% block content %}
 {% load static %} 
 

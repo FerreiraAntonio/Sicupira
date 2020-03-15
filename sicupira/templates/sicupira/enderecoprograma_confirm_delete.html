@@ -1,5 +1,9 @@
 {% extends 'sicupira/base.html' %}
 
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'enderecoprograma_delete' enderecoprograma.id %}">Apagar endereco do programa</a>
+{% endblock %}
+
 {% block content %}
 {% load static %} 
 

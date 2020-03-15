@@ -1,5 +1,9 @@
 {% extends 'sicupira/base.html' %}
 
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'turma_list' %}">Lista de turmas</a>
+{% endblock %}
+
 {% block content %}
 {% load static %} 
 
