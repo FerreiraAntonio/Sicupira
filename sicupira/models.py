@@ -11,14 +11,47 @@ from django.urls import reverse
 # https://docs.djangoproject.com/en/3.0/topics/db/models/ #
 ###########################################################
 
+
+###########################################################
+# Bloco para Case inSensitive
+###########################################################
+
+
+class CaseInsensitiveFieldMixin:
+
+    LOOKUP_CONVERSIONS = {
+        'exact': 'iexact',
+        'contains': 'icontains',
+        'startswith': 'istartswith',
+        'endswith': 'iendswith',
+        'regex': 'iregex',
+    }
+
+    def get_lookup(self, lookup_name):
+        converted = self.LOOKUP_CONVERSIONS.get(lookup_name, lookup_name)
+        return super().get_lookup(converted)
+
+
+class CICharField(CaseInsensitiveFieldMixin, models.CharField):
+    pass
+
+
+class CIEmailField(CaseInsensitiveFieldMixin, models.EmailField):
+    pass
+
+
+class CITextField(CaseInsensitiveFieldMixin, models.TextField):
+    pass
+
+
 ##################################################
 # Inicio do Bloco [País]
 ##################################################
 
 
 class Pais(models.Model):
-    nome_pais = models.CharField(max_length=100, unique=True)
-    codigo_iso = models.CharField(blank=True, null=True, max_length=3,  unique=True)
+    nome_pais = CICharField(max_length=100, unique=True)
+    codigo_iso = CICharField(blank=True, null=True, max_length=3,  unique=True)
     ddd = models.IntegerField(blank=True)
 
     def __str__(self):
@@ -34,8 +67,8 @@ class Pais(models.Model):
 
 
 class Estado(models.Model):
-    nome = models.CharField(max_length=50, unique=True)
-    sigla = models.CharField(max_length=2, unique=True)
+    nome = CICharField(max_length=50, unique=True)
+    sigla = CICharField(max_length=2, unique=True)
     pais_id = models.ForeignKey(Pais, on_delete=models.SET_NULL, null=True, related_name='PaisEstado')
 
     def __str__(self):
@@ -50,7 +83,7 @@ class Estado(models.Model):
 
 
 class Regiao(models.Model):
-    desc_regiao = models.CharField(max_length=60, unique=True)
+    desc_regiao = CICharField(max_length=60, unique=True)
     pais_id = models.ForeignKey(Pais, on_delete=models.SET_NULL, null=True, related_name='PaisRegiao')
 
     def __str__(self):
@@ -65,7 +98,7 @@ class Regiao(models.Model):
 
 
 class AreaAvaliacao(models.Model):
-    area_avaliacao = models.CharField(max_length=60, unique=True)
+    area_avaliacao = CICharField(max_length=60, unique=True)
 
     def __str__(self):
         return self.area_avaliacao
@@ -73,17 +106,13 @@ class AreaAvaliacao(models.Model):
     def get_absolute_url(self):
         return reverse('areaavaliacao_edit', kwargs={'pk': self.pk})
 
-
-
-
-
 ##################################################
 # Inicio do Bloco AreaBasica
 ##################################################
 
 
 class AreaBasica(models.Model):
-    desc_area_basica = models.CharField(max_length=60, unique=True)
+    desc_area_basica = CICharField(max_length=60, unique=True)
 
     def __str__(self):
         return self.desc_area_basica
@@ -97,8 +126,8 @@ class AreaBasica(models.Model):
 
 
 class Instituicao(models.Model):
-    nome = models.CharField(max_length=100, unique=True)
-    codigo_cnpq = models.CharField(max_length=20, unique=True, null=True, blank=True)
+    nome = CICharField(max_length=100, unique=True)
+    codigo_cnpq = CICharField(max_length=20, unique=True, null=True, blank=True)
 
     def __str__(self):
         return self.nome
@@ -112,7 +141,7 @@ class Instituicao(models.Model):
 
 
 class NivelGraduacao(models.Model):
-    desc_nivel_graduacao = models.CharField(max_length=60, unique=True)
+    desc_nivel_graduacao = CICharField(max_length=60, unique=True)
 
     def __str__(self):
         return self.desc_nivel_graduacao
@@ -126,7 +155,7 @@ class NivelGraduacao(models.Model):
 
 
 class TipoDocumento(models.Model):
-    desc_tipo_doc = models.CharField(max_length=45, unique=True)
+    desc_tipo_doc = CICharField(max_length=45, unique=True)
 
     def __str__(self):
         return self.desc_tipo_doc
@@ -140,7 +169,7 @@ class TipoDocumento(models.Model):
 
 
 class CategoriaDocente(models.Model):
-    desc_categoria = models.CharField(max_length=45, unique=True)
+    desc_categoria = CICharField(max_length=45, unique=True)
 
     def __str__(self):
         return self.desc_categoria
@@ -154,7 +183,7 @@ class CategoriaDocente(models.Model):
 
 
 class Situacao(models.Model):
-    desc_situacao = models.CharField(max_length=60, unique=True)
+    desc_situacao = CICharField(max_length=60, unique=True)
 
     def __str__(self):
         return self.desc_situacao
@@ -171,7 +200,7 @@ class Situacao(models.Model):
 
 
 class Modalidade(models.Model):
-    desc_modalidade = models.CharField(max_length=45, unique=True)
+    desc_modalidade = CICharField(max_length=45, unique=True)
 
     def __str__(self):
         return self.desc_modalidade
@@ -185,7 +214,7 @@ class Modalidade(models.Model):
 
 
 class Sexo(models.Model):
-    desc_sexo = models.CharField(max_length=45, unique=True)
+    desc_sexo = CICharField(max_length=45, unique=True)
 
     def __str__(self):
         return self.desc_sexo
@@ -199,7 +228,7 @@ class Sexo(models.Model):
 
 
 class Nota(models.Model):
-    desc_nota = models.CharField(max_length=45, unique=True)
+    desc_nota = CICharField(max_length=45, unique=True)
 
     def __str__(self):
         return self.desc_nota
@@ -218,7 +247,7 @@ class Nota(models.Model):
 
 
 class SituacaoMatricula(models.Model):
-    desc_situacao_matricula = models.CharField(max_length=45, unique=True)
+    desc_situacao_matricula = CICharField(max_length=45, unique=True)
 
     def __str__(self):
         return self.desc_situacao_matricula
@@ -237,7 +266,7 @@ class SituacaoMatricula(models.Model):
 
 
 class RegimeLetivo(models.Model):
-    desc_regime_letivo = models.CharField(max_length=20, unique=True)
+    desc_regime_letivo = CICharField(max_length=20, unique=True)
 
     def __str__(self):
         return self.desc_regime_letivo
@@ -252,7 +281,7 @@ class RegimeLetivo(models.Model):
 
 
 class PeriodoLetivo(models.Model):
-    desc_periodo_letivo = models.CharField(max_length=10)
+    desc_periodo_letivo = CICharField(max_length=10)
     regime_letivo_id = models.ForeignKey(RegimeLetivo, on_delete=models.CheckConstraint, related_name='RegimePeriodoLetivo')
 
     def __str__(self):
@@ -268,9 +297,9 @@ class PeriodoLetivo(models.Model):
 
 
 class Programa(models.Model):
-    codigo_programa = models.CharField(max_length=20, unique=True)
-    nome_programa = models.CharField(max_length=200, unique=True)
-    nome_ingles = models.CharField(max_length=200, unique=True)
+    codigo_programa = CICharField(max_length=20, unique=True)
+    nome_programa = CICharField(max_length=200, unique=True)
+    nome_ingles = CICharField(max_length=200, unique=True)
     instituicao = models.ForeignKey(Instituicao, on_delete=models.SET_NULL, null=True, related_name='NomeInstituicao')
     area_avaliacao = models.ForeignKey(AreaAvaliacao, on_delete=models.SET_NULL, null=True, related_name='AreaAvaliacao')
     nota = models.ForeignKey(Nota, on_delete=models.SET_NULL, null=True, related_name='NotaPrograma')
@@ -296,7 +325,7 @@ class Programa(models.Model):
 
 
 class AreaConcentracao(models.Model):
-    desc_area_concentracao = models.CharField(max_length=200, unique=True)
+    desc_area_concentracao = CICharField(max_length=200, unique=True)
     programa_id = models.ForeignKey(Programa, on_delete=models.CASCADE, related_name='Programa')
 
     def __str__(self):
@@ -311,10 +340,10 @@ class AreaConcentracao(models.Model):
 
 
 class LinhaPesquisa(models.Model):
-    nome_linha_pesquisa = models.CharField(null=True, max_length=100, unique=True)    
+    nome_linha_pesquisa = CICharField(null=True, max_length=100, unique=True)    
     data_inicio = models.DateField(null=True)
     data_fim = models.DateField(null=True, blank=True)
-    desc_linha_pesquisa = models.TextField(null=True)
+    desc_linha_pesquisa = CITextField(null=True)
     area_concentracao_id = models.ForeignKey(AreaConcentracao, on_delete=models.SET_NULL, null=True, related_name='LinhaArea')
 
     def __str__(self):
@@ -332,16 +361,16 @@ class EnderecoPrograma(models.Model):
     programa_id = models.ForeignKey(Programa,on_delete=models.CASCADE, related_name='ProgramaEndereco')
     estado_id = models.ForeignKey(Estado, on_delete=models.SET_NULL, null=True)
     cep = models.IntegerField()
-    logradouro = models.CharField(max_length=200)
-    numero = models.CharField(max_length=20)
-    complemento = models.CharField(max_length=300, null=True, blank=True)
-    bairro = models.CharField(max_length=100)
-    municipio = models.CharField(max_length=100)
-    fax = models.CharField(max_length=20, null=True, blank=True)
-    telefone = models.CharField(max_length=20)
-    ramal = models.CharField(max_length=20, null=True, blank=True)
-    email = models.EmailField(max_length=255, null=True, blank=True)
-    web_site = models.CharField(max_length=255,null=True, blank=True)
+    logradouro = CICharField(max_length=200)
+    numero = CICharField(max_length=20)
+    complemento = CICharField(max_length=300, null=True, blank=True)
+    bairro = CICharField(max_length=100)
+    municipio = CICharField(max_length=100)
+    fax = CICharField(max_length=20, null=True, blank=True)
+    telefone = CICharField(max_length=20)
+    ramal = CICharField(max_length=20, null=True, blank=True)
+    email = CIEmailField(max_length=255, null=True, blank=True)
+    web_site = CICharField(max_length=255,null=True, blank=True)
     inicio = models.DateField()
     fim = models.DateField(null=True, blank=True)
     latitude = models.FloatField(null=True, blank=True)
@@ -362,8 +391,8 @@ class TelefoneEnderecoPrograma(models.Model):
     endereco_id = models.ForeignKey(EnderecoPrograma, on_delete=models.CASCADE, related_name='EnderecoTelefone')
     tipo = models.IntegerField()
     ddd = models.IntegerField()
-    numero = models.CharField(max_length=10)
-    ramal = models.CharField(max_length=20, null=True, blank=True)
+    numero = CICharField(max_length=10)
+    ramal = CICharField(max_length=20, null=True, blank=True)
 
     def __str__(self):
         return '%d - %s' % (self.ddd, self.numero)
@@ -378,7 +407,7 @@ class TelefoneEnderecoPrograma(models.Model):
 
 class Curso(models.Model):
     programa_id = models.ForeignKey(Programa, on_delete=models.SET_NULL, related_name='ProgramaCurso', null=True)
-    nome_curso = models.CharField(max_length=100, unique=True)
+    nome_curso = CICharField(max_length=100, unique=True)
     nivel_id = models.ForeignKey(NivelGraduacao, on_delete=models.SET_NULL, related_name='NivelCurso', null=True)
     situacao_id = models.ForeignKey(Situacao, on_delete=models.SET_NULL, related_name='SituacaoCurso', null=True)
     creditos_titulacao = models.IntegerField(default=0)
@@ -399,12 +428,12 @@ class Curso(models.Model):
 
 
 class Disciplina(models.Model):
-    nome_disciplina = models.CharField(max_length=100, unique=True)
-    sigla = models.CharField(max_length=20, unique=True)
-    numero = models.CharField(max_length=450, unique=True)
+    nome_disciplina = CICharField(max_length=100, unique=True)
+    sigla = CICharField(max_length=20, unique=True)
+    numero = CICharField(max_length=450, unique=True)
     creditos = models.IntegerField(default=0)
-    ementa = models.TextField(blank=True, null=True)
-    bibliografia = models.TextField(blank=True, null=True)
+    ementa = CITextField(blank=True, null=True)
+    bibliografia = CITextField(blank=True, null=True)
 
     def __str__(self):
         return self.nome_disciplina
@@ -444,7 +473,7 @@ class AreaConcentracaoxDisciplina(models.Model):
 
 
 class Turma(models.Model):
-    nome_turma = models.CharField(max_length=45)
+    nome_turma = CICharField(max_length=45)
     curso_id = models.ForeignKey(Curso, on_delete=models.CheckConstraint, related_name='TurmaCurso')
     disciplina_id = models.ForeignKey(Disciplina, on_delete=models.CheckConstraint, related_name='TurmaDiscipliana')
     ano = models.IntegerField(default=0)
@@ -465,7 +494,7 @@ class Turma(models.Model):
 
 
 class RegimeTrabalho(models.Model):
-    desc_regime_trabalho = models.CharField(max_length=45, unique=True)
+    desc_regime_trabalho = CICharField(max_length=45, unique=True)
 
     def __str__(self):
         return self.desc_regime_trabalho
@@ -484,7 +513,7 @@ class RegimeTrabalho(models.Model):
 
 
 class VincluloIES(models.Model):
-    desc_vinclulo_ies = models.CharField(max_length=45, unique=True)
+    desc_vinclulo_ies = CICharField(max_length=45, unique=True)
 
     def __str__(self):
         return self.desc_vinclulo_ies
