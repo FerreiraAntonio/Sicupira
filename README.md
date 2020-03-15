@@ -91,7 +91,7 @@ http://127.0.0.01:8000/admin
 | Desenvolvimento | Valdecir       | ![](https://www.gravatar.com/avatar/ee70d8d86a7bf46a23f88caf35e6ec14)  | Wiki, Desenvolvimeto |
 | Desenvolvimento | Igor Maffei    | ![](https://www.gravatar.com/avatar/2952373d5701776691c1ac9e216ec3fb)  | Modelagem, Módulo Lattes, Wiki |
 | Desenvolvimento | Guilherme Bernieri  | ![](https://www.gravatar.com/avatar/dba1855aee0c6b1debf88d02bf2f3ada)  | Linha de Pesquisa, Wiki  |
-| Desenvolvimento |                |                                                                        | Sprint 3     |
+| Desenvolvimento | Rafael Macedo  | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  | Turma, Wiki, Testes  |
 | Desenvolvimento |                |                                                                        | Sprint 3     |
 | Desenvolvimento |                |                                                                        | Sprint 2     |
 | Testes          | Wagner Sodré   |                                                                        | Testes, Sprint 3 |
