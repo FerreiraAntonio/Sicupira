@@ -10,7 +10,6 @@ from django.core.files.storage import FileSystemStorage
 from django.core.paginator import Paginator
 
 from sicupira.models import EnderecoPrograma
-from sicupira.models import Estado
 from sicupira.models import LinhaPesquisa
 from sicupira.models import Disciplina
 from sicupira.models import Turma
@@ -180,58 +179,6 @@ class CursoDelete(DeleteView):
 ##################################################
 # Fim do Bloco [Curso]
 ##################################################
-
-
-##################################################
-# Inicio do Bloco [UF]
-# by Antonio Horta
-##################################################
-
-
-@method_decorator(login_required(login_url='login'), name='dispatch')
-class EstadoList(ListView):
-    paginate_by = 10
-    model = Estado
-
-    def get_queryset(self):
-        queryset = super(EstadoList, self).get_queryset()
-        queryset = queryset.order_by("nome")
-        if 'sigla' in self.request.GET:
-            queryset = queryset.filter(sigla__icontains=self.request.GET['sigla'])
-        if 'nome' in self.request.GET:
-            queryset = queryset.filter(nome__icontains=self.request.GET['nome'])
-
-        return queryset
-
-
-@method_decorator(login_required(login_url='login'), name='dispatch')
-class EstadoView(DetailView):
-    model = Estado
-
-
-@method_decorator(login_required(login_url='login'), name='dispatch')
-class EstadoCreate(CreateView):
-    model = Estado
-    fields = ['nome', 'sigla']
-    success_url = reverse_lazy('estado_list')
-
-
-@method_decorator(login_required(login_url='login'), name='dispatch')
-class EstadoUpdate(UpdateView):
-    model = Estado
-    fields = ['nome', 'sigla']
-    success_url = reverse_lazy('estado_list')
-
-
-@method_decorator(login_required(login_url='login'), name='dispatch')
-class EstadoDelete(DeleteView):
-    model = Estado
-    success_url = reverse_lazy('estado_list')
-
-##################################################
-# Fim do Bloco [UF]
-##################################################
-
 
 ##################################################
 # Inicio do Bloco [LinhaPesquisa]

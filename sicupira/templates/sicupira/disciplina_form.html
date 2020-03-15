@@ -1,7 +1,14 @@
 {% extends 'sicupira/base.html' %}
 
 {% block breadcrumbs %}
-    {{ block.super }} » <a href="{% url 'disciplina_edit' disciplina.id %}">Formulário de disciplina</a>
+    {{ block.super }} » 
+
+    {% if programa.id > 0 %}
+    <a href="{% url 'disciplina_edit' disciplina.id %}">Formulário de disciplina</a>
+    {% else %}
+    <a href="{% url 'disciplina_new' %}">Formulário de disciplina</a>
+    {% endif %}
+    
 {% endblock %}
 
 {% load crispy_forms_tags %}

@@ -1,7 +1,14 @@
 {% extends 'sicupira/base.html' %}
 
 {% block breadcrumbs %}
-    {{ block.super }} » <a href="{% url 'linhapesquisa_edit' linhapesquisa.id %}">Formulário do linha de pesquisa</a>
+    {{ block.super }} » 
+
+    {% if programa.id > 0 %}
+    <a href="{% url 'linhapesquisa_edit' linhapesquisa.id %}">Formulário de linha de pesquisa</a>
+    {% else %}
+    <a href="{% url 'linhapesquisa_new' %}">Formulário de linha de pesquisa</a>
+    {% endif %}
+    
 {% endblock %}
 
 {% load crispy_forms_tags %}
