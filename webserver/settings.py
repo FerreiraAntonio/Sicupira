@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sicupira',
+    'pessoa',
     'crispy_forms',
 ]
 
