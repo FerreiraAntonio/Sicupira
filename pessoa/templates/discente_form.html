@@ -1,0 +1,17 @@
+{% extends 'sicupira/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% load static %} 
+
+<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Formulário de Discente</h3>
+
+<div style="width: 90%;margin: auto;">
+    <form method="post">
+      {% csrf_token %}
+      {{ form|crispy }}      
+      <input type="submit" value="Salvar" class="btn btn-primary" />
+    </form>
+</div>
+{% endblock %}

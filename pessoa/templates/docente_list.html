@@ -1,0 +1,138 @@
+{% extends 'sicupira/base.html' %}
+
+{% block content %}
+{% load static %} 
+
+<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Docentes</h3>
+
+<div style="width: 90%;margin: auto;">
+
+    <div class="container">
+        <h4>Filtro</h2>
+        <form action="/discente" method="get">
+            <div class="form-group">
+                <label for="nome_pessoa">Nome:</label>
+                <input type="input" class="form-control" id="nome_pessoa" name="nome_pessoa" value="" list="nome_pessoa">                
+                <datalist id="lista_nome_pessoa">
+                    {% for docente in page_obj %}
+                        <option value="{{ docente.nome_pessoa }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="sexo_id">Sexo:</label>
+                <input type="input" class="form-control" id="sexo_id" name="sexo_id" value="" list="lista_sexo_id">                
+                <datalist id="lista_sexo_id">
+                    {% for sexo in page_obj %}
+                        <option value="{{ sexo.desc_sexo }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="titulo_nivel_id">Graduação:</label>
+                <input type="input" class="form-control" id="titulo_nivel_id" name="titulo_nivel_id" value="" list="lista_titulo_nivel_id">                
+                <datalist id="lista_titulo_nivel_id">
+                    {% for nivelgraduacao in page_obj %}
+                        <option value="{{ nivelgraduacao.desc_nivel_graduacao }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="vinculo_IES">Intituição de Ensino:</label>
+                <input type="input" class="form-control" id="vinculo_IES" name="vinculo_IES" value="" list="lista_vinculo_IES">                
+                <datalist id="lista_vinculo_IES">
+                    {% for VincluloIES in page_obj %}
+                        <option value="{{ VincluloIES.desc_vinclulo_ies }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <button type="submit" class="btn btn-default">Buscar</button>                    
+            <button type="reset"  class="btn btn-warning" id="btnReset" onclick="Reset();" >Limpar</button>
+        </form>
+    </div>
+    <script>
+        // Script para manipular via DOM as buscas
+        document.getElementById('nome_pessoa').value = urlParams.get('nome_pessoa')      
+        document.getElementById('sexo_id').value = urlParams.get('sexo_id')
+        document.getElementById('titulo_nivel_id').value = urlParams.get('titulo_nivel_id')        
+        document.getElementById('vinculo_IES').value = urlParams.get('vinculo_IES')
+        
+        //Reseta formulario. Troque pela url correta
+        function Reset() {
+            location.replace('/docente');
+        }
+    </script>
+
+    <hr/>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Sexo</th>
+                <th>Nascimento</th>
+                <th>Documento</th>
+                <th>Tipo de documento</th>
+                <th>E-mail</th>
+                <th>Nacionalidade</th>
+                <th>Graduação</th>
+
+                <th>Data titulação</th>
+                <th>Área de conhecimento</th>
+                <th>País do título</th>
+                <th>Regime de trabalho</th>
+                <th>Instituição de ensino</th>
+                
+                <th>Ver</th>
+                <th>Alterar</th>
+                <th>Apagar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for docente in page_obj %}
+            <tr>
+            <td>{{ docente.nome_pessoa }}</td>
+            <td>{{ docente.sexo_id.desc_sexo }}</td>
+            <td>{{ docente.data_nascimento }}</td>
+            <td>{{ docente.numero_documento }}</td>
+            <td>{{ docente.tipo_documento_id.desc_tipo_doc }}</td>
+            <td>{{ docente.email }}</td>
+            <td>{{ docente.nacionalidade.nome_pais }}</td>
+            <td>{{ docente.titulo_nivel_id.desc_nivel_graduacao }}</td>
+
+            <td>{{ docente.data_titulacao }}</td>
+            <td>{{ docente.area_conhecimento }}</td>
+            <td>{{ docente.titulo_pais_id.nome_pais }}</td>
+            <td>{{ docente.regime_trabalho_id.desc_regime_trabalho }}</td>
+            <td>{{ docente.vinculo_IES.desc_vinclulo_ies }}</td>
+            <td><a href="{% url "docente_view" docente.id %}"><span class="label label-info">ver</span></a></td>
+            <td><a href="{% url "docente_edit" docente.id %}"><span class="label label-warning">alterar</span></a></td>
+            <td><a href="{% url "docente_delete" docente.id %}"><span class="label label-danger">apagar</span></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+        <a href="{% url "docente_new" %}" style="float: left;">Novo</a> 
+
+        <div class="pagination" style="padding-left: 35%;">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; primeiro</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+                {% endif %}
+        
+                <span class="current">
+                    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">próximo</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">último &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+
+</div>
+
+{% endblock %}

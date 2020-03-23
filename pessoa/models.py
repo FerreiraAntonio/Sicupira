@@ -7,7 +7,12 @@ from sicupira import models as SicupiraModel
 ##################################################
 class Pessoa(models.Model):
     nome = models.CharField(max_length=100)
-    sexo = models.CharField(max_length=1, default='M')
+    sexo = models.ForeignKey(SicupiraModel.Sexo,
+                                      on_delete=models.SET_NULL,
+                                      null=True, blank=True,
+                                      related_name='SexoPessoa',
+                                       default=1)
+
     data_nascimento = models.DateField()
     numero_documento = models.CharField(max_length=20)
     tipo_documento = models.IntegerField(default=1)
