@@ -8,9 +8,10 @@
 <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Formulário de Discente</h3>
 
 <div style="width: 90%;margin: auto;">
-    <form method="post">
+    <form method="post" action="url = pessoa.views.new_discente" >
       {% csrf_token %}
-      {{ form|crispy }}      
+      {{ pessoa_form |crispy }}
+      {{ discente_form |crispy }}
       <input type="submit" value="Salvar" class="btn btn-primary" />
     </form>
 </div>

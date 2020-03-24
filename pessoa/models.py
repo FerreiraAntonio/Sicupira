@@ -51,10 +51,11 @@ class Abreviatura(models.Model):
 # OBS: Foi achatada com a classe Matricula Curso
 ##################################################
 class Discente(models.Model):
-    pessoa_id = models.OneToOneField(
+    pessoa = models.OneToOneField(
         Pessoa,
         on_delete=models.CASCADE,
         primary_key=True,
+        related_name='PessoaDiscente'
     )
     curso = models.ForeignKey(SicupiraModel.Curso,
                                  on_delete=models.SET_NULL,
@@ -88,6 +89,7 @@ class Docente(models.Model):
         Pessoa,
         on_delete=models.CASCADE,
         primary_key=True,
+        related_name='PessoaDocente'
     )
     titulo_nivel = models.ForeignKey(SicupiraModel.NivelGraduacao,
                                         on_delete=models.SET_NULL,
@@ -102,7 +104,7 @@ class Docente(models.Model):
                                            on_delete=models.SET_NULL,
                                            null=True, blank=True,
                                            related_name='RegimeTrabalhoDocente')
-    vinclulo_ies = models.ForeignKey(SicupiraModel.VincluloIES,
+    vinculo_ies = models.ForeignKey(SicupiraModel.VincluloIES,
                                         on_delete=models.SET_NULL,
                                         null=True, blank=True,
                                         related_name='VincluloIESDocente')

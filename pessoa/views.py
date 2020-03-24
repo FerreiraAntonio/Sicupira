@@ -1,10 +1,14 @@
+from django.db import transaction
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.template import RequestContext
+from django.template.context_processors import csrf
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 from .models import *
+from .forms import *
 
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -40,21 +44,21 @@ class DiscenteList(ListView):
 
     def get_queryset(self):
         queryset = super(DiscenteList, self).get_queryset()
-        queryset = queryset.order_by("nome_pessoa")
+        #queryset = queryset.order_by("pessoa__nome_pessoa")
 
         if 'nome_pessoa' in self.request.GET:
-            queryset = queryset.filter(nome_pessoa__icontains=self.request.GET['nome_pessoa'])
+            queryset = queryset.filter(pessoa__nome_pessoa__icontains=self.request.GET['nome_pessoa'])
         if 'sexo_id' in self.request.GET:
             queryset = queryset.filter(sexo_id__desc_sexo__icontains=self.request.GET['sexo_id'])
         if 'data_nascimento' in self.request.GET:
-            queryset = queryset.filter(data_nascimento__nome__icontains=self.request.GET['data_nascimento'])
+            queryset = queryset.filter(pessoa__data_nascimento__nome__icontains=self.request.GET['data_nascimento'])
         if 'numero_documento' in self.request.GET:
-            queryset = queryset.filter(numero_documento__icontains=self.request.GET['numero_documento'])
+            queryset = queryset.filter(pessoa__numero_documento__icontains=self.request.GET['numero_documento'])
         if 'tipo_documento_id' in self.request.GET:
             queryset = queryset.filter(
                 tipo_documento_id__desc_tipo_doc__icontains=self.request.GET['tipo_documento_id'])
         if 'email' in self.request.GET:
-            queryset = queryset.filter(email__icontains=self.request.GET['email'])
+            queryset = queryset.filter(pessoa__email__icontains=self.request.GET['email'])
         if 'nacionalidade' in self.request.GET:
             queryset = queryset.filter(nacionalidade__nome_pais__icontains=self.request.GET['nacionalidade'])
         if 'titulo_nivel_id' in self.request.GET:
@@ -114,23 +118,23 @@ class DocenteList(ListView):
 
     def get_queryset(self):
         queryset = super(DocenteList, self).get_queryset()
-        queryset = queryset.order_by("nome_pessoa")
+        #queryset = queryset.order_by("pessoa__nome_pessoa")
 
         if 'nome_pessoa' in self.request.GET:
-            queryset = queryset.filter(nome_pessoa__icontains=self.request.GET['nome_pessoa'])
+            queryset = queryset.filter(pessoa__nome_pessoa__icontains=self.request.GET['nome_pessoa'])
         if 'sexo_id' in self.request.GET:
             queryset = queryset.filter(sexo_id__desc_sexo__icontains=self.request.GET['sexo_id'])
         if 'data_nascimento' in self.request.GET:
-            queryset = queryset.filter(data_nascimento__nome__icontains=self.request.GET['data_nascimento'])
+            queryset = queryset.filter(pessoa__data_nascimento__nome__icontains=self.request.GET['data_nascimento'])
         if 'numero_documento' in self.request.GET:
-            queryset = queryset.filter(numero_documento__icontains=self.request.GET['numero_documento'])
+            queryset = queryset.filter(pessoa__numero_documento__icontains=self.request.GET['numero_documento'])
         if 'tipo_documento_id' in self.request.GET:
             queryset = queryset.filter(
                 tipo_documento_id__desc_tipo_doc__icontains=self.request.GET['tipo_documento_id'])
         if 'email' in self.request.GET:
-            queryset = queryset.filter(email__icontains=self.request.GET['email'])
+            queryset = queryset.filter(pessoa__email__icontains=self.request.GET['email'])
         if 'nacionalidade' in self.request.GET:
-            queryset = queryset.filter(nacionalidade__nome_pais__icontains=self.request.GET['nacionalidade'])
+            queryset = queryset.filter(pessoa__nacionalidade__nome_pais__icontains=self.request.GET['nacionalidade'])
         if 'titulo_nivel_id' in self.request.GET:
             queryset = queryset.filter(
                 titulo_nivel_id__desc_nivel_graduacao__icontains=self.request.GET['titulo_nivel_id'])
@@ -158,9 +162,8 @@ class DocenteView(DetailView):
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DocenteCreate(CreateView):
     model = Docente
-    fields = ['nome_pessoa', 'sexo_id', 'data_nascimento', 'numero_documento', 'tipo_documento_id', 'email',
-              'nacionalidade', 'titulo_nivel_id', 'data_titulacao', 'area_conhecimento', 'titulo_pais_id',
-              'regime_trabalho_id', 'vinculo_IES']
+    fields = ['titulo_nivel', 'data_titulacao', 'titulo_pais',
+              'regime_trabalho', 'vinculo_ies']
     success_url = reverse_lazy('docente_list')
 
 
@@ -168,8 +171,8 @@ class DocenteCreate(CreateView):
 class DocenteUpdate(UpdateView):
     model = Docente
     fields = ['nome_pessoa', 'sexo_id', 'data_nascimento', 'numero_documento', 'tipo_documento_id', 'email',
-              'nacionalidade', 'titulo_nivel_id', 'data_titulacao', 'area_conhecimento', 'titulo_pais_id',
-              'regime_trabalho_id', 'vinculo_IES']
+              'nacionalidade', 'titulo_nivel', 'data_titulacao', 'area_conhecimento', 'titulo_pais_id',
+              'regime_trabalho_id', 'vinculo_ies']
     success_url = reverse_lazy('docente_list')
 
 
@@ -178,6 +181,33 @@ class DocenteDelete(DeleteView):
     model = Docente
     success_url = reverse_lazy('docente_list')
 
+#@method_decorator(login_required(login_url='login'), name='dispatch')
+def new_discente(request):
+    if request.method == 'POST':
+        pessoa_form = PessoaForm(request.POST)
+        discente_form = DiscenteForm(request.POST)
+
+        if pessoa_form.is_valid() and discente_form.is_valid():
+            #transação
+            with transaction.atomic():
+                pessoa = pessoa_form.save()
+                discente = discente_form.save(False)
+
+                discente.pessoa = pessoa
+                discente.save()
+
+            return redirect(reverse("discente_list.html"))
+
+    else:
+        pessoa_form = PessoaForm()
+        discente_form = DiscenteForm()
+
+    args={}
+    args.update(csrf(request))
+    args['pessoa_form'] = pessoa_form
+    args['discente_form'] = discente_form
+
+    return render(request,"pessoa/discente_form.html",args)
 
 ##################################################
 # Fim do Bloco [Docente]
