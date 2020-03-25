@@ -1,5 +1,16 @@
 {% extends 'sicupira/base.html' %}
 
+{% block breadcrumbs %}
+    {{ block.super }} » 
+
+    {% if discente.id > 0 %}
+    <a href="{% url 'discente_edit' docente.id %}">Formulário de Discente</a>
+    {% else %}
+    <a href="{% url 'discente_new' %}">Formulário de Discente</a>
+    {% endif %}
+    
+{% endblock %}
+
 {% load crispy_forms_tags %}
 
 {% block content %}

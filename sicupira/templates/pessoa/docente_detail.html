@@ -1,5 +1,9 @@
 {% extends 'sicupira/base.html' %}
 
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'docente_view' docente.id %}">Detalhes do Docente</a>
+{% endblock %}
+
 {% block content %}
 {% load static %} 
 

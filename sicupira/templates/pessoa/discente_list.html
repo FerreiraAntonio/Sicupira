@@ -1,5 +1,9 @@
 {% extends 'sicupira/base.html' %}
 
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'discente_list' %}">Lista de Discentes</a>
+{% endblock %}
+
 {% block content %}
 {% load static %} 
 
