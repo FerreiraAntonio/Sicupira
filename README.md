@@ -65,7 +65,7 @@ Caso de a carga inicial no banco de dados com as tabelas auxiliares
 
 ```
 
-./manage.py loaddata ./fixtures/nome_do_arquivo.json 
+./manage.py loaddata ./fixtures/db.json 
 
 ```
 
