@@ -34,7 +34,7 @@ class Pessoa(models.Model):
 ##################################################
 class Abreviatura(models.Model):
     desc_abreviatura = models.CharField(max_length=100)
-    flg_principal = models.IntegerField(default=0)
+    flg_principal = models.BooleanField(default=False)
     pessoa = models.ForeignKey(Pessoa,
                                   on_delete=models.CASCADE,
                                   related_name='Pessoa')
@@ -150,10 +150,11 @@ class Orienta(models.Model):
                                     on_delete=models.CASCADE,
                                     related_name='DiscenteOrienta')
     data_orientacao = models.DateField()
-    flg_principal = models.IntegerField(default=0)
+    flg_principal = models.BooleanField(default=False)
 
     def __str__(self):
         return '%s - %s | $d' % (self.Dicente.nome, self.Docente.nome, self.flg_principal)
 
     def get_absolute_url(self):
         return reverse('orienta_edit', kwargs={'pk': self.pk})
+

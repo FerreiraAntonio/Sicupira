@@ -19,11 +19,47 @@
 <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Formulário de Discente</h3>
 
 <div style="width: 90%;margin: auto;">
+
     <form method="post" action="url = pessoa.views.new_discente" >
-      {% csrf_token %}
       {{ pessoa_form |crispy }}
       {{ discente_form |crispy }}
+    <h3>Abreviaturas</h3>
+  <!-- {{ abreviatura_form |crispy }} -->
+   {{ abreviatura_form.management_form }}
+    {{ abreviatura_form.non_form_errors.as_ul }}
+    <table id="formset_{{forloop.counter}}" class="form">
+    {% for form in abreviatura_form.forms %}
+      <!-- <a class="btn btn-info" id="add-item"><i class="fa fa-plus"></i> nova abreviatura</a> -->!
+      {% if forloop.first %}
+         <thead>
+            <tr>
+                {% for field in form.visible_fields %}
+            <th>{{ field.label|capfirst }}</th>
+                {% endfor %}
+             </tr>
+         </thead>
+      {% endif %}
+      <tbody>
+          <tr>
+          {% for field in form.visible_fields %}
+            <td>
+            {% if forloop.first %}
+              {% for hidden in form.hidden_fields %}
+              {{ hidden }}
+              {% endfor %}
+            {% endif %}
+              {{ field.errors.as_ul }}
+              {{ field }}
+            </td>
+          {% endfor %}
+          </tr>
+      </tbody>
+    {% endfor %}
+    </table>
+      <br/>
+
       <input type="submit" value="Salvar" class="btn btn-primary" />
     </form>
 </div>
+
 {% endblock %}

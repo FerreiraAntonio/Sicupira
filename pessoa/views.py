@@ -1,4 +1,5 @@
 from django.db import transaction
+from django.forms import inlineformset_factory
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import RequestContext
@@ -14,24 +15,23 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from pessoa.services import LattesService
 
+@login_required
 def importaxml2(request):
-    if request.user.is_authenticated:
-        if request.method == 'POST' and bool(request.FILES.get('myfile', False)):
-            myfile = request.FILES['myfile']
-            data = myfile.read()
-            #fs = FileSystemStorage()
-            #filename = fs.save(myfile.name, myfile)
-            #uploaded_file_url = fs.url(filename)
+    if request.method == 'POST' and bool(request.FILES.get('myfile', False)):
+        myfile = request.FILES['myfile']
+        data = myfile.read()
+        #fs = FileSystemStorage()
+        #filename = fs.save(myfile.name, myfile)
+        #uploaded_file_url = fs.url(filename)
 
-            obj = LattesService.importXML(data)
-            teste = obj.nome
-            return render(request, 'sicupira/importaxml.html', {
-                'data': data,
-                'obj': teste
-            })
-        return render(request, 'sicupira/importaxml.html', {})
-    else:
-        return redirect('login')
+        obj = LattesService.importXML(data)
+        teste = obj.nome
+        return render(request, 'sicupira/importaxml.html', {
+            'data': data,
+            'obj': teste
+        })
+
+    return render(request, 'sicupira/importaxml.html', {})
 
 ##################################################
 # Inicio do Bloco [Discente]
@@ -100,6 +100,35 @@ class DiscenteUpdate(UpdateView):
 class DiscenteDelete(DeleteView):
     model = Discente
     success_url = reverse_lazy('discente_list')
+
+@login_required
+def new_discente(request):
+    pessoa_form = PessoaForm(request.POST or None)
+    discente_form = DiscenteForm(request.POST or None )
+    abreviatura_form = inlineformset_factory(Pessoa, Abreviatura, form=AbreviaturaForm,extra=1)
+
+    if request.method == 'POST' and pessoa_form.is_valid() and discente_form.is_valid() and abreviatura_form.is_valid():
+        #transação
+        with transaction.atomic():
+            pessoa = pessoa_form.save()
+            discente = discente_form.save(False)
+            abreviatura = abreviatura_form(False)
+
+            discente.pessoa = pessoa
+            discente.save()
+
+            abreviatura.pessoa = pessoa
+            abreviatura.save()
+
+        return redirect(reverse("discente_list.html"))
+
+    args={}
+    args.update(csrf(request))
+    args['pessoa_form'] = pessoa_form
+    args['discente_form'] = discente_form
+    args['abreviatura_form'] = abreviatura_form
+
+    return render(request,"pessoa/discente_form.html",args)
 
 
 ##################################################
@@ -175,39 +204,10 @@ class DocenteUpdate(UpdateView):
               'regime_trabalho_id', 'vinculo_ies']
     success_url = reverse_lazy('docente_list')
 
-
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DocenteDelete(DeleteView):
     model = Docente
     success_url = reverse_lazy('docente_list')
-
-#@method_decorator(login_required(login_url='login'), name='dispatch')
-def new_discente(request):
-    if request.method == 'POST':
-        pessoa_form = PessoaForm(request.POST)
-        discente_form = DiscenteForm(request.POST)
-
-        if pessoa_form.is_valid() and discente_form.is_valid():
-            #transação
-            with transaction.atomic():
-                pessoa = pessoa_form.save()
-                discente = discente_form.save(False)
-
-                discente.pessoa = pessoa
-                discente.save()
-
-            return redirect(reverse("discente_list.html"))
-
-    else:
-        pessoa_form = PessoaForm()
-        discente_form = DiscenteForm()
-
-    args={}
-    args.update(csrf(request))
-    args['pessoa_form'] = pessoa_form
-    args['discente_form'] = discente_form
-
-    return render(request,"pessoa/discente_form.html",args)
 
 ##################################################
 # Fim do Bloco [Docente]
