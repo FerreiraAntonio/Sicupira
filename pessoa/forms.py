@@ -13,7 +13,7 @@ class PessoaForm(ModelForm):
 class DiscenteForm(ModelForm):
     class Meta:
         model = Discente
-        fields = '__all__'
+        exclude = ['pessoa']
 
 
 class DocenteForm(ModelForm):
@@ -26,12 +26,6 @@ class AbreviaturaForm(ModelForm):
     class Meta:
         model = Abreviatura
         fields = '__all__'
-
-    def __init__(self, *args, **kwargs):
-        super(AbreviaturaForm, self).__init__(*args, **kwargs)
-        print(self.fields)
-        #new_choices = [('Sim', 'Não')]
-        #self.fields['flg_principal'].extend(new_choices)
 
 
 

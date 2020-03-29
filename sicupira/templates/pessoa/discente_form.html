@@ -19,13 +19,13 @@
 <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Formulário de Discente</h3>
 
 <div style="width: 90%;margin: auto;">
-
-    <form method="post" action="url = pessoa.views.new_discente" >
+    <form method="post"  >
+      {% csrf_token %}
       {{ pessoa_form |crispy }}
       {{ discente_form |crispy }}
     <h3>Abreviaturas</h3>
-  <!-- {{ abreviatura_form |crispy }} -->
-   {{ abreviatura_form.management_form }}
+      <!-- {{ abreviatura_form |crispy }} -->
+    {{ abreviatura_form.management_form }}
     {{ abreviatura_form.non_form_errors.as_ul }}
     <table id="formset_{{forloop.counter}}" class="form">
     {% for form in abreviatura_form.forms %}

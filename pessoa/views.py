@@ -102,25 +102,38 @@ class DiscenteDelete(DeleteView):
     success_url = reverse_lazy('discente_list')
 
 @login_required
+#def new_discente(request, id=None):
 def new_discente(request):
-    pessoa_form = PessoaForm(request.POST or None)
-    discente_form = DiscenteForm(request.POST or None )
-    abreviatura_form = inlineformset_factory(Pessoa, Abreviatura, form=AbreviaturaForm,extra=1)
+    # if id:
+    #     pessoa = Pessoa.objects.get(pk=id)
+    #     discente =  Discente.objects.get(pk=id)
+    # else:
+    #     pessoa = Pessoa()
+    #     discente = Discente()
 
-    if request.method == 'POST' and pessoa_form.is_valid() and discente_form.is_valid() and abreviatura_form.is_valid():
+    pessoa_form = PessoaForm(request.POST or None)
+    discente_form = DiscenteForm(request.POST or None)
+
+    AbreviaturaFormSet = inlineformset_factory(Pessoa, Abreviatura, form=AbreviaturaForm,extra=1)
+    abreviatura_form = AbreviaturaFormSet(request.POST or None)
+
+    if request.method == 'POST' \
+            and pessoa_form.is_valid() \
+            and discente_form.is_valid() \
+            and abreviatura_form.is_valid():
         #transação
         with transaction.atomic():
             pessoa = pessoa_form.save()
             discente = discente_form.save(False)
-            abreviatura = abreviatura_form(False)
 
             discente.pessoa = pessoa
             discente.save()
 
-            abreviatura.pessoa = pessoa
-            abreviatura.save()
+            abreviatura_form = AbreviaturaFormSet(request.POST, instance=pessoa)
+            abreviatura_form.save()
 
-        return redirect(reverse("discente_list.html"))
+        return render(request, "pessoa/discente_list.html")
+        #return redirect(reverse("pessoa/discente_list.html"))
 
     args={}
     args.update(csrf(request))
