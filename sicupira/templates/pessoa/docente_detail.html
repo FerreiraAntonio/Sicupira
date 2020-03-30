@@ -1,16 +1,16 @@
 {% extends 'sicupira/base.html' %}
 
 {% block breadcrumbs %}
-    {{ block.super }} » <a href="{% url 'docente_view' docente.id %}">Detalhes do Docente</a>
+    {{ block.super }} » <a href="{% url 'docente_view' docente.pessoa.id %}">Detalhes do Docente</a>
 {% endblock %}
 
 {% block content %}
 {% load static %} 
 
 <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Detalhes do Docente</h3>
-    <h4>Nome: {{docente.nome_pessoa}}</h4>
-    Sexo: {{ docente.sexo_id.desc_sexo }}<br/>    
-    Graduação: {{ docente.titulo_nivel_id.desc_nivel_graduacao }}<br/>    
-    Intituição de Ensino: {{ docente.vinculo_IES.desc_vinclulo_ies }}<br/>    
+    <h4>Nome: {{docente.pessoa.nome}}</h4>
+    Sexo: {{ docente.pessoa.sexo.desc_sexo }}<br/>    
+    Graduação: {{ docente.pessoa.titulo_nivel.desc_nivel_graduacao }}<br/>    
+    Intituição de Ensino: {{ docente.pessoa.vinculo_ies.desc_vinculo_ies }}<br/>    
 
 {% endblock %}

@@ -138,16 +138,16 @@ class Docente(models.Model):
                                            on_delete=models.SET_NULL,
                                            null=True, blank=True,
                                            related_name='RegimeTrabalhoDocente')
-    vinculo_ies = models.ForeignKey(SicupiraModel.VincluloIES,
+    vinculo_ies = models.ForeignKey(SicupiraModel.VinculoIES,
                                         on_delete=models.SET_NULL,
                                         null=True, blank=True,
-                                        related_name='VincluloIESDocente')
+                                        related_name='VinculoIESDocente')
 
     def __str__(self):
-        return self.Pessoa.nome
+        return self.pessoa.nome
 
     def get_absolute_url(self):
-        return reverse('docente_edit', kwargs={'pk': self.pk})
+        return reverse('docente_edit', kwargs={'pk': self.pessoa.pk})
 
 
 ##################################################
@@ -191,4 +191,3 @@ class Orienta(models.Model):
 
     def get_absolute_url(self):
         return reverse('orienta_edit', kwargs={'pk': self.pk})
-

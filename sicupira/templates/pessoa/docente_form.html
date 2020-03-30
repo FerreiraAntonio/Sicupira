@@ -3,8 +3,8 @@
 {% block breadcrumbs %}
     {{ block.super }} » 
 
-    {% if docente.id > 0 %}
-    <a href="{% url 'docente_edit' docente.id %}">Formulário de Docente</a>
+    {% if docente.pessoa.id > 0 %}
+    <a href="{% url 'docente_edit' docente.pessoa.id %}">Formulário de Docente</a>
     {% else %}
     <a href="{% url 'docente_new' %}">Formulário de Docente</a>
     {% endif %}

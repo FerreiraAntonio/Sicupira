@@ -21,6 +21,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from pessoa.services import LattesService
 
+
 @login_required
 def importaxml2(request):
     if request.method == 'POST' and bool(request.FILES.get('myfile', False)):
@@ -39,10 +40,12 @@ def importaxml2(request):
 
     return render(request, 'sicupira/importaxml.html', {})
 
+
 ##################################################
 # Inicio do Bloco [Discente]
 # by Black Chan
 ##################################################
+
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DiscenteList(ListView):
     paginate_by = 10
@@ -102,6 +105,7 @@ class DiscenteDelete(DeleteView):
     model = Discente
     success_url = reverse_lazy('discente_list')
 
+
 @login_required
 def new_discente(request):
     # if id:
@@ -114,11 +118,10 @@ def new_discente(request):
     pessoa_form = PessoaForm(request.POST or None)
     discente_form = DiscenteForm(request.POST or None)
     AbreviaturaFormSet = inlineformset_factory(Pessoa, Abreviatura, form=AbreviaturaForm, extra=1)
-    
 
     if request.method == 'POST' and pessoa_form.is_valid() and discente_form.is_valid():
 
-        #transação
+        # transação
         with transaction.atomic():
 
             pessoa = pessoa_form.save()
@@ -132,7 +135,8 @@ def new_discente(request):
             if abreviatura_form.is_valid():
                 abreviatura_form.save()
 
-        return render(request, "pessoa/discente_list.html")
+        #return render(request, "pessoa/discente_list.html")
+        return redirect('discente_list')
 
     abreviatura_form = AbreviaturaFormSet(request.POST or None)
 
@@ -149,12 +153,12 @@ def new_discente(request):
 def edit_discente(request, id=0, template_name='pessoa/discente_form.html'):
     if id > 0:
         discente = get_object_or_404(Discente, pk=id)
-        pessoa =  discente.pessoa
+        pessoa = discente.pessoa
     else:
         discente = Discente()
         pessoa = Pessoa()
 
-    #Preparação dos forms
+    # Preparação dos forms
     pessoa_form = PessoaForm(request.POST or None,instance=pessoa)
     discente_form = DiscenteForm(request.POST or None, instance=discente)
     AbreviaturaFormSet = inlineformset_factory(Pessoa, Abreviatura, form=AbreviaturaForm, extra=1)
@@ -175,7 +179,8 @@ def edit_discente(request, id=0, template_name='pessoa/discente_form.html'):
             if abreviatura_form.is_valid():
                 abreviatura_form.save()
 
-        return render(request, "pessoa/discente_list.html")
+        #return render(request, "pessoa/discente_list.html")
+        return redirect('discente_list')
 
     args = {}
     args.update(csrf(request))
@@ -201,38 +206,34 @@ class DocenteList(ListView):
 
     def get_queryset(self):
         queryset = super(DocenteList, self).get_queryset()
-        #queryset = queryset.order_by("pessoa__nome_pessoa")
+        queryset = queryset.order_by("pessoa__nome")
 
-        if 'nome_pessoa' in self.request.GET:
-            queryset = queryset.filter(pessoa__nome_pessoa__icontains=self.request.GET['nome_pessoa'])
-        if 'sexo_id' in self.request.GET:
-            queryset = queryset.filter(sexo_id__desc_sexo__icontains=self.request.GET['sexo_id'])
+        if 'nome' in self.request.GET:
+            queryset = queryset.filter(pessoa__nome__icontains=self.request.GET['nome'])
+        if 'sexo' in self.request.GET:
+            queryset = queryset.filter(pessoa__sexo__desc_sexo__icontains=self.request.GET['sexo'])
         if 'data_nascimento' in self.request.GET:
-            queryset = queryset.filter(pessoa__data_nascimento__nome__icontains=self.request.GET['data_nascimento'])
+            queryset = queryset.filter(pessoa__data_nascimento__icontains=self.request.GET['data_nascimento'])
         if 'numero_documento' in self.request.GET:
             queryset = queryset.filter(pessoa__numero_documento__icontains=self.request.GET['numero_documento'])
-        if 'tipo_documento_id' in self.request.GET:
-            queryset = queryset.filter(
-                tipo_documento_id__desc_tipo_doc__icontains=self.request.GET['tipo_documento_id'])
+        if 'tipo_documento' in self.request.GET:
+            queryset = queryset.filter(pessoa__tipo_documento__desc_tipo_doc__icontains=self.request.GET['tipo_documento'])
         if 'email' in self.request.GET:
             queryset = queryset.filter(pessoa__email__icontains=self.request.GET['email'])
         if 'nacionalidade' in self.request.GET:
             queryset = queryset.filter(pessoa__nacionalidade__nome_pais__icontains=self.request.GET['nacionalidade'])
-        if 'titulo_nivel_id' in self.request.GET:
-            queryset = queryset.filter(
-                titulo_nivel_id__desc_nivel_graduacao__icontains=self.request.GET['titulo_nivel_id'])
-
+        if 'titulo_nivel' in self.request.GET:
+            queryset = queryset.filter(titulo_nivel__desc_nivel_graduacao__icontains=self.request.GET['titulo_nivel'])
         if 'data_titulacao' in self.request.GET:
             queryset = queryset.filter(data_titulacao__icontains=self.request.GET['data_titulacao'])
         if 'area_conhecimento' in self.request.GET:
             queryset = queryset.filter(area_conhecimento__icontains=self.request.GET['area_conhecimento'])
-        if 'titulo_pais_id' in self.request.GET:
-            queryset = queryset.filter(titulo_pais_id__nome_pais__icontains=self.request.GET['titulo_pais_id'])
-        if 'regime_trabalho_id' in self.request.GET:
-            queryset = queryset.filter(
-                regime_trabalho_id__desc_regime_trabalho__icontains=self.request.GET['regime_trabalho_id'])
-        if 'vinculo_IES' in self.request.GET:
-            queryset = queryset.filter(vinculo_IES__desc_vinclulo_ies__icontains=self.request.GET['vinculo_IES'])
+        if 'titulo_pais' in self.request.GET:
+            queryset = queryset.filter(titulo_pais__nome_pais__icontains=self.request.GET['titulo_pais'])
+        if 'regime_trabalho' in self.request.GET:
+            queryset = queryset.filter(regime_trabalho__desc_regime_trabalho__icontains=self.request.GET['regime_trabalho'])
+        if 'vinculo_ies' in self.request.GET:
+            queryset = queryset.filter(vinculo_ies__desc_vinculo_ies__icontains=self.request.GET['vinculo_ies'])
 
         return queryset
 
@@ -245,18 +246,16 @@ class DocenteView(DetailView):
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DocenteCreate(CreateView):
     model = Docente
-    fields = ['titulo_nivel', 'data_titulacao', 'titulo_pais',
-              'regime_trabalho', 'vinculo_ies']
+    fields = ['pessoa', 'titulo_nivel', 'data_titulacao', 'titulo_pais', 'regime_trabalho', 'vinculo_ies']
     success_url = reverse_lazy('docente_list')
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DocenteUpdate(UpdateView):
     model = Docente
-    fields = ['nome_pessoa', 'sexo_id', 'data_nascimento', 'numero_documento', 'tipo_documento_id', 'email',
-              'nacionalidade', 'titulo_nivel', 'data_titulacao', 'area_conhecimento', 'titulo_pais_id',
-              'regime_trabalho_id', 'vinculo_ies']
+    fields = ['pessoa', 'titulo_nivel', 'data_titulacao', 'titulo_pais', 'regime_trabalho', 'vinculo_ies']
     success_url = reverse_lazy('docente_list')
+
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DocenteDelete(DeleteView):
