@@ -1,6 +1,6 @@
 from django.db import transaction
 from django.forms import inlineformset_factory
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.template.context_processors import csrf
@@ -144,6 +144,46 @@ def new_discente(request):
 
     return render(request, "pessoa/discente_form.html", args)
 
+
+@login_required
+def edit_discente(request, id=0, template_name='pessoa/discente_form.html'):
+    if id > 0:
+        discente = get_object_or_404(Discente, pk=id)
+        pessoa =  discente.pessoa
+    else:
+        discente = Discente()
+        pessoa = Pessoa()
+
+    #Preparação dos forms
+    pessoa_form = PessoaForm(request.POST or None,instance=pessoa)
+    discente_form = DiscenteForm(request.POST or None, instance=discente)
+    AbreviaturaFormSet = inlineformset_factory(Pessoa, Abreviatura, form=AbreviaturaForm, extra=1)
+    abreviatura_form = AbreviaturaFormSet(instance=pessoa)
+
+    if request.method == 'POST' and pessoa_form.is_valid() and discente_form.is_valid():
+        # transação
+        with transaction.atomic():
+
+            pessoa = pessoa_form.save()
+            discente = discente_form.save(False)
+
+            discente.pessoa = pessoa
+            discente.save()
+
+            abreviatura_form = AbreviaturaFormSet(request.POST, instance=pessoa)
+            print(abreviatura_form.is_valid())
+            if abreviatura_form.is_valid():
+                abreviatura_form.save()
+
+        return render(request, "pessoa/discente_list.html")
+
+    args = {}
+    args.update(csrf(request))
+    args['pessoa_form'] = pessoa_form
+    args['discente_form'] = discente_form
+    args['abreviatura_form'] = abreviatura_form
+
+    return render(request, template_name, args)
 
 ##################################################
 # Fim do Bloco [Discente]
