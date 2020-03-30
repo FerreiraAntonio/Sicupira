@@ -17,7 +17,7 @@ class DiscenteForm(ModelForm):
 class DocenteForm(ModelForm):
     class Meta:
         model = Docente
-        fields = '__all__'
+        exclude = ['pessoa']
 
 
 class AbreviaturaForm(ModelForm):

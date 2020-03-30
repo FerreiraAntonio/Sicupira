@@ -105,52 +105,8 @@ class DiscenteDelete(DeleteView):
     model = Discente
     success_url = reverse_lazy('discente_list')
 
-
 @login_required
-def new_discente(request):
-    # if id:
-    #     pessoa = Pessoa.objects.get(pk=id)
-    #     discente =  Discente.objects.get(pk=id)
-    # else:
-    #     pessoa = Pessoa()
-    #     discente = Discente()
-
-    pessoa_form = PessoaForm(request.POST or None)
-    discente_form = DiscenteForm(request.POST or None)
-    AbreviaturaFormSet = inlineformset_factory(Pessoa, Abreviatura, form=AbreviaturaForm, extra=1)
-
-    if request.method == 'POST' and pessoa_form.is_valid() and discente_form.is_valid():
-
-        # transação
-        with transaction.atomic():
-
-            pessoa = pessoa_form.save()
-            discente = discente_form.save(False)
-
-            discente.pessoa = pessoa
-            discente.save()
-
-            abreviatura_form = AbreviaturaFormSet(request.POST, instance=pessoa)
-
-            if abreviatura_form.is_valid():
-                abreviatura_form.save()
-
-        #return render(request, "pessoa/discente_list.html")
-        return redirect('discente_list')
-
-    abreviatura_form = AbreviaturaFormSet(request.POST or None)
-
-    args = {}
-    args.update(csrf(request))
-    args['pessoa_form'] = pessoa_form
-    args['discente_form'] = discente_form
-    args['abreviatura_form'] = abreviatura_form
-
-    return render(request, "pessoa/discente_form.html", args)
-
-
-@login_required
-def edit_discente(request, id=0, template_name='pessoa/discente_form.html'):
+def save_discente(request, id=0, template_name='pessoa/discente_form.html'):
     if id > 0:
         discente = get_object_or_404(Discente, pk=id)
         pessoa = discente.pessoa
@@ -261,6 +217,46 @@ class DocenteUpdate(UpdateView):
 class DocenteDelete(DeleteView):
     model = Docente
     success_url = reverse_lazy('docente_list')
+
+@login_required
+def save_docente(request, id=0, template_name='pessoa/docente_form.html'):
+    if id > 0:
+        docente = get_object_or_404(Docente, pk=id)
+        pessoa = docente.pessoa
+    else:
+        docente = Docente()
+        pessoa = Pessoa()
+
+    # Preparação dos forms
+    pessoa_form = PessoaForm(request.POST or None,instance=pessoa)
+    docente_form = DocenteForm(request.POST or None, instance=docente)
+    AbreviaturaFormSet = inlineformset_factory(Pessoa, Abreviatura, form=AbreviaturaForm, extra=1)
+    abreviatura_form = AbreviaturaFormSet(instance=pessoa)
+
+    if request.method == 'POST' and pessoa_form.is_valid() and docente_form.is_valid():
+        # transação
+        with transaction.atomic():
+
+            pessoa = pessoa_form.save()
+            docente = docente_form.save(False)
+
+            docente.pessoa = pessoa
+            docente.save()
+
+            abreviatura_form = AbreviaturaFormSet(request.POST, instance=pessoa)
+            print(abreviatura_form.is_valid())
+            if abreviatura_form.is_valid():
+                abreviatura_form.save()
+
+        return redirect('docente_list')
+
+    args = {}
+    args.update(csrf(request))
+    args['pessoa_form'] = pessoa_form
+    args['docente_form'] = docente_form
+    args['abreviatura_form'] = abreviatura_form
+
+    return render(request, template_name, args)
 
 ##################################################
 # Fim do Bloco [Docente]

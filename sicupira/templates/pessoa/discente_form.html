@@ -24,8 +24,7 @@
       {{ pessoa_form |crispy }}
       {{ discente_form |crispy }}
     <h3>Abreviaturas</h3>
-      <!-- {{ abreviatura_form |crispy }} -->
-      {{ abreviatura_form.management_form }}
+    {{ abreviatura_form.management_form }}
     {{ abreviatura_form.non_form_errors.as_ul }}
     <table id="formset_{{forloop.counter}}" class="form">
     {% for form in abreviatura_form.forms %}
@@ -34,7 +33,7 @@
          <thead>
             <tr>
                 {% for field in form.visible_fields %}
-            <th>{{ field.label|capfirst }}</th>
+            <th style="width:200px">{{ field.label|capfirst }}</th>
                 {% endfor %}
              </tr>
          </thead>
@@ -57,8 +56,7 @@
     {% endfor %}
     </table>
       <br/>
-
-      <input type="submit" value="Salvar" class="btn btn-primary" />
+        {% include 'common/form_button.html' %}
     </form>
 </div>
 

@@ -2,43 +2,12 @@ from django.db import models
 from django.urls import reverse
 from sicupira import models as SicupiraModel
 
-
-#######################
-# CODE SMELL  :-)  Não sei importar de sicupira models.py
-#######################
-class CaseInsensitiveFieldMixin:
-
-    LOOKUP_CONVERSIONS = {
-        'exact': 'iexact',
-        'contains': 'icontains',
-        'startswith': 'istartswith',
-        'endswith': 'iendswith',
-        'regex': 'iregex',
-    }
-
-    def get_lookup(self, lookup_name):
-        converted = self.LOOKUP_CONVERSIONS.get(lookup_name, lookup_name)
-        return super().get_lookup(converted)
-
-
-class CICharField(CaseInsensitiveFieldMixin, models.CharField):
-    pass
-
-
-class CIEmailField(CaseInsensitiveFieldMixin, models.EmailField):
-    pass
-
-
-class CITextField(CaseInsensitiveFieldMixin, models.TextField):
-    pass
-
-
 ##################################################
 # Inicio do Bloco [Pessoa]
 ##################################################
 
 class Pessoa(models.Model):
-    nome = CICharField(max_length=100)
+    nome =  SicupiraModel.CICharField(max_length=100)
     sexo = models.ForeignKey(SicupiraModel.Sexo,
                                       on_delete=models.SET_NULL,
                                       null=True, blank=True,
@@ -53,7 +22,7 @@ class Pessoa(models.Model):
                                       related_name='TipoDoc',
                                        default=1)
 
-    email = CIEmailField(null=True, blank=True)
+    email = SicupiraModel.CIEmailField(null=True, blank=True)
     nacionalidade = models.ForeignKey(SicupiraModel.Pais,
                                       on_delete=models.SET_NULL,
                                       null=True, blank=True,
@@ -70,7 +39,7 @@ class Pessoa(models.Model):
 # Inicio do Bloco [Abreviatura]
 ##################################################
 class Abreviatura(models.Model):
-    desc_abreviatura = CICharField(max_length=100)
+    desc_abreviatura = SicupiraModel.CICharField(max_length=100)
     flg_principal = models.BooleanField(default=False)
     pessoa = models.ForeignKey(Pessoa,
                                   on_delete=models.CASCADE,
