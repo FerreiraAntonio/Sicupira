@@ -1,0 +1,17 @@
+{% extends 'sicupira/base.html' %}
+
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'docente_delete' docente.pessoa.id %}">Apagar Docente</a>
+{% endblock %}
+
+{% block content %}
+{% load static %} 
+
+    <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Apaga Docente</h3>
+    <form method="post">{% csrf_token %}
+        Voce realmente quer apagar "{{ docente.pessoa.nome }}" ?
+        <br/>
+        {% include 'common/delete_button.html' %}
+    </form>
+
+{% endblock %}

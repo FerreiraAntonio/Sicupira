@@ -1,0 +1,3688 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$ZGz7GemUvS1m$2/EcLQg28H1LMwAG4FFE2mQm+3i2BDiuZTvCyJTARBA=",
+            "last_login": "2020-03-29T16:10:29.204Z",
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "Antonio",
+            "last_name": "Horta",
+            "email": "antonio@horta.net.br",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2020-02-27T23:21:52Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "0699k51j56e8xjhhzaln4lbqqqbjebpe",
+        "fields": {
+            "session_data": "YjMyZTQ0NzlkNzAyMzczMDhlMjA2MTUwZDZkYzk1NTg4MTEwZjRlNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiM2EzZWQ1YjQ4NTViY2QxY2FkZWU3NDA1YTk1ZDJhODI1MjU4NjdhNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-29T17:00:57.619Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "0nv3971gjonj9f67rqieoegl1r4nz6de",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:42:10.725Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "0w2o3p9chwqu9exyeunhbp79q3e3ud18",
+        "fields": {
+            "session_data": "ZTAzN2ZhNDk3ZWQ4NDA0OTFmYjQxYTEyYjI4NGZmYWNhZGVjMGZmMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-04-09T23:42:12.206Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "0zgxtth3mtmibvre7z3qd9wlymqdrwkx",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:40:13.202Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "1lim0eaoll773xg5cah2s8ms444czwwm",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:59:25.001Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "1qmg4hga0j7ep66wy4u41ulcv0dpbatu",
+        "fields": {
+            "session_data": "ZTAzN2ZhNDk3ZWQ4NDA0OTFmYjQxYTEyYjI4NGZmYWNhZGVjMGZmMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-22T15:39:47.025Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "2qbjkuticbms0lp0uupictzc1c4b8w5b",
+        "fields": {
+            "session_data": "YjMyZTQ0NzlkNzAyMzczMDhlMjA2MTUwZDZkYzk1NTg4MTEwZjRlNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiM2EzZWQ1YjQ4NTViY2QxY2FkZWU3NDA1YTk1ZDJhODI1MjU4NjdhNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-22T18:22:18.007Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "2vhd3kk9ejfaljfzeeipq8d4kr33v014",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-12T15:46:33.967Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "3b73ergd87cs7dcfar2ikxkuscfn8a9s",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:12:42.134Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "3zvfszyml46wf3de495mxi8msz69zpft",
+        "fields": {
+            "session_data": "YjMyZTQ0NzlkNzAyMzczMDhlMjA2MTUwZDZkYzk1NTg4MTEwZjRlNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiM2EzZWQ1YjQ4NTViY2QxY2FkZWU3NDA1YTk1ZDJhODI1MjU4NjdhNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-23T17:02:09.361Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "4ltp1j985013ox0i7es32plnfs6ir2gp",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-12T15:39:47.886Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "4zvtwlnejn0p9yvliv5nwijr1cuqlses",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:18:31.805Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "584oa6vje9bql6wl934f0u4sg87c16v7",
+        "fields": {
+            "session_data": "ZTM3YjI0ZjFlOTlhM2FjYzA1MGMzMjdiODc0OTVhMDVlMmE1Yjc5Nzp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+            "expire_date": "2020-03-19T04:58:58.695Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "6o7gc7n4scgyd0cqbfenhjgwl4xmusvl",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:58:10.609Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "7flhnd8kula8pfbvaonj42y16osnzhlq",
+        "fields": {
+            "session_data": "YjMyZTQ0NzlkNzAyMzczMDhlMjA2MTUwZDZkYzk1NTg4MTEwZjRlNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiM2EzZWQ1YjQ4NTViY2QxY2FkZWU3NDA1YTk1ZDJhODI1MjU4NjdhNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-23T13:48:04.955Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "83qkn4ghekb72xelkhvmuwg14bteo8bc",
+        "fields": {
+            "session_data": "YTY1ODllMGZmYmNiNDBmMmQzZjY1MzgyMTA2ODgxZGIzNGIyZmE1ZTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-03-30T20:59:59.711Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "881fn1zepqpbsu8780dqhvwalwzwzgw9",
+        "fields": {
+            "session_data": "ZTM3YjI0ZjFlOTlhM2FjYzA1MGMzMjdiODc0OTVhMDVlMmE1Yjc5Nzp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+            "expire_date": "2020-03-19T04:57:13.398Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "8b6fjwbr2j3yy33ojnhch3qcabqbfiw3",
+        "fields": {
+            "session_data": "ZTM3YjI0ZjFlOTlhM2FjYzA1MGMzMjdiODc0OTVhMDVlMmE1Yjc5Nzp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+            "expire_date": "2020-04-01T23:25:03.231Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "8ozwz8iu9jx9w7ygi3hpiuz9djqgqi1a",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:33:06.449Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "9v7tslxidwtxaevdl2addixbwkmnvrup",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:37:03.105Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "bbkfv4s3kg8skqxqijq992hlc0htc65c",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T12:00:13.471Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "bj7uc1j75flji9dimli451ukixplx75x",
+        "fields": {
+            "session_data": "YjMyZTQ0NzlkNzAyMzczMDhlMjA2MTUwZDZkYzk1NTg4MTEwZjRlNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiM2EzZWQ1YjQ4NTViY2QxY2FkZWU3NDA1YTk1ZDJhODI1MjU4NjdhNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-13T00:45:52.782Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "bmksiivn2luerlc3nw6ir2hr1zs20l7c",
+        "fields": {
+            "session_data": "ZTM3YjI0ZjFlOTlhM2FjYzA1MGMzMjdiODc0OTVhMDVlMmE1Yjc5Nzp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+            "expire_date": "2020-04-02T00:27:38.929Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "bzfb6dvczcftn1sy5c0dbdoj4xy3svyk",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-12T13:44:56.270Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "ct5lx9tfew2of4xtx2p82b8oo0tmn3v9",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:53:54.573Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "czjya6t0rbaofl8v6suqatrajoi7nbzi",
+        "fields": {
+            "session_data": "ZTAzN2ZhNDk3ZWQ4NDA0OTFmYjQxYTEyYjI4NGZmYWNhZGVjMGZmMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-04-12T04:47:45.648Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "da1htczdg2p7rhpne2a5r38pxn3lb5y3",
+        "fields": {
+            "session_data": "ZTM3YjI0ZjFlOTlhM2FjYzA1MGMzMjdiODc0OTVhMDVlMmE1Yjc5Nzp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+            "expire_date": "2020-03-19T04:57:29.207Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "dcd2wvxay0f2bmn923i8y3ks7thc65dk",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-03-24T13:44:52.752Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "de95e5inz176xcyzpr32xfos4teyhr9o",
+        "fields": {
+            "session_data": "YTY1ODllMGZmYmNiNDBmMmQzZjY1MzgyMTA2ODgxZGIzNGIyZmE1ZTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-03-29T20:51:31.783Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "dgrpq2ia6mvmxq56sgb01xy2wi6t0n5p",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-12T14:12:45.790Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "ebx5tkwfhcbc6y1pvb40uhjum5iey0mp",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:14:57.557Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "em3l16i24ife999kyj9qg155m2v6v5rp",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:16:53.719Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "erx47wte5pxh0lj5tx4qsouod4zetw0e",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:17:16.034Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "g012pgxwca7pc3pmnp7s0b5jvfzjjpfn",
+        "fields": {
+            "session_data": "YjMyZTQ0NzlkNzAyMzczMDhlMjA2MTUwZDZkYzk1NTg4MTEwZjRlNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiM2EzZWQ1YjQ4NTViY2QxY2FkZWU3NDA1YTk1ZDJhODI1MjU4NjdhNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-29T00:48:29.720Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "g2snam6k9gp8rzir5chcw9zt0cfikx1y",
+        "fields": {
+            "session_data": "YTY1ODllMGZmYmNiNDBmMmQzZjY1MzgyMTA2ODgxZGIzNGIyZmE1ZTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-03-30T22:47:17.416Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "gcn0d6zw79wh5gxxpau9m23yytpv38xj",
+        "fields": {
+            "session_data": "YjMyZTQ0NzlkNzAyMzczMDhlMjA2MTUwZDZkYzk1NTg4MTEwZjRlNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiM2EzZWQ1YjQ4NTViY2QxY2FkZWU3NDA1YTk1ZDJhODI1MjU4NjdhNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-13T00:36:01.630Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "hvo5rq4sxum9tnjj0urcdhxqx1k0xsz1",
+        "fields": {
+            "session_data": "ZTAzN2ZhNDk3ZWQ4NDA0OTFmYjQxYTEyYjI4NGZmYWNhZGVjMGZmMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-15T22:24:40.499Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "i4h4u31dorzqx42n4apddmskoqr70igg",
+        "fields": {
+            "session_data": "ZTAzN2ZhNDk3ZWQ4NDA0OTFmYjQxYTEyYjI4NGZmYWNhZGVjMGZmMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-22T19:03:53.716Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "ivfz9qdbm4eoolq0ywhj7nmi9b6h4dz4",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:31:43.425Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "j0icjndk9kwlpbjaqnq34uc6t5i47ao1",
+        "fields": {
+            "session_data": "ZTAzN2ZhNDk3ZWQ4NDA0OTFmYjQxYTEyYjI4NGZmYWNhZGVjMGZmMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-22T20:23:41.204Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "jeudq3h21xr148mortgnk8bwgsmq7gjv",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:37:36.732Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "jhid5fcr0uaettcie7uhiovnr0hagoyp",
+        "fields": {
+            "session_data": "YTY1ODllMGZmYmNiNDBmMmQzZjY1MzgyMTA2ODgxZGIzNGIyZmE1ZTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-03-30T22:26:01.970Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "js7q7zfvlbbx4gz8vh8tinzrzmf3770y",
+        "fields": {
+            "session_data": "NWRiMDgyZTc4NDY5MWYxNTcwNDNiZDUxNDhmMTM4M2UzN2QwYTc4ZTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiM2EzZWQ1YjQ4NTViY2QxY2FkZWU3NDA1YTk1ZDJhODI1MjU4NjdhNCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+            "expire_date": "2020-03-26T05:40:15.634Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "kkgrl2w5okietdcwv65fpbid6ui2v2xc",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:18:51.038Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "l1ws6cd9fb4hyu6xdz5tj1p9m6dsout8",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-12T15:29:59.450Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "l56kcczhhffx0ofdpq3pr7g2h675zni5",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:32:39.318Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "lhr7jzmvigqcmbqisiq657qiqmkkgv08",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-03-24T12:41:54.176Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "li2leznewgzndo5s4xafa470rcio8xcx",
+        "fields": {
+            "session_data": "NWRiMDgyZTc4NDY5MWYxNTcwNDNiZDUxNDhmMTM4M2UzN2QwYTc4ZTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiM2EzZWQ1YjQ4NTViY2QxY2FkZWU3NDA1YTk1ZDJhODI1MjU4NjdhNCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+            "expire_date": "2020-03-24T00:35:09.088Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "m6l7d8x22d9fnrqf3gmg1xxk42chhenh",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:30:26.632Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "mvlthp9ifo0v6o1mk2t1h6zly67gte2n",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:22:41.059Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "nhhvaecmv3dk2wmqza39b45srgwkwtxl",
+        "fields": {
+            "session_data": "ZTAzN2ZhNDk3ZWQ4NDA0OTFmYjQxYTEyYjI4NGZmYWNhZGVjMGZmMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-29T23:00:21.716Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "nr3ygchft2r0zfig5f6b2pi8iwbg8uhs",
+        "fields": {
+            "session_data": "YjMyZTQ0NzlkNzAyMzczMDhlMjA2MTUwZDZkYzk1NTg4MTEwZjRlNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiM2EzZWQ1YjQ4NTViY2QxY2FkZWU3NDA1YTk1ZDJhODI1MjU4NjdhNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-13T00:54:27.208Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "o1cce5f8m75hvilpgha2qz3zxjwy4ul1",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:48:39.790Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "oevmw3hp3rouqktb2jit8m2u79txd5lo",
+        "fields": {
+            "session_data": "ZTAzN2ZhNDk3ZWQ4NDA0OTFmYjQxYTEyYjI4NGZmYWNhZGVjMGZmMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-22T18:29:43.691Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "qh982j3dtldjb5qkfutevbmw8s001c5e",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:49:31.815Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "r0js9uhr6u33nbbzv524qwexkt68ppwb",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-12T15:48:46.659Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "r3cyvk8mvnpwrsygkvw8c2vmdf426cgn",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-12T15:28:23.028Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "rk22zm088anp2zh36nsnf955tb4nzoei",
+        "fields": {
+            "session_data": "ZTM3YjI0ZjFlOTlhM2FjYzA1MGMzMjdiODc0OTVhMDVlMmE1Yjc5Nzp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+            "expire_date": "2020-03-17T20:53:31.613Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "rntqnmsyfpiprud0by9i8wx2paozusaq",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-12T14:30:01.042Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "rpcer0dcjtocicbsho8ipcvh0ujquy2o",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-12T15:45:36.265Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "sgt12g9gtr6bhdhf3xvuslkdn7zhlasv",
+        "fields": {
+            "session_data": "ZTM3YjI0ZjFlOTlhM2FjYzA1MGMzMjdiODc0OTVhMDVlMmE1Yjc5Nzp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+            "expire_date": "2020-03-29T13:37:30.498Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "snb3jklaf1nzqw401j0i67grx5ycu2i8",
+        "fields": {
+            "session_data": "ZTAzN2ZhNDk3ZWQ4NDA0OTFmYjQxYTEyYjI4NGZmYWNhZGVjMGZmMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-22T20:21:41.902Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "ta4kh1l6r0znc5liiqp8goj81k7qh0jk",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:31:21.730Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "ticljhcs47uvkduak1irbqo00xqmuqy2",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-12T16:09:05.106Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "u347va4yrtve5avpqhr51xerj3s6nmlw",
+        "fields": {
+            "session_data": "ZTAzN2ZhNDk3ZWQ4NDA0OTFmYjQxYTEyYjI4NGZmYWNhZGVjMGZmMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-29T23:04:59.776Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "u62sf1t9r6p7hivf5viv9ctfd23qrolc",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-12T16:10:29.229Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "vfge67kl3h08kh93pdlgjvtqulmiikjc",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:10:04.218Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "vgqxljsreg6gy8a28fewqqc2kfa6b2fc",
+        "fields": {
+            "session_data": "ZTAzN2ZhNDk3ZWQ4NDA0OTFmYjQxYTEyYjI4NGZmYWNhZGVjMGZmMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-22T19:22:10.923Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "wl5xmzdv2fq7z9ehc7agrelo2ur5b55p",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:46:05.631Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "wq2e62y22ohx5qa6i1vwcqf9s2yawlh6",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:23:54.814Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "xcot19dczig9pw6qt9ugjp6l3apfgb7g",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-12T15:44:35.754Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "yprc05hkedat3ux3y3ka2yludfzf4xd9",
+        "fields": {
+            "session_data": "ZTAzN2ZhNDk3ZWQ4NDA0OTFmYjQxYTEyYjI4NGZmYWNhZGVjMGZmMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-04-09T23:27:52.993Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "z31kjagozslcwz2xh9grtchu7ny5a3pd",
+        "fields": {
+            "session_data": "YjMyZTQ0NzlkNzAyMzczMDhlMjA2MTUwZDZkYzk1NTg4MTEwZjRlNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiM2EzZWQ1YjQ4NTViY2QxY2FkZWU3NDA1YTk1ZDJhODI1MjU4NjdhNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-23T13:48:44.786Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "z513v08dcq9s3e6f9zs7jgdtks4hlm4r",
+        "fields": {
+            "session_data": "YjMyZTQ0NzlkNzAyMzczMDhlMjA2MTUwZDZkYzk1NTg4MTEwZjRlNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiM2EzZWQ1YjQ4NTViY2QxY2FkZWU3NDA1YTk1ZDJhODI1MjU4NjdhNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-23T10:29:53.341Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "z884of8nh17462ifmpf8dskj5qjr02fs",
+        "fields": {
+            "session_data": "YjMyZTQ0NzlkNzAyMzczMDhlMjA2MTUwZDZkYzk1NTg4MTEwZjRlNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiM2EzZWQ1YjQ4NTViY2QxY2FkZWU3NDA1YTk1ZDJhODI1MjU4NjdhNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-13T02:55:44.092Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "zc6b018f4ztg0ct6vpb3lavf2ip4sbej",
+        "fields": {
+            "session_data": "ZTM3YjI0ZjFlOTlhM2FjYzA1MGMzMjdiODc0OTVhMDVlMmE1Yjc5Nzp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+            "expire_date": "2020-03-19T00:31:00.072Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "ziw1bj5f0rc8vn4mhxhkpvvu5mp61916",
+        "fields": {
+            "session_data": "ZTAzN2ZhNDk3ZWQ4NDA0OTFmYjQxYTEyYjI4NGZmYWNhZGVjMGZmMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+            "expire_date": "2020-03-22T18:35:40.424Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "zqkpka2o0x5ylo6zihf26vlisoewplxj",
+        "fields": {
+            "session_data": "ZGY4MzVjYzBhYWI2YTc5OGY5NzFhYzVlOTQ5NjU0MmFlMWRlOTdkZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzYTNlZDViNDg1NWJjZDFjYWRlZTc0MDVhOTVkMmE4MjUyNTg2N2E0In0=",
+            "expire_date": "2020-04-06T11:19:33.139Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "zv6yv52ep15wwm9wxajx7r7qqzq10zry",
+        "fields": {
+            "session_data": "ZTM3YjI0ZjFlOTlhM2FjYzA1MGMzMjdiODc0OTVhMDVlMmE1Yjc5Nzp7Il9hdXRoX3VzZXJfaGFzaCI6IjNhM2VkNWI0ODU1YmNkMWNhZGVlNzQwNWE5NWQyYTgyNTI1ODY3YTQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+            "expire_date": "2020-04-02T00:30:12.338Z"
+        }
+    },
+    {
+        "model": "sicupira.pais",
+        "pk": 1,
+        "fields": {
+            "nome_pais": "Brasil",
+            "codigo_iso": "BR",
+            "ddd": 55
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 1,
+        "fields": {
+            "nome": "Rio de Janeiro",
+            "sigla": "RJ",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 2,
+        "fields": {
+            "nome": "Rondonia",
+            "sigla": "RO",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 3,
+        "fields": {
+            "nome": "Acre",
+            "sigla": "AC",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 4,
+        "fields": {
+            "nome": "Amazonas",
+            "sigla": "AM",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 5,
+        "fields": {
+            "nome": "Roraima",
+            "sigla": "RR",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 6,
+        "fields": {
+            "nome": "Para",
+            "sigla": "PA",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 7,
+        "fields": {
+            "nome": "Amapa",
+            "sigla": "AP",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 8,
+        "fields": {
+            "nome": "Tocantins",
+            "sigla": "TO",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 9,
+        "fields": {
+            "nome": "Maranhao",
+            "sigla": "MA",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 10,
+        "fields": {
+            "nome": "Piaui",
+            "sigla": "PI",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 11,
+        "fields": {
+            "nome": "Ceara",
+            "sigla": "CE",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 12,
+        "fields": {
+            "nome": "Rio Grande do Norte",
+            "sigla": "RN",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 13,
+        "fields": {
+            "nome": "Paraiba",
+            "sigla": "PB",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 14,
+        "fields": {
+            "nome": "Pernambuco",
+            "sigla": "PE",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 15,
+        "fields": {
+            "nome": "Alagoas",
+            "sigla": "AL",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 16,
+        "fields": {
+            "nome": "Sergipe",
+            "sigla": "SE",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 17,
+        "fields": {
+            "nome": "Bahia",
+            "sigla": "BA",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 18,
+        "fields": {
+            "nome": "Minas Gerais",
+            "sigla": "MG",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 19,
+        "fields": {
+            "nome": "Espirito Santo",
+            "sigla": "ES",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 20,
+        "fields": {
+            "nome": "Sao Paulo",
+            "sigla": "SP",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 21,
+        "fields": {
+            "nome": "Parana",
+            "sigla": "PR",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 22,
+        "fields": {
+            "nome": "Santa Catarina",
+            "sigla": "SC",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 23,
+        "fields": {
+            "nome": "Rio Grande do Sul",
+            "sigla": "RS",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 24,
+        "fields": {
+            "nome": "Mato Grosso do Sul",
+            "sigla": "MS",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 25,
+        "fields": {
+            "nome": "Mato Grosso",
+            "sigla": "MT",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 26,
+        "fields": {
+            "nome": "Goias",
+            "sigla": "GO",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.estado",
+        "pk": 27,
+        "fields": {
+            "nome": "Distrito Federal",
+            "sigla": "DF",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.regiao",
+        "pk": 1,
+        "fields": {
+            "desc_regiao": "SUDESTE",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.regiao",
+        "pk": 2,
+        "fields": {
+            "desc_regiao": "CENTRO-OESTE",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.regiao",
+        "pk": 3,
+        "fields": {
+            "desc_regiao": "SUL",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.regiao",
+        "pk": 4,
+        "fields": {
+            "desc_regiao": "NORTE",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.regiao",
+        "pk": 5,
+        "fields": {
+            "desc_regiao": "NORDESTE",
+            "pais_id": 1
+        }
+    },
+    {
+        "model": "sicupira.tipodocumento",
+        "pk": 1,
+        "fields": {
+            "desc_tipo_doc": "IDENTIDADE"
+        }
+    },
+    {
+        "model": "sicupira.tipodocumento",
+        "pk": 2,
+        "fields": {
+            "desc_tipo_doc": "CPF"
+        }
+    },
+    {
+        "model": "sicupira.tipodocumento",
+        "pk": 3,
+        "fields": {
+            "desc_tipo_doc": "PASSAPORTE"
+        }
+    },
+    {
+        "model": "sicupira.areaavaliacao",
+        "pk": 1,
+        "fields": {
+            "area_avaliacao": "CI\u00caNCIA DA COMPUTA\u00c7\u00c3O"
+        }
+    },
+    {
+        "model": "sicupira.areaavaliacao",
+        "pk": 2,
+        "fields": {
+            "area_avaliacao": "QU\u00cdMICA"
+        }
+    },
+    {
+        "model": "sicupira.areaavaliacao",
+        "pk": 3,
+        "fields": {
+            "area_avaliacao": "ENGENHARIAS II"
+        }
+    },
+    {
+        "model": "sicupira.areaavaliacao",
+        "pk": 4,
+        "fields": {
+            "area_avaliacao": "ENGENHARIAS III"
+        }
+    },
+    {
+        "model": "sicupira.areaavaliacao",
+        "pk": 5,
+        "fields": {
+            "area_avaliacao": "ENGENHARIAS IV"
+        }
+    },
+    {
+        "model": "sicupira.areaavaliacao",
+        "pk": 6,
+        "fields": {
+            "area_avaliacao": "ENGENHARIAS I"
+        }
+    },
+    {
+        "model": "sicupira.areaavaliacao",
+        "pk": 7,
+        "fields": {
+            "area_avaliacao": "INTERDISCIPLINAR"
+        }
+    },
+    {
+        "model": "sicupira.areabasica",
+        "pk": 1,
+        "fields": {
+            "desc_area_basica": "ENGENHARIA DE MATERIAIS E METAL\u00daRGICA"
+        }
+    },
+    {
+        "model": "sicupira.areabasica",
+        "pk": 2,
+        "fields": {
+            "desc_area_basica": "ENGENHARIA/TECNOLOGIA/GEST\u00c3O"
+        }
+    },
+    {
+        "model": "sicupira.areabasica",
+        "pk": 3,
+        "fields": {
+            "desc_area_basica": "ENGENHARIA DE TRANSPORTES"
+        }
+    },
+    {
+        "model": "sicupira.areabasica",
+        "pk": 4,
+        "fields": {
+            "desc_area_basica": "ENGENHARIA EL\u00c9TRICA"
+        }
+    },
+    {
+        "model": "sicupira.areabasica",
+        "pk": 5,
+        "fields": {
+            "desc_area_basica": "ENGENHARIA MEC\u00c2NICA"
+        }
+    },
+    {
+        "model": "sicupira.areabasica",
+        "pk": 6,
+        "fields": {
+            "desc_area_basica": "ENGENHARIA NUCLEAR"
+        }
+    },
+    {
+        "model": "sicupira.areabasica",
+        "pk": 7,
+        "fields": {
+            "desc_area_basica": "QU\u00cdMICA"
+        }
+    },
+    {
+        "model": "sicupira.areabasica",
+        "pk": 8,
+        "fields": {
+            "desc_area_basica": "CI\u00caNCIA DA COMPUTA\u00c7\u00c3O"
+        }
+    },
+    {
+        "model": "sicupira.instituicao",
+        "pk": 1,
+        "fields": {
+            "nome": "INSTITUTO MILITAR DE ENGENHARIA (IME)",
+            "codigo_cnpq": null
+        }
+    },
+    {
+        "model": "sicupira.instituicao",
+        "pk": 2,
+        "fields": {
+            "nome": "UNIVERSIDADE FEDERAL DO RIO DE JANEIRO (UFRJ)",
+            "codigo_cnpq": null
+        }
+    },
+    {
+        "model": "sicupira.nivelgraduacao",
+        "pk": 1,
+        "fields": {
+            "desc_nivel_graduacao": "DOUTORADO"
+        }
+    },
+    {
+        "model": "sicupira.nivelgraduacao",
+        "pk": 2,
+        "fields": {
+            "desc_nivel_graduacao": "DOUTORADO PROFISIONAL"
+        }
+    },
+    {
+        "model": "sicupira.nivelgraduacao",
+        "pk": 3,
+        "fields": {
+            "desc_nivel_graduacao": "MESTRADO"
+        }
+    },
+    {
+        "model": "sicupira.nivelgraduacao",
+        "pk": 4,
+        "fields": {
+            "desc_nivel_graduacao": "MESTRADO PROFISSIONAL"
+        }
+    },
+    {
+        "model": "sicupira.nivelgraduacao",
+        "pk": 5,
+        "fields": {
+            "desc_nivel_graduacao": "GRADUA\u00c7\u00c3O"
+        }
+    },
+    {
+        "model": "sicupira.categoriadocente",
+        "pk": 1,
+        "fields": {
+            "desc_categoria": "COLABORADOR"
+        }
+    },
+    {
+        "model": "sicupira.categoriadocente",
+        "pk": 2,
+        "fields": {
+            "desc_categoria": "VISITANTE"
+        }
+    },
+    {
+        "model": "sicupira.categoriadocente",
+        "pk": 3,
+        "fields": {
+            "desc_categoria": "PERMANENTE"
+        }
+    },
+    {
+        "model": "sicupira.situacao",
+        "pk": 1,
+        "fields": {
+            "desc_situacao": "EM FUNCIONAMENTO"
+        }
+    },
+    {
+        "model": "sicupira.situacao",
+        "pk": 2,
+        "fields": {
+            "desc_situacao": "EM PROJETO"
+        }
+    },
+    {
+        "model": "sicupira.situacao",
+        "pk": 3,
+        "fields": {
+            "desc_situacao": "EM DESATIVA\u00c7\u00c3O"
+        }
+    },
+    {
+        "model": "sicupira.situacao",
+        "pk": 4,
+        "fields": {
+            "desc_situacao": "DESATIVADO"
+        }
+    },
+    {
+        "model": "sicupira.modalidade",
+        "pk": 1,
+        "fields": {
+            "desc_modalidade": "ACAD\u00caMICO"
+        }
+    },
+    {
+        "model": "sicupira.modalidade",
+        "pk": 2,
+        "fields": {
+            "desc_modalidade": "PROFISSIONAL"
+        }
+    },
+    {
+        "model": "sicupira.sexo",
+        "pk": 1,
+        "fields": {
+            "desc_sexo": "MASCULINO"
+        }
+    },
+    {
+        "model": "sicupira.sexo",
+        "pk": 2,
+        "fields": {
+            "desc_sexo": "FEMININO"
+        }
+    },
+    {
+        "model": "sicupira.nota",
+        "pk": 1,
+        "fields": {
+            "desc_nota": "1"
+        }
+    },
+    {
+        "model": "sicupira.nota",
+        "pk": 2,
+        "fields": {
+            "desc_nota": "2"
+        }
+    },
+    {
+        "model": "sicupira.nota",
+        "pk": 3,
+        "fields": {
+            "desc_nota": "3"
+        }
+    },
+    {
+        "model": "sicupira.nota",
+        "pk": 4,
+        "fields": {
+            "desc_nota": "4"
+        }
+    },
+    {
+        "model": "sicupira.nota",
+        "pk": 5,
+        "fields": {
+            "desc_nota": "5"
+        }
+    },
+    {
+        "model": "sicupira.nota",
+        "pk": 6,
+        "fields": {
+            "desc_nota": "6"
+        }
+    },
+    {
+        "model": "sicupira.nota",
+        "pk": 7,
+        "fields": {
+            "desc_nota": "7"
+        }
+    },
+    {
+        "model": "sicupira.nota",
+        "pk": 8,
+        "fields": {
+            "desc_nota": "A"
+        }
+    },
+    {
+        "model": "sicupira.situacaomatricula",
+        "pk": 1,
+        "fields": {
+            "desc_situacao_matricula": "ABANDONOU"
+        }
+    },
+    {
+        "model": "sicupira.situacaomatricula",
+        "pk": 2,
+        "fields": {
+            "desc_situacao_matricula": "DESLIGADO"
+        }
+    },
+    {
+        "model": "sicupira.situacaomatricula",
+        "pk": 3,
+        "fields": {
+            "desc_situacao_matricula": "MATRICULADO"
+        }
+    },
+    {
+        "model": "sicupira.situacaomatricula",
+        "pk": 4,
+        "fields": {
+            "desc_situacao_matricula": "MUDAN\u00c7A DE N\u00cdVEL COM DEFESA"
+        }
+    },
+    {
+        "model": "sicupira.situacaomatricula",
+        "pk": 5,
+        "fields": {
+            "desc_situacao_matricula": "MUDAN\u00c7A DE N\u00cdVEL SEM DEFESA"
+        }
+    },
+    {
+        "model": "sicupira.situacaomatricula",
+        "pk": 6,
+        "fields": {
+            "desc_situacao_matricula": "TITULADO"
+        }
+    },
+    {
+        "model": "sicupira.regimeletivo",
+        "pk": 1,
+        "fields": {
+            "desc_regime_letivo": "ANUAL"
+        }
+    },
+    {
+        "model": "sicupira.regimeletivo",
+        "pk": 2,
+        "fields": {
+            "desc_regime_letivo": "SEMESTRAL"
+        }
+    },
+    {
+        "model": "sicupira.regimeletivo",
+        "pk": 3,
+        "fields": {
+            "desc_regime_letivo": "QUADRIMESTRAL"
+        }
+    },
+    {
+        "model": "sicupira.regimeletivo",
+        "pk": 4,
+        "fields": {
+            "desc_regime_letivo": "TRIMESTRAL"
+        }
+    },
+    {
+        "model": "sicupira.regimeletivo",
+        "pk": 5,
+        "fields": {
+            "desc_regime_letivo": "BIMESTRAL"
+        }
+    },
+    {
+        "model": "sicupira.periodoletivo",
+        "pk": 1,
+        "fields": {
+            "desc_periodo_letivo": "1\u00ba SEM.",
+            "regime_letivo_id": 2
+        }
+    },
+    {
+        "model": "sicupira.periodoletivo",
+        "pk": 2,
+        "fields": {
+            "desc_periodo_letivo": "2\u00ba SEM.",
+            "regime_letivo_id": 2
+        }
+    },
+    {
+        "model": "sicupira.periodoletivo",
+        "pk": 3,
+        "fields": {
+            "desc_periodo_letivo": "1\u00ba TRIM.",
+            "regime_letivo_id": 1
+        }
+    },
+    {
+        "model": "sicupira.periodoletivo",
+        "pk": 4,
+        "fields": {
+            "desc_periodo_letivo": "2\u00ba TRIM.",
+            "regime_letivo_id": 4
+        }
+    },
+    {
+        "model": "sicupira.periodoletivo",
+        "pk": 5,
+        "fields": {
+            "desc_periodo_letivo": "3\u00ba TRIM.",
+            "regime_letivo_id": 4
+        }
+    },
+    {
+        "model": "sicupira.periodoletivo",
+        "pk": 6,
+        "fields": {
+            "desc_periodo_letivo": "4\u00ba TRIM.",
+            "regime_letivo_id": 4
+        }
+    },
+    {
+        "model": "sicupira.programa",
+        "pk": 1,
+        "fields": {
+            "codigo_programa": "31007015009P3",
+            "nome_programa": "SISTEMAS E COMPUTA\u00c7\u00c3O",
+            "nome_ingles": "COMPUTER SCIENCE",
+            "instituicao": 1,
+            "area_avaliacao": 1,
+            "nota": 3,
+            "flg_cooperacao": false,
+            "flg_rede": false,
+            "modalidade_id": 1,
+            "regime_letivo_id": 1,
+            "estado_id": 1,
+            "regiao_id": 1,
+            "situacao_id": 1,
+            "area_basica": 8
+        }
+    },
+    {
+        "model": "sicupira.programa",
+        "pk": 2,
+        "fields": {
+            "codigo_programa": "31007015011P8",
+            "nome_programa": "ENGENHARIA DE DEFESA",
+            "nome_ingles": "DEFENSE ENGINEERING",
+            "instituicao": 1,
+            "area_avaliacao": 7,
+            "nota": 4,
+            "flg_cooperacao": false,
+            "flg_rede": false,
+            "modalidade_id": 1,
+            "regime_letivo_id": 1,
+            "estado_id": 1,
+            "regiao_id": 1,
+            "situacao_id": 1,
+            "area_basica": 2
+        }
+    },
+    {
+        "model": "sicupira.areaconcentracao",
+        "pk": 3,
+        "fields": {
+            "desc_area_concentracao": "CI\u00caNCIA DA COMPUTA\u00c7\u00c3O",
+            "programa_id": 1
+        }
+    },
+    {
+        "model": "sicupira.linhapesquisa",
+        "pk": 8,
+        "fields": {
+            "nome_linha_pesquisa": "METODOLOGIA DA COMPUTA\u00c7\u00c3O",
+            "data_inicio": "2020-02-01",
+            "data_fim": null,
+            "desc_linha_pesquisa": "TESTE",
+            "area_concentracao_id": 3
+        }
+    },
+    {
+        "model": "sicupira.enderecoprograma",
+        "pk": 1,
+        "fields": {
+            "programa_id": 1,
+            "estado_id": 1,
+            "cep": 22290270,
+            "logradouro": "PRA\u00c7A GENERAL TIB\u00daRCIO",
+            "numero": "80",
+            "complemento": null,
+            "bairro": "PRAIA VERMELHA",
+            "municipio": "Rio de Janeiro",
+            "fax": "0",
+            "telefone": "(21) 2546-7080",
+            "ramal": "6090",
+            "email": "pgsc@ime.eb.br",
+            "web_site": "http://www.comp.ime.eb.br",
+            "inicio": "1971-01-01",
+            "fim": "2022-02-02",
+            "latitude": -22.95608,
+            "longitude": -43.16584
+        }
+    },
+    {
+        "model": "sicupira.curso",
+        "pk": 1,
+        "fields": {
+            "programa_id": 1,
+            "nome_curso": "P\u00f3s Gradua\u00e7\u00e3o em Sistema e Computa\u00e7\u00e3o (Mestrado)",
+            "nivel_id": 3,
+            "situacao_id": 1,
+            "creditos_titulacao": 18,
+            "disciplina": 3,
+            "trabalho_conclusao": 1,
+            "outros": 1,
+            "equivalencia_hora": 1
+        }
+    },
+    {
+        "model": "sicupira.disciplina",
+        "pk": 1,
+        "fields": {
+            "nome_disciplina": "Engenharia de Software",
+            "sigla": "ES",
+            "numero": "1",
+            "creditos": 3,
+            "ementa": "Aplica\u00e7\u00e3o dos princ\u00edpios da engenharia na produ\u00e7\u00e3o de software para melhoria da qualidade do processo. An\u00e1lise das principais metodologias (estruturada, orientada a objetos, etc.), processos de desenvolvimento (tradicional, espiral, prototipada, etc.) e m\u00e9tricas utilizadas no desenvolvimento de sistemas de software. Desenvolvimento e evolu\u00e7\u00e3o de um sistema de software.",
+            "bibliografia": ""
+        }
+    },
+    {
+        "model": "sicupira.disciplina",
+        "pk": 2,
+        "fields": {
+            "nome_disciplina": "Desenvolvimento de sistemas",
+            "sigla": "DC",
+            "numero": "2",
+            "creditos": 3,
+            "ementa": "Conceitos de Seguran\u00e7a Cibern\u00e9tica, contexto mundial x nacional, os problemas de seguran\u00e7a e suas causas, Tipos de atacantes, ataques e defesa (varredura de rede, for\u00e7a bruta, craquers de senha, sniffers, DDoS, falhas de programa\u00e7\u00e3o, roteamento, dns,smurf, Syn flood, spoofing, trojan horse, backdoors, source injections), Anatomia do ataque, Honeypots, DDoS (Introdu\u00e7\u00e3o, m\u00e9todos de ataques, m\u00e9todos de defesa,, solu\u00e7\u00f5es Integradas), Botnets (defini\u00e7\u00e3o, ciclo de vida Botnet, classifica\u00e7\u00e3o das botnet, t\u00e9cnicas de detec\u00e7\u00e3o, t\u00e9cnicas de defesa), An\u00e1lise de malwares.",
+            "bibliografia": ""
+        }
+    },
+    {
+        "model": "sicupira.disciplina",
+        "pk": 3,
+        "fields": {
+            "nome_disciplina": "Aprendizado de M\u00e1quina",
+            "sigla": "SC",
+            "numero": "506000",
+            "creditos": 3,
+            "ementa": "Objetivo: apresenta os principais algoritmos de aprendizado de m\u00e1quina da literatura e suas aplica\u00e7\u00f5es. Ementa: - Introdu\u00e7\u00e3o ao Aprendizado de m\u00e1quina - Regress\u00e3o Linear - Regress\u00e3o Log\u00edstica - Redes Neurais - Cadeias de Markov Escondida - Aprendizado baseado em Transforma\u00e7\u00f5es - M\u00e1quinas de Suporte Vetorial - M\u00e9todos de Comit\u00ea-Boosting - Detec\u00e7\u00e3o de anomalias - Sistemas de recomenda\u00e7\u00e3o",
+            "bibliografia": ""
+        }
+    },
+    {
+        "model": "sicupira.disciplina",
+        "pk": 6,
+        "fields": {
+            "nome_disciplina": "ess",
+            "sigla": "e",
+            "numero": "e",
+            "creditos": 2,
+            "ementa": "e",
+            "bibliografia": "e"
+        }
+    },
+    {
+        "model": "sicupira.turma",
+        "pk": 1,
+        "fields": {
+            "nome_turma": "PGSC-DSC-2020.1.1",
+            "curso_id": 1,
+            "disciplina_id": 1,
+            "ano": 2020,
+            "periodo_letivo_id": 3
+        }
+    },
+    {
+        "model": "sicupira.turma",
+        "pk": 13,
+        "fields": {
+            "nome_turma": "Turma de Teste 2",
+            "curso_id": 1,
+            "disciplina_id": 2,
+            "ano": 10,
+            "periodo_letivo_id": 1
+        }
+    },
+    {
+        "model": "sicupira.regimetrabalho",
+        "pk": 1,
+        "fields": {
+            "desc_regime_trabalho": "DEDICA\u00c7\u00c3O EXCLUSIVA"
+        }
+    },
+    {
+        "model": "sicupira.regimetrabalho",
+        "pk": 2,
+        "fields": {
+            "desc_regime_trabalho": "INTEGRAL"
+        }
+    },
+    {
+        "model": "sicupira.regimetrabalho",
+        "pk": 3,
+        "fields": {
+            "desc_regime_trabalho": "PARCIAL"
+        }
+    },
+    {
+        "model": "sicupira.vinculoies",
+        "pk": 1,
+        "fields": {
+            "desc_vinculo_ies": "SERVIDOR P\u00daBLICO/CLT"
+        }
+    },
+    {
+        "model": "sicupira.vinculoies",
+        "pk": 2,
+        "fields": {
+            "desc_vinculo_ies": "BOLSA DE FIXA\u00c7\u00c3O"
+        }
+    },
+    {
+        "model": "sicupira.vinculoies",
+        "pk": 3,
+        "fields": {
+            "desc_vinculo_ies": "APOSENTADO"
+        }
+    },
+    {
+        "model": "sicupira.vinculoies",
+        "pk": 4,
+        "fields": {
+            "desc_vinculo_ies": "COLABORADOR"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2020-02-28T00:32:52.906Z",
+            "user": 1,
+            "content_type": 3,
+            "object_id": "1",
+            "object_repr": "admin",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"first_name\", \"last_name\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2020-03-08T17:00:48.260Z",
+            "user": 1,
+            "content_type": 18,
+            "object_id": "1",
+            "object_repr": "Brasil",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2020-03-08T17:01:03.776Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "1",
+            "object_repr": "RJ",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2020-03-09T02:22:53.021Z",
+            "user": 1,
+            "content_type": 34,
+            "object_id": "1",
+            "object_repr": "Sudeste",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2020-03-09T02:24:17.466Z",
+            "user": 1,
+            "content_type": 31,
+            "object_id": "1",
+            "object_repr": "Trimestral",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2020-03-09T02:24:29.256Z",
+            "user": 1,
+            "content_type": 31,
+            "object_id": "2",
+            "object_repr": "Semestral",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2020-03-09T02:25:01.226Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "1",
+            "object_repr": "1\u00ba",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2020-03-09T02:25:14.880Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "2",
+            "object_repr": "2\u00ba",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 9,
+        "fields": {
+            "action_time": "2020-03-09T02:25:33.269Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "3",
+            "object_repr": "1\u00ba",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 10,
+        "fields": {
+            "action_time": "2020-03-09T02:25:46.620Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "4",
+            "object_repr": "2\u00ba",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 11,
+        "fields": {
+            "action_time": "2020-03-09T02:25:56.046Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "5",
+            "object_repr": "3\u00ba",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 12,
+        "fields": {
+            "action_time": "2020-03-09T02:26:05.557Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "6",
+            "object_repr": "4\u00ba",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 13,
+        "fields": {
+            "action_time": "2020-03-09T16:11:16.997Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "2",
+            "object_repr": "RO",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 14,
+        "fields": {
+            "action_time": "2020-03-09T16:11:47.623Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "3",
+            "object_repr": "AC",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 15,
+        "fields": {
+            "action_time": "2020-03-09T16:12:12.653Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "4",
+            "object_repr": "AM",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 16,
+        "fields": {
+            "action_time": "2020-03-09T16:12:30.761Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "5",
+            "object_repr": "RR",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 17,
+        "fields": {
+            "action_time": "2020-03-09T16:12:58.434Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "6",
+            "object_repr": "PA",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 18,
+        "fields": {
+            "action_time": "2020-03-09T16:13:26.406Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "7",
+            "object_repr": "AP",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 19,
+        "fields": {
+            "action_time": "2020-03-09T16:14:18.455Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "8",
+            "object_repr": "TO",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 20,
+        "fields": {
+            "action_time": "2020-03-09T16:14:49.327Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "9",
+            "object_repr": "MA",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 21,
+        "fields": {
+            "action_time": "2020-03-09T16:15:05.487Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "10",
+            "object_repr": "PI",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 22,
+        "fields": {
+            "action_time": "2020-03-09T16:15:41.788Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "11",
+            "object_repr": "CE",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 23,
+        "fields": {
+            "action_time": "2020-03-09T16:16:04.665Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "12",
+            "object_repr": "RN",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 24,
+        "fields": {
+            "action_time": "2020-03-09T16:16:24.004Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "13",
+            "object_repr": "PB",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 25,
+        "fields": {
+            "action_time": "2020-03-09T16:17:17.740Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "14",
+            "object_repr": "PE",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 26,
+        "fields": {
+            "action_time": "2020-03-09T16:17:34.954Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "15",
+            "object_repr": "AL",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 27,
+        "fields": {
+            "action_time": "2020-03-09T16:17:52.439Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "16",
+            "object_repr": "SE",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 28,
+        "fields": {
+            "action_time": "2020-03-09T16:18:06.474Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "17",
+            "object_repr": "BA",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 29,
+        "fields": {
+            "action_time": "2020-03-09T16:18:24.374Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "18",
+            "object_repr": "MG",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 30,
+        "fields": {
+            "action_time": "2020-03-09T16:19:02.961Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "19",
+            "object_repr": "ES",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 31,
+        "fields": {
+            "action_time": "2020-03-09T16:19:18.511Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "20",
+            "object_repr": "SP",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 32,
+        "fields": {
+            "action_time": "2020-03-09T16:19:55.818Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "21",
+            "object_repr": "PR",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 33,
+        "fields": {
+            "action_time": "2020-03-09T16:20:21.179Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "22",
+            "object_repr": "SC",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 34,
+        "fields": {
+            "action_time": "2020-03-09T16:20:44.672Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "23",
+            "object_repr": "RS",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 35,
+        "fields": {
+            "action_time": "2020-03-09T16:21:19.496Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "24",
+            "object_repr": "MS",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 36,
+        "fields": {
+            "action_time": "2020-03-09T16:21:45.389Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "25",
+            "object_repr": "MT",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 37,
+        "fields": {
+            "action_time": "2020-03-09T16:22:00.344Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "26",
+            "object_repr": "GO",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 38,
+        "fields": {
+            "action_time": "2020-03-09T16:22:21.825Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "27",
+            "object_repr": "DF",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 39,
+        "fields": {
+            "action_time": "2020-03-09T16:30:55.566Z",
+            "user": 1,
+            "content_type": 34,
+            "object_id": "2",
+            "object_repr": "Centro-Oeste",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 40,
+        "fields": {
+            "action_time": "2020-03-09T16:31:11.657Z",
+            "user": 1,
+            "content_type": 34,
+            "object_id": "3",
+            "object_repr": "Sul",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 41,
+        "fields": {
+            "action_time": "2020-03-09T16:31:29.756Z",
+            "user": 1,
+            "content_type": 34,
+            "object_id": "4",
+            "object_repr": "Norte",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 42,
+        "fields": {
+            "action_time": "2020-03-09T16:31:41.287Z",
+            "user": 1,
+            "content_type": 34,
+            "object_id": "5",
+            "object_repr": "Nordeste",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 43,
+        "fields": {
+            "action_time": "2020-03-09T16:40:10.785Z",
+            "user": 1,
+            "content_type": 15,
+            "object_id": "1",
+            "object_repr": "Masculino",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 44,
+        "fields": {
+            "action_time": "2020-03-09T16:40:21.110Z",
+            "user": 1,
+            "content_type": 15,
+            "object_id": "2",
+            "object_repr": "Feminino",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 45,
+        "fields": {
+            "action_time": "2020-03-09T16:41:47.826Z",
+            "user": 1,
+            "content_type": 33,
+            "object_id": "1",
+            "object_repr": "Colaborador",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 46,
+        "fields": {
+            "action_time": "2020-03-09T16:41:55.747Z",
+            "user": 1,
+            "content_type": 33,
+            "object_id": "2",
+            "object_repr": "Visitante",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 47,
+        "fields": {
+            "action_time": "2020-03-09T16:42:04.353Z",
+            "user": 1,
+            "content_type": 33,
+            "object_id": "3",
+            "object_repr": "Permanente",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 48,
+        "fields": {
+            "action_time": "2020-03-09T19:20:33.155Z",
+            "user": 1,
+            "content_type": 27,
+            "object_id": "1",
+            "object_repr": "ACAD\u00caMICO",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 49,
+        "fields": {
+            "action_time": "2020-03-09T19:20:41.203Z",
+            "user": 1,
+            "content_type": 27,
+            "object_id": "2",
+            "object_repr": "PROFISSIONAL",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 50,
+        "fields": {
+            "action_time": "2020-03-09T19:21:27.094Z",
+            "user": 1,
+            "content_type": 23,
+            "object_id": "1",
+            "object_repr": "EM FUNCIONAMENTO",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 51,
+        "fields": {
+            "action_time": "2020-03-09T19:21:34.752Z",
+            "user": 1,
+            "content_type": 23,
+            "object_id": "2",
+            "object_repr": "EM PROJETO",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 52,
+        "fields": {
+            "action_time": "2020-03-09T19:21:58.491Z",
+            "user": 1,
+            "content_type": 23,
+            "object_id": "3",
+            "object_repr": "EM DESATIVA\u00c7\u00c3O",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 53,
+        "fields": {
+            "action_time": "2020-03-09T19:22:06.760Z",
+            "user": 1,
+            "content_type": 23,
+            "object_id": "4",
+            "object_repr": "DESATIVADO",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 54,
+        "fields": {
+            "action_time": "2020-03-09T19:23:20.955Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "1",
+            "object_repr": "DOUTORADO",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 55,
+        "fields": {
+            "action_time": "2020-03-09T19:23:37.622Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "2",
+            "object_repr": "DOUTORADO PROFISIONAL",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 56,
+        "fields": {
+            "action_time": "2020-03-09T19:23:44.033Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "3",
+            "object_repr": "MESTRADO",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 57,
+        "fields": {
+            "action_time": "2020-03-09T19:23:57.442Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "4",
+            "object_repr": "MESTRADO PROFISSIONAL",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 58,
+        "fields": {
+            "action_time": "2020-03-09T19:24:06.603Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "5",
+            "object_repr": "GRADUA\u00c7\u00c3O",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 59,
+        "fields": {
+            "action_time": "2020-03-09T19:24:43.436Z",
+            "user": 1,
+            "content_type": 29,
+            "object_id": "1",
+            "object_repr": "ABANDONOU",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 60,
+        "fields": {
+            "action_time": "2020-03-09T19:24:56.192Z",
+            "user": 1,
+            "content_type": 29,
+            "object_id": "2",
+            "object_repr": "DESLIGADO",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 61,
+        "fields": {
+            "action_time": "2020-03-09T19:25:13.289Z",
+            "user": 1,
+            "content_type": 29,
+            "object_id": "3",
+            "object_repr": "MATRICULADO",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 62,
+        "fields": {
+            "action_time": "2020-03-09T19:25:36.354Z",
+            "user": 1,
+            "content_type": 29,
+            "object_id": "4",
+            "object_repr": "MUDAN\u00c7A DE N\u00cdVEL COM DEFESA",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 63,
+        "fields": {
+            "action_time": "2020-03-09T19:25:48.556Z",
+            "user": 1,
+            "content_type": 29,
+            "object_id": "5",
+            "object_repr": "MUDAN\u00c7A DE N\u00cdVEL SEM DEFESA",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 64,
+        "fields": {
+            "action_time": "2020-03-09T19:26:00.454Z",
+            "user": 1,
+            "content_type": 29,
+            "object_id": "6",
+            "object_repr": "TITULADO",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 65,
+        "fields": {
+            "action_time": "2020-03-09T19:29:11.619Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "1",
+            "object_repr": "1\u00ba sem.",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_periodo_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 66,
+        "fields": {
+            "action_time": "2020-03-09T19:29:20.922Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "2",
+            "object_repr": "2\u00ba sem.",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_periodo_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 67,
+        "fields": {
+            "action_time": "2020-03-09T19:29:29.599Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "3",
+            "object_repr": "1\u00ba tri.",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_periodo_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 68,
+        "fields": {
+            "action_time": "2020-03-09T19:29:37.038Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "4",
+            "object_repr": "2\u00ba tri.",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_periodo_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 69,
+        "fields": {
+            "action_time": "2020-03-09T19:29:44.162Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "5",
+            "object_repr": "3\u00ba trim.",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_periodo_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 70,
+        "fields": {
+            "action_time": "2020-03-09T19:29:52.524Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "6",
+            "object_repr": "4\u00ba trim.",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_periodo_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 71,
+        "fields": {
+            "action_time": "2020-03-09T19:32:24.267Z",
+            "user": 1,
+            "content_type": 21,
+            "object_id": "1",
+            "object_repr": "1",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 72,
+        "fields": {
+            "action_time": "2020-03-09T19:32:27.470Z",
+            "user": 1,
+            "content_type": 21,
+            "object_id": "2",
+            "object_repr": "2",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 73,
+        "fields": {
+            "action_time": "2020-03-09T19:32:32.141Z",
+            "user": 1,
+            "content_type": 21,
+            "object_id": "3",
+            "object_repr": "3",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 74,
+        "fields": {
+            "action_time": "2020-03-09T19:32:37.197Z",
+            "user": 1,
+            "content_type": 21,
+            "object_id": "4",
+            "object_repr": "4",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 75,
+        "fields": {
+            "action_time": "2020-03-09T19:32:41.022Z",
+            "user": 1,
+            "content_type": 21,
+            "object_id": "5",
+            "object_repr": "5",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 76,
+        "fields": {
+            "action_time": "2020-03-09T19:32:44.415Z",
+            "user": 1,
+            "content_type": 21,
+            "object_id": "6",
+            "object_repr": "6",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 77,
+        "fields": {
+            "action_time": "2020-03-09T19:32:48.330Z",
+            "user": 1,
+            "content_type": 21,
+            "object_id": "7",
+            "object_repr": "7",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 78,
+        "fields": {
+            "action_time": "2020-03-09T19:32:53.470Z",
+            "user": 1,
+            "content_type": 21,
+            "object_id": "8",
+            "object_repr": "A",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 79,
+        "fields": {
+            "action_time": "2020-03-09T19:57:54.933Z",
+            "user": 1,
+            "content_type": 26,
+            "object_id": "1",
+            "object_repr": "INSTITUTO MILITAR DE ENGENHARIA (IME)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 80,
+        "fields": {
+            "action_time": "2020-03-09T20:00:53.675Z",
+            "user": 1,
+            "content_type": 35,
+            "object_id": "1",
+            "object_repr": "CI\u00caNCIA DA COMPUTA\u00c7\u00c3O",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 81,
+        "fields": {
+            "action_time": "2020-03-09T20:01:16.234Z",
+            "user": 1,
+            "content_type": 35,
+            "object_id": "2",
+            "object_repr": "QU\u00cdMICA",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 82,
+        "fields": {
+            "action_time": "2020-03-09T20:01:28.950Z",
+            "user": 1,
+            "content_type": 35,
+            "object_id": "3",
+            "object_repr": "ENGENHARIAS II",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 83,
+        "fields": {
+            "action_time": "2020-03-09T20:01:40.079Z",
+            "user": 1,
+            "content_type": 35,
+            "object_id": "4",
+            "object_repr": "ENGENHARIAS III",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 84,
+        "fields": {
+            "action_time": "2020-03-09T20:01:56.632Z",
+            "user": 1,
+            "content_type": 35,
+            "object_id": "5",
+            "object_repr": "ENGENHARIAS IV",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 85,
+        "fields": {
+            "action_time": "2020-03-09T20:02:08.748Z",
+            "user": 1,
+            "content_type": 35,
+            "object_id": "6",
+            "object_repr": "ENGENHARIAS I",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 86,
+        "fields": {
+            "action_time": "2020-03-09T20:02:18.321Z",
+            "user": 1,
+            "content_type": 35,
+            "object_id": "7",
+            "object_repr": "INTERDISCIPLINAR",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 87,
+        "fields": {
+            "action_time": "2020-03-09T20:02:45.049Z",
+            "user": 1,
+            "content_type": 35,
+            "object_id": "8",
+            "object_repr": "ENGENHARIAs II",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 88,
+        "fields": {
+            "action_time": "2020-03-09T20:02:59.131Z",
+            "user": 1,
+            "content_type": 35,
+            "object_id": "8",
+            "object_repr": "ENGENHARIAs II",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 89,
+        "fields": {
+            "action_time": "2020-03-09T22:02:29.301Z",
+            "user": 1,
+            "content_type": 18,
+            "object_id": "2",
+            "object_repr": "rrrr",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 90,
+        "fields": {
+            "action_time": "2020-03-09T22:02:43.682Z",
+            "user": 1,
+            "content_type": 18,
+            "object_id": "2",
+            "object_repr": "rrrr",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 91,
+        "fields": {
+            "action_time": "2020-03-09T23:41:11.925Z",
+            "user": 1,
+            "content_type": 14,
+            "object_id": "1",
+            "object_repr": "Servidor P\u00fablico/CLT",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 92,
+        "fields": {
+            "action_time": "2020-03-09T23:41:22.910Z",
+            "user": 1,
+            "content_type": 14,
+            "object_id": "2",
+            "object_repr": "Bolsa de fixa\u00e7\u00e3o",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 93,
+        "fields": {
+            "action_time": "2020-03-09T23:41:29.306Z",
+            "user": 1,
+            "content_type": 14,
+            "object_id": "3",
+            "object_repr": "Aposentado",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 94,
+        "fields": {
+            "action_time": "2020-03-09T23:41:39.639Z",
+            "user": 1,
+            "content_type": 14,
+            "object_id": "4",
+            "object_repr": "Colaborador",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 95,
+        "fields": {
+            "action_time": "2020-03-09T23:42:24.932Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "1",
+            "object_repr": "Dedica\u00e7\u00e3o Exclusiva",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 96,
+        "fields": {
+            "action_time": "2020-03-09T23:42:30.984Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "2",
+            "object_repr": "Integral",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 97,
+        "fields": {
+            "action_time": "2020-03-09T23:42:37.348Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "3",
+            "object_repr": "Parcial",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 98,
+        "fields": {
+            "action_time": "2020-03-09T23:46:18.730Z",
+            "user": 1,
+            "content_type": 31,
+            "object_id": "1",
+            "object_repr": "Anual",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_regime_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 99,
+        "fields": {
+            "action_time": "2020-03-09T23:46:45.605Z",
+            "user": 1,
+            "content_type": 31,
+            "object_id": "3",
+            "object_repr": "Quadrimestral",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 100,
+        "fields": {
+            "action_time": "2020-03-09T23:47:01.942Z",
+            "user": 1,
+            "content_type": 31,
+            "object_id": "4",
+            "object_repr": "Trimestral",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 101,
+        "fields": {
+            "action_time": "2020-03-09T23:47:12.061Z",
+            "user": 1,
+            "content_type": 31,
+            "object_id": "5",
+            "object_repr": "Bimestral",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 102,
+        "fields": {
+            "action_time": "2020-03-10T03:17:42.121Z",
+            "user": 1,
+            "content_type": 26,
+            "object_id": "1",
+            "object_repr": "INSTITUTO MILITAR DE ENGENHARIA (IME)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"codigo_cnpq\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 103,
+        "fields": {
+            "action_time": "2020-03-10T17:08:01.212Z",
+            "user": 1,
+            "content_type": 17,
+            "object_id": "1",
+            "object_repr": "P\u00f3s Gradua\u00e7\u00e3o em Sistema e Computa\u00e7\u00e3o",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 104,
+        "fields": {
+            "action_time": "2020-03-10T17:08:28.170Z",
+            "user": 1,
+            "content_type": 17,
+            "object_id": "1",
+            "object_repr": "P\u00f3s Gradua\u00e7\u00e3o em Sistema e Computa\u00e7\u00e3o (Mestrado)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"nome_curso\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 105,
+        "fields": {
+            "action_time": "2020-03-10T20:49:51.710Z",
+            "user": 1,
+            "content_type": 14,
+            "object_id": "4",
+            "object_repr": "COLABORADOR",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_vinculo_ies\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 106,
+        "fields": {
+            "action_time": "2020-03-10T20:50:07.339Z",
+            "user": 1,
+            "content_type": 14,
+            "object_id": "3",
+            "object_repr": "APOSENTADO",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_vinculo_ies\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 107,
+        "fields": {
+            "action_time": "2020-03-10T20:50:27.209Z",
+            "user": 1,
+            "content_type": 14,
+            "object_id": "2",
+            "object_repr": "BOLSA DE FIXA\u00c7\u00c3O",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_vinculo_ies\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 108,
+        "fields": {
+            "action_time": "2020-03-10T20:50:43.193Z",
+            "user": 1,
+            "content_type": 14,
+            "object_id": "1",
+            "object_repr": "SERVIDOR P\u00daBLICO/CLT",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_vinculo_ies\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 109,
+        "fields": {
+            "action_time": "2020-03-10T20:51:16.134Z",
+            "user": 1,
+            "content_type": 15,
+            "object_id": "2",
+            "object_repr": "FEMININO",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_sexo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 110,
+        "fields": {
+            "action_time": "2020-03-10T20:51:23.800Z",
+            "user": 1,
+            "content_type": 15,
+            "object_id": "1",
+            "object_repr": "MASCULINO",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_sexo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 111,
+        "fields": {
+            "action_time": "2020-03-10T20:51:35.333Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "3",
+            "object_repr": "PARCIAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_regime_trabalho\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 112,
+        "fields": {
+            "action_time": "2020-03-10T20:51:44.875Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "2",
+            "object_repr": "INTEGRAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_regime_trabalho\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 113,
+        "fields": {
+            "action_time": "2020-03-10T20:51:57.364Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "1",
+            "object_repr": "DEDICA\u00c7\u00c3O EXCLUSIVA",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_regime_trabalho\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 114,
+        "fields": {
+            "action_time": "2020-03-10T20:52:11.482Z",
+            "user": 1,
+            "content_type": 31,
+            "object_id": "5",
+            "object_repr": "BIMESTRAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_regime_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 115,
+        "fields": {
+            "action_time": "2020-03-10T20:52:19.080Z",
+            "user": 1,
+            "content_type": 31,
+            "object_id": "4",
+            "object_repr": "TRIMESTRAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_regime_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 116,
+        "fields": {
+            "action_time": "2020-03-10T20:52:27.203Z",
+            "user": 1,
+            "content_type": 31,
+            "object_id": "3",
+            "object_repr": "QUADRIMESTRAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_regime_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 117,
+        "fields": {
+            "action_time": "2020-03-10T20:52:35.020Z",
+            "user": 1,
+            "content_type": 31,
+            "object_id": "2",
+            "object_repr": "SEMESTRAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_regime_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 118,
+        "fields": {
+            "action_time": "2020-03-10T20:52:41.622Z",
+            "user": 1,
+            "content_type": 31,
+            "object_id": "1",
+            "object_repr": "ANUAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_regime_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 119,
+        "fields": {
+            "action_time": "2020-03-10T20:53:08.858Z",
+            "user": 1,
+            "content_type": 34,
+            "object_id": "5",
+            "object_repr": "NORDESTE",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_regiao\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 120,
+        "fields": {
+            "action_time": "2020-03-10T20:53:15.688Z",
+            "user": 1,
+            "content_type": 34,
+            "object_id": "4",
+            "object_repr": "NORTE",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_regiao\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 121,
+        "fields": {
+            "action_time": "2020-03-10T20:53:22.310Z",
+            "user": 1,
+            "content_type": 34,
+            "object_id": "3",
+            "object_repr": "SUL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_regiao\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 122,
+        "fields": {
+            "action_time": "2020-03-10T20:53:32.672Z",
+            "user": 1,
+            "content_type": 34,
+            "object_id": "2",
+            "object_repr": "CENTRO-OESTE",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_regiao\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 123,
+        "fields": {
+            "action_time": "2020-03-10T20:53:33.658Z",
+            "user": 1,
+            "content_type": 34,
+            "object_id": "2",
+            "object_repr": "CENTRO-OESTE",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 124,
+        "fields": {
+            "action_time": "2020-03-10T20:53:53.000Z",
+            "user": 1,
+            "content_type": 34,
+            "object_id": "2",
+            "object_repr": "CENTRO-OESTE",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 125,
+        "fields": {
+            "action_time": "2020-03-10T20:54:01.607Z",
+            "user": 1,
+            "content_type": 34,
+            "object_id": "1",
+            "object_repr": "SUDESTE",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_regiao\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 126,
+        "fields": {
+            "action_time": "2020-03-10T21:13:15.120Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "6",
+            "object_repr": "4\u00ba TRIM.",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_periodo_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 127,
+        "fields": {
+            "action_time": "2020-03-10T21:13:22.771Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "5",
+            "object_repr": "3\u00ba TRIM.",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_periodo_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 128,
+        "fields": {
+            "action_time": "2020-03-10T21:17:01.483Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "4",
+            "object_repr": "2\u00ba TRIM.",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_periodo_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 129,
+        "fields": {
+            "action_time": "2020-03-10T21:17:10.419Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "3",
+            "object_repr": "1\u00ba TRIM.",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_periodo_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 130,
+        "fields": {
+            "action_time": "2020-03-10T21:17:19.087Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "2",
+            "object_repr": "2\u00ba SEM.",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_periodo_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 131,
+        "fields": {
+            "action_time": "2020-03-10T21:17:26.528Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "1",
+            "object_repr": "1\u00ba SEM.",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_periodo_letivo\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 132,
+        "fields": {
+            "action_time": "2020-03-10T21:17:32.437Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "6",
+            "object_repr": "4\u00ba TRIM.",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"regime_letivo_id\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 133,
+        "fields": {
+            "action_time": "2020-03-10T21:17:37.561Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "5",
+            "object_repr": "3\u00ba TRIM.",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"regime_letivo_id\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 134,
+        "fields": {
+            "action_time": "2020-03-10T21:17:42.790Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "4",
+            "object_repr": "2\u00ba TRIM.",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"regime_letivo_id\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 135,
+        "fields": {
+            "action_time": "2020-03-10T22:12:02.930Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "2",
+            "object_repr": "QU\u00cdMICAA",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_linha_pesquisa\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 136,
+        "fields": {
+            "action_time": "2020-03-10T22:12:17.322Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "2",
+            "object_repr": "QU\u00cdMICA",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_linha_pesquisa\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 137,
+        "fields": {
+            "action_time": "2020-03-10T22:34:29.542Z",
+            "user": 1,
+            "content_type": 33,
+            "object_id": "3",
+            "object_repr": "PERMANENTE",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_categoria\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 138,
+        "fields": {
+            "action_time": "2020-03-10T22:34:37.444Z",
+            "user": 1,
+            "content_type": 33,
+            "object_id": "2",
+            "object_repr": "VISITANTE",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_categoria\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 139,
+        "fields": {
+            "action_time": "2020-03-10T22:34:47.934Z",
+            "user": 1,
+            "content_type": 33,
+            "object_id": "1",
+            "object_repr": "COLABORADOR",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"desc_categoria\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 140,
+        "fields": {
+            "action_time": "2020-03-11T02:05:53.054Z",
+            "user": 1,
+            "content_type": 36,
+            "object_id": "1",
+            "object_repr": "ENGENHARIA DE MATERIAIS E METAL\u00daRGICA",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 141,
+        "fields": {
+            "action_time": "2020-03-11T02:06:12.681Z",
+            "user": 1,
+            "content_type": 36,
+            "object_id": "2",
+            "object_repr": "ENGENHARIA/TECNOLOGIA/GEST\u00c3O",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 142,
+        "fields": {
+            "action_time": "2020-03-11T02:06:28.023Z",
+            "user": 1,
+            "content_type": 36,
+            "object_id": "3",
+            "object_repr": "ENGENHARIA DE TRANSPORTES",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 143,
+        "fields": {
+            "action_time": "2020-03-11T02:06:41.414Z",
+            "user": 1,
+            "content_type": 36,
+            "object_id": "4",
+            "object_repr": "ENGENHARIA EL\u00c9TRICA",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 144,
+        "fields": {
+            "action_time": "2020-03-11T02:07:01.137Z",
+            "user": 1,
+            "content_type": 36,
+            "object_id": "5",
+            "object_repr": "ENGENHARIA MEC\u00c2NICA",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 145,
+        "fields": {
+            "action_time": "2020-03-11T02:07:18.559Z",
+            "user": 1,
+            "content_type": 36,
+            "object_id": "6",
+            "object_repr": "ENGENHARIA NUCLEAR",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 146,
+        "fields": {
+            "action_time": "2020-03-11T02:07:37.028Z",
+            "user": 1,
+            "content_type": 36,
+            "object_id": "7",
+            "object_repr": "QU\u00cdMICA",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 147,
+        "fields": {
+            "action_time": "2020-03-11T02:07:56.395Z",
+            "user": 1,
+            "content_type": 36,
+            "object_id": "8",
+            "object_repr": "CI\u00caNCIA DA COMPUTA\u00c7\u00c3O",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 148,
+        "fields": {
+            "action_time": "2020-03-13T12:59:02.049Z",
+            "user": 1,
+            "content_type": 28,
+            "object_id": "1",
+            "object_repr": "area de concentra\u00e7\u00e3o",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 149,
+        "fields": {
+            "action_time": "2020-03-13T12:59:50.568Z",
+            "user": 1,
+            "content_type": 28,
+            "object_id": "1",
+            "object_repr": "area de concentra\u00e7\u00e3o",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 150,
+        "fields": {
+            "action_time": "2020-03-15T04:23:55.625Z",
+            "user": 1,
+            "content_type": 28,
+            "object_id": "2",
+            "object_repr": "area de concentra\u00e7\u00e3o",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 151,
+        "fields": {
+            "action_time": "2020-03-15T04:25:54.200Z",
+            "user": 1,
+            "content_type": 28,
+            "object_id": "2",
+            "object_repr": "area de concentra\u00e7\u00e3o",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 152,
+        "fields": {
+            "action_time": "2020-03-15T12:34:29.674Z",
+            "user": 1,
+            "content_type": 26,
+            "object_id": "2",
+            "object_repr": "universidade federal do rio de janeiro (ufrj)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 153,
+        "fields": {
+            "action_time": "2020-03-15T12:34:45.735Z",
+            "user": 1,
+            "content_type": 26,
+            "object_id": "2",
+            "object_repr": "UNIVERSIDADE FEDERAL DO RIO DE JANEIRO (UFRJ)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"nome\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 154,
+        "fields": {
+            "action_time": "2020-03-15T12:41:35.644Z",
+            "user": 1,
+            "content_type": 28,
+            "object_id": "3",
+            "object_repr": "CI\u00caNCIA DA COMPUTA\u00c7\u00c3O",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 155,
+        "fields": {
+            "action_time": "2020-03-15T12:49:02.838Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "6",
+            "object_repr": "METODOLOGIA DA COMPUTA\u00c7\u00c3O",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 156,
+        "fields": {
+            "action_time": "2020-03-15T12:49:22.574Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "7",
+            "object_repr": "METODOLOGIA DA COMPUTA\u00c7\u00c3O",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 157,
+        "fields": {
+            "action_time": "2020-03-15T12:50:00.776Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "5",
+            "object_repr": "metodologia da computa\u00e7\u00e3o",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 158,
+        "fields": {
+            "action_time": "2020-03-15T12:50:07.224Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "7",
+            "object_repr": "METODOLOGIA DA COMPUTA\u00c7\u00c3O",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 159,
+        "fields": {
+            "action_time": "2020-03-15T12:51:11.478Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "8",
+            "object_repr": "METODOLOGIA DA COMPUTA\u00c7\u00c3O",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 160,
+        "fields": {
+            "action_time": "2020-03-15T12:51:30.362Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "9",
+            "object_repr": "metodologia da computa\u00e7\u00e3o",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 161,
+        "fields": {
+            "action_time": "2020-03-15T12:52:58.115Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "9",
+            "object_repr": "metodologia da computa\u00e7\u00e3o",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    }
+]

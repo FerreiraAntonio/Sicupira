@@ -46,7 +46,8 @@ Crie o banco de dados
 
 ```
 
-./manage.py makemigrations
+./manage.py makemigrations sicupira
+./manage.py makemigrations pessoa
 ./manage.py migrate
 
 ```
@@ -58,6 +59,16 @@ Crie um superusuario
 ./manage.py createsuperuser
 
 ```
+
+Caso de a carga inicial no banco de dados com as tabelas auxiliares
+
+
+```
+
+./manage.py loaddata ./fixtures/db.json 
+
+```
+
 
 Execute o servidor
 

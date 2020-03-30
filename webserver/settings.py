@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sicupira',
+    'pessoa',
     'crispy_forms',
 ]
 
@@ -129,3 +130,7 @@ LOGIN_REDIRECT_URL = 'index'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+FIXTURE_DIRS = (
+    os.path.join(BASE_DIR, 'fixtures'),
+)

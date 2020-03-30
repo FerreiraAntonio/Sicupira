@@ -512,11 +512,11 @@ class RegimeTrabalho(models.Model):
 ##################################################
 
 
-class VincluloIES(models.Model):
-    desc_vinclulo_ies = CICharField(max_length=45, unique=True)
+class VinculoIES(models.Model):
+    desc_vinculo_ies = CICharField(max_length=45, unique=True)
 
     def __str__(self):
-        return self.desc_vinclulo_ies
+        return self.desc_vinculo_ies
 
     def get_absolute_url(self):
-        return reverse('vincluloies_edit', kwargs={'pk': self.pk})
+        return reverse('vinculoies_edit', kwargs={'pk': self.pk})

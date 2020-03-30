@@ -19,7 +19,7 @@ from sicupira.models import Curso
 
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-
+from pessoa.services import LattesService
 
 def index(request):
     if request.user.is_authenticated:
@@ -30,13 +30,18 @@ def index(request):
 
 def importaxml(request):
     if request.user.is_authenticated:
-        if request.method == 'POST' and request.FILES['myfile']:
+        if request.method == 'POST' and bool(request.FILES.get('myfile', False)):
             myfile = request.FILES['myfile']
-            fs = FileSystemStorage()
-            filename = fs.save(myfile.name, myfile)
-            uploaded_file_url = fs.url(filename)
+            data = myfile.read()
+            #fs = FileSystemStorage()
+            #filename = fs.save(myfile.name, myfile)
+            #uploaded_file_url = fs.url(filename)
+
+            obj = LattesService.importXML(data)
+            teste = obj.nome
             return render(request, 'sicupira/importaxml.html', {
-                'uploaded_file_url': uploaded_file_url
+                'data': data,
+                'obj': teste
             })
         return render(request, 'sicupira/importaxml.html', {})
     else:

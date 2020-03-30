@@ -1,0 +1,135 @@
+{% extends 'sicupira/base.html' %}
+
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'discente_list' %}">Lista de Discentes</a>
+{% endblock %}
+
+{% block content %}
+{% load static %} 
+
+<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Discentes</h3>
+
+<div style="width: 90%;margin: auto;">
+
+    <div class="container">
+        <h4>Filtro</h2>
+        <form action="/discente" method="get">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="input" class="form-control" id="nome" name="nome" value="" list="lista_nome">                
+                <datalist id="lista_nome">
+                    {% for discente in page_obj %}
+                        <option value="{{ discente.pessoa.nome }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="sexo">Sexo:</label>
+                <input type="input" class="form-control" id="sexo" name="sexo" value="" list="lista_sexo">                
+                <datalist id="lista_sexo">
+                    {% for discente in page_obj %}
+                        <option value="{{ discente.pessoa.sexo.desc_sexo }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="curso">Curso:</label>
+                <input type="input" class="form-control" id="curso" name="curso" value="" list="lista_curso">                
+                <datalist id="lista_curso">
+                    {% for discente in page_obj %}
+                        <option value="{{ discente.curso.nome_curso }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="nivel">Graduação:</label>
+                <input type="input" class="form-control" id="nivel" name="nivel" value="" list="lista_nivel">                
+                <datalist id="lista_nivel">
+                    {% for discente in page_obj %}
+                        <option value="{{ discente.nivel.desc_nivel_graduacao }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <button type="submit" class="btn btn-default">Buscar</button>                    
+            <button type="reset"  class="btn btn-warning" id="btnReset" onclick="Reset();" >Limpar</button>
+        </form>
+    </div>
+    <script>
+        // Script para manipular via DOM as buscas
+        document.getElementById('nome').value = urlParams.get('nome')      
+        document.getElementById('sexo').value = urlParams.get('sexo')
+        document.getElementById('curso').value = urlParams.get('curso')
+        document.getElementById('nivel').value = urlParams.get('nivel')        
+        
+        //Reseta formulario. Troque pela url correta
+        function Reset() {
+            location.replace('/discente');
+        }
+    </script>
+
+    <hr/>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Sexo</th>
+                <th>Nascimento</th>
+                <th>Documento</th>
+                <th>Tipo de documento</th>
+                <th>E-mail</th>
+                <th>Nacionalidade</th>
+                <th>Graduação</th>
+                <th>Curso</th>
+                <th>Situação</th>
+                <th>Data da situação</th>
+                <th>Ver</th>
+                <th>Alterar</th>
+                <th>Apagar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for discente in page_obj %}
+            <tr>
+            <td>{{ discente.pessoa.nome }}</td>
+            <td>{{ discente.pessoa.sexo.desc_sexo }}</td>
+            <td>{{ discente.pessoa.data_nascimento }}</td>
+            <td>{{ discente.pessoa.numero_documento }}</td>
+            <td>{{ discente.pessoa.tipo_documento.desc_tipo_doc }}</td>
+            <td>{{ discente.pessoa.email }}</td>
+            <td>{{ discente.pessoa.nacionalidade.nome_pais }}</td>
+            <td>{{ discente.nivel.desc_nivel_graduacao }}</td>
+            <td>{{ discente.curso.nome_curso }}</td>
+            <td>{{ discente.situacao.desc_situacao_matricula }}</td>
+            <td>{{ discente.data_situacao }}</td>
+            <td><a href="{% url "discente_view" discente.pessoa.id %}"><span class="label label-info">ver</span></a></td>
+            <td><a href="{% url "discente_edit" discente.pessoa.id %}"><span class="label label-warning">alterar</span></a></td>
+            <td><a href="{% url "discente_delete" discente.pessoa.id %}"><span class="label label-danger">apagar</span></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+        <a href="{% url "discente_new" %}" style="float: left;">Novo</a>
+
+        <div class="pagination" style="padding-left: 35%;">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; primeiro</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+                {% endif %}
+        
+                <span class="current">
+                    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">próximo</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">último &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+
+</div>
+
+{% endblock %}
