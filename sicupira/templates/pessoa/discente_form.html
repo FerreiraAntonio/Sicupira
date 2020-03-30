@@ -3,8 +3,8 @@
 {% block breadcrumbs %}
     {{ block.super }} » 
 
-    {% if discente.id > 0 %}
-    <a href="{% url 'discente_edit' docente.id %}">Formulário de Discente</a>
+    {% if discente.pessoa.id > 0 %}
+    <a href="{% url 'discente_edit' discente.pessoa.id %}">Formulário de Discente</a>
     {% else %}
     <a href="{% url 'discente_new' %}">Formulário de Discente</a>
     {% endif %}
@@ -20,16 +20,16 @@
 
 <div style="width: 90%;margin: auto;">
     <form method="post"  >
-      {% csrf_token %}
+      {% csrf_token %}      
       {{ pessoa_form |crispy }}
       {{ discente_form |crispy }}
     <h3>Abreviaturas</h3>
       <!-- {{ abreviatura_form |crispy }} -->
-    {{ abreviatura_form.management_form }}
+      {{ abreviatura_form.management_form }}
     {{ abreviatura_form.non_form_errors.as_ul }}
     <table id="formset_{{forloop.counter}}" class="form">
     {% for form in abreviatura_form.forms %}
-      <!-- <a class="btn btn-info" id="add-item"><i class="fa fa-plus"></i> nova abreviatura</a> -->!
+      <!-- <a class="btn btn-info" id="add-item"><i class="fa fa-plus"></i> nova abreviatura</a> -->
       {% if forloop.first %}
          <thead>
             <tr>

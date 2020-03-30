@@ -2,11 +2,43 @@ from django.db import models
 from django.urls import reverse
 from sicupira import models as SicupiraModel
 
+
+#######################
+# CODE SMELL  :-)  Não sei importar de sicupira models.py
+#######################
+class CaseInsensitiveFieldMixin:
+
+    LOOKUP_CONVERSIONS = {
+        'exact': 'iexact',
+        'contains': 'icontains',
+        'startswith': 'istartswith',
+        'endswith': 'iendswith',
+        'regex': 'iregex',
+    }
+
+    def get_lookup(self, lookup_name):
+        converted = self.LOOKUP_CONVERSIONS.get(lookup_name, lookup_name)
+        return super().get_lookup(converted)
+
+
+class CICharField(CaseInsensitiveFieldMixin, models.CharField):
+    pass
+
+
+class CIEmailField(CaseInsensitiveFieldMixin, models.EmailField):
+    pass
+
+
+class CITextField(CaseInsensitiveFieldMixin, models.TextField):
+    pass
+
+
 ##################################################
 # Inicio do Bloco [Pessoa]
 ##################################################
+
 class Pessoa(models.Model):
-    nome = models.CharField(max_length=100)
+    nome = CICharField(max_length=100)
     sexo = models.ForeignKey(SicupiraModel.Sexo,
                                       on_delete=models.SET_NULL,
                                       null=True, blank=True,
@@ -15,8 +47,13 @@ class Pessoa(models.Model):
 
     data_nascimento = models.DateField()
     numero_documento = models.CharField(max_length=20)
-    tipo_documento = models.IntegerField(default=1)
-    email = models.EmailField(null=True, blank=True)
+    tipo_documento = models.ForeignKey(SicupiraModel.TipoDocumento,
+                                      on_delete=models.SET_NULL,
+                                      null=True, blank=True,
+                                      related_name='TipoDoc',
+                                       default=1)
+
+    email = CIEmailField(null=True, blank=True)
     nacionalidade = models.ForeignKey(SicupiraModel.Pais,
                                       on_delete=models.SET_NULL,
                                       null=True, blank=True,
@@ -33,7 +70,7 @@ class Pessoa(models.Model):
 # Inicio do Bloco [Abreviatura]
 ##################################################
 class Abreviatura(models.Model):
-    desc_abreviatura = models.CharField(max_length=100)
+    desc_abreviatura = CICharField(max_length=100)
     flg_principal = models.BooleanField(default=False)
     pessoa = models.ForeignKey(Pessoa,
                                   on_delete=models.CASCADE,
@@ -72,13 +109,10 @@ class Discente(models.Model):
                                  related_name='Nivel')
 
     def __str__(self):
-        return '%s - %s' % (self.Pessoa.nome, self.Curso.nome_curso)
-
-    def __str__(self):
-        return self.Pessoa.nome
+        return self.pessoa.nome
 
     def get_absolute_url(self):
-        return reverse('discente_edit', kwargs={'pk': self.pk})
+        return reverse('discente_edit', kwargs={'pk': self.pessoa.pk})
 
 
 ##################################################

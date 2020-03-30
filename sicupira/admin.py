@@ -23,4 +23,5 @@ admin.site.register(AreaAvaliacao)
 admin.site.register(Programa)
 admin.site.register(AreaBasica)
 admin.site.register(AreaConcentracao)
+admin.site.register(TipoDocumento)
 

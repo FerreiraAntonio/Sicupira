@@ -7,7 +7,7 @@ from pessoa import views
 # COM OS NOMES DEFINIDOS PARA AS VIEWS CRIADAS
 ################################################
 
-urlpatterns = [
+urlpatterns = [    
     path('discente', views.DiscenteList.as_view(), name='discente_list'),
     path('discente/view/<int:pk>', views.DiscenteView.as_view(), name='discente_view'),
     #path('discente/new', views.DiscenteCreate.as_view(), name='discente_new'),

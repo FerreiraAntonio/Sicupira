@@ -1,16 +1,18 @@
 {% extends 'sicupira/base.html' %}
 
 {% block breadcrumbs %}
-    {{ block.super }} » <a href="{% url 'discente_view' discente.id %}">Detalhes do Discente</a>
+    {{ block.super }} » <a href="{% url 'discente_view' discente.pessoa.id %}">Detalhes do Discente</a>
 {% endblock %}
 
 {% block content %}
 {% load static %} 
 
 <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Detalhes do Discente</h3>
-    <h4>Nome: {{discente.nome_pessoa}}</h4>
-    Sexo: {{ discente.sexo_id.desc_sexo }}<br/>    
-    Curso: {{ discente.curso_id.nome_curso }}<br/>    
-    Graduação: {{ discente.titulo_nivel_id.desc_nivel_graduacao }}<br/>    
-
+    <h4>Nome: {{discente.pessoa.nome}}</h4>    
+    Sexo: {{ discente.pessoa.sexo.desc_sexo }}<br/>    
+    Email: {{ discente.pessoa.email }}<br/>    
+    Tipo documento: {{ discente.pessoa.tipo_documento.desc_tipo_doc }}<br/>    
+    Número documento: {{ discente.pessoa.numero_documento }}<br/>    
+    Curso: {{ discente.curso.nome_curso }}<br/>    
+    Graduação: {{ discente.nivel.desc_nivel_graduacao }}<br/>    
 {% endblock %}
