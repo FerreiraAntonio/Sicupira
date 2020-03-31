@@ -1,55 +1,59 @@
 {% extends 'sicupira/base.html' %}
 
 {% block breadcrumbs %}
-    {{ block.super }} » <a href="{% url 'enderecoprograma_list' %}">Lista de endereços de programas</a>
+{{ block.super }} » <a href="{% url 'enderecoprograma_list' %}">Lista de endereços de programas</a>
 {% endblock %}
 
 {% block content %}
-{% load static %} 
-  
-  <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Endereços</h3>
+{% load static %}
 
-  <div style="width: 90%;margin: auto;">
+<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Endereços</h3>
+
+<div style="width: 90%;margin: auto;">
 
 
     <div class="container">
         <h4>Filtro</h2>
-        <form action="/enderecoprograma" method="get">
-            <div class="form-group">
-                <label for="programa">Nome do Programa:</label>
-                <input type="input" class="form-control" id="programa" name="programa" value="" list="lista_programa">                
-                <datalist id="lista_programa">
-                    {% for enderecoprograma in page_obj %}
+            <form action="/enderecoprograma" method="get">
+                <div class="form-group">
+                    <label for="programa">Nome do Programa:</label>
+                    <input type="input" class="form-control" id="programa" name="programa" value=""
+                        list="lista_programa">
+                    <datalist id="lista_programa">
+                        {% for enderecoprograma in page_obj %}
                         <option value="{{ enderecoprograma.programa_id.nome_programa }}"></option>
-                    {% endfor %}
-                </datalist>
-            </div>
-            <div class="form-group">
-                <label for="logradouro">Logradouro:</label>
-                <input type="search" class="form-control" id="logradouro" name="logradouro" value="" list="lista_logradouro">                
-                <datalist id="lista_logradouro">
-                    {% for enderecoprograma in page_obj %}
+                        {% endfor %}
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <label for="logradouro">Logradouro:</label>
+                    <input type="search" class="form-control" id="logradouro" name="logradouro" value=""
+                        list="lista_logradouro">
+                    <datalist id="lista_logradouro">
+                        {% for enderecoprograma in page_obj %}
                         <option value="{{ enderecoprograma.logradouro }}"></option>
-                    {% endfor %}
-                </datalist>
-            </div>
-            <div class="form-group">
-                <label for="uf">UF:</label>
-                <select class="form-control" id="uf" name="uf">
-                    {% for enderecoprograma in page_obj %}
-                      <option value="{{ enderecoprograma.estado_id.sigla }}">{{ enderecoprograma.estado_id.sigla }}</option>
-                    {% endfor %}
-                </select>
-            </div>            
-            <button type="submit" class="btn btn-default">Buscar</button>        
-            <button type="reset"  class="btn btn-warning" id="btnReset" onclick="Reset();" >Limpar</button>      
-        </form>
+                        {% endfor %}
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <label for="uf">UF:</label>
+                    <select class="form-control" id="uf" name="uf">
+                        {% for enderecoprograma in page_obj %}
+                        <option value="{{ enderecoprograma.estado_id.sigla }}">{{ enderecoprograma.estado_id.sigla }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-default">Buscar</button>
+                <button type="reset" class="btn btn-warning" id="btnReset" onclick="Reset();">Limpar</button>
+                <a href="{% url "enderecoprograma_new" %}" style="float: right;font-size: 190%;"><span class="label label-success">Novo +</span></a> 
+            </form>
     </div>
     <script>
         // Script para manipular via DOM as buscas
         document.getElementById('logradouro').value = urlParams.get('logradouro')
-        document.getElementById('uf').value = urlParams.get('uf')  
-        document.getElementById('programa').value = urlParams.get('programa')  
+        document.getElementById('uf').value = urlParams.get('uf')
+        document.getElementById('programa').value = urlParams.get('programa')
 
         //Reseta formulario. Troque pela url correta
         function Reset() {
@@ -58,26 +62,26 @@
 
     </script>
 
-<hr/>
+    <hr />
 
     <table class="table table-striped">
         <thead>
-        
+
             <tr>
 
 
-            <th>programa_id</th>
+                <th>programa_id</th>
                 <th>estado_id</th>
-                    <th>cep</th>
-                        <th>logradouro</th>
-                            <th>numero</th>
-                                <th>complemento</th>
-                                    <th>bairro</th>
-                                        <th>municipio</th>
-                                            <th>email</th>
-                                                <th>web_site</th>
-                                                    <th>inicio</th>
-                                                        <th>fim</th>                      
+                <th>cep</th>
+                <th>logradouro</th>
+                <th>numero</th>
+                <th>complemento</th>
+                <th>bairro</th>
+                <th>municipio</th>
+                <th>email</th>
+                <th>web_site</th>
+                <th>inicio</th>
+                <th>fim</th>
                 <th>Ver</th>
                 <th>Alterar</th>
                 <th>Apagar</th>
@@ -86,46 +90,47 @@
         <tbody>
             {% for enderecoprograma in object_list %}
             <tr>
-            <td>{{ enderecoprograma.programa_id }}</td>
-            <td>{{ enderecoprograma.estado_id }}</td>
-            <td>{{ enderecoprograma.cep }}</td>
-            <td>{{ enderecoprograma.logradouro }}</td>
-            <td>{{ enderecoprograma.numero }}</td>
-            <td>{{ enderecoprograma.complemento }}</td>
-            <td>{{ enderecoprograma.bairro }}</td>
-            <td>{{ enderecoprograma.municipio }}</td>
-            <td>{{ enderecoprograma.email }}</td>
-            <td>{{ enderecoprograma.web_site }}</td>
-            <td>{{ enderecoprograma.inicio }}</td>
-            <td>{{ enderecoprograma.fim }}</td>
-            
-            <td><a href="{% url "enderecoprograma_view" enderecoprograma.id %}"><span class="label label-info">ver</span></a></td>
-            <td><a href="{% url "enderecoprograma_edit" enderecoprograma.id %}"><span class="label label-warning">alterar</span></a></td>
-            <td><a href="{% url "enderecoprograma_delete" enderecoprograma.id %}"><span class="label label-danger">apagar</span></a></td>
+                <td>{{ enderecoprograma.programa_id }}</td>
+                <td>{{ enderecoprograma.estado_id }}</td>
+                <td>{{ enderecoprograma.cep }}</td>
+                <td>{{ enderecoprograma.logradouro }}</td>
+                <td>{{ enderecoprograma.numero }}</td>
+                <td>{{ enderecoprograma.complemento }}</td>
+                <td>{{ enderecoprograma.bairro }}</td>
+                <td>{{ enderecoprograma.municipio }}</td>
+                <td>{{ enderecoprograma.email }}</td>
+                <td>{{ enderecoprograma.web_site }}</td>
+                <td>{{ enderecoprograma.inicio }}</td>
+                <td>{{ enderecoprograma.fim }}</td>
+
+                <td><a href="{% url "enderecoprograma_view" enderecoprograma.id %}"><span
+                            class="label label-info">ver</span></a></td>
+                <td><a href="{% url "enderecoprograma_edit" enderecoprograma.id %}"><span
+                            class="label label-warning">alterar</span></a></td>
+                <td><a href="{% url "enderecoprograma_delete" enderecoprograma.id %}"><span
+                            class="label label-danger">apagar</span></a></td>
             </tr>
             {% endfor %}
         </tbody>
-        </table>
-        
-        <a href="{% url "enderecoprograma_new" %}" style="float: left;">Novo</a>        
+    </table>
 
-        <div class="pagination" style="padding-left: 35%;">
-            <span class="step-links">
-                {% if page_obj.has_previous %}
-                    <a href="?page=1">&laquo; primeiro</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
-                {% endif %}
-        
-                <span class="current">
-                    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
-                </span>
-        
-                {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">próximo</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">último &raquo;</a>
-                {% endif %}
+    <div class="pagination" style="padding-left: 35%;">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; primeiro</a>
+            <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+            {% endif %}
+
+            <span class="current">
+                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
             </span>
-        </div>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">próximo</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">último &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
 </div>
 
 {% endblock %}

@@ -52,6 +52,7 @@
             </div>
             <button type="submit" class="btn btn-default">Buscar</button>                    
             <button type="reset"  class="btn btn-warning" id="btnReset" onclick="Reset();" >Limpar</button>
+            <a href="{% url "docente_new" %}" style="float: right;font-size: 190%;"><span class="label label-success">Novo +</span></a> 
         </form>
     </div>
     <script>
@@ -113,8 +114,6 @@
             {% endfor %}
         </tbody>
         </table>
-
-        <a href="{% url "docente_new" %}" style="float: left;">Novo</a> 
 
         <div class="pagination" style="padding-left: 35%;">
             <span class="step-links">
