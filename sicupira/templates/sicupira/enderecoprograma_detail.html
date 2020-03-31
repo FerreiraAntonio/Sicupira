@@ -1,38 +1,75 @@
 {% extends 'sicupira/base.html' %}
 
 {% block breadcrumbs %}
-    {{ block.super }} » <a href="{% url 'enderecoprograma_view' enderecoprograma.id %}">Detalhes do endereço do programa</a>
+{{ block.super }} » <a href="{% url 'enderecoprograma_view' enderecoprograma.id %}">Detalhes do endereço do programa</a>
 {% endblock %}
 
 {% block content %}
-{% load static %} 
-  
-  <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Endereços</h3>
-  <p>    
+{% load static %}
+
+<h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Endereços</h3>
+<p>
 
 
-    <h3>Detalhes Endereço</h3>
-    <h4>Nome: {{enderecoprograma.programa_id}}</h4>
-
-    UF:  {{ enderecoprograma.estado_id }}<br/>
-    Cep:  {{ enderecoprograma.cep }}<br/>
-    Logradouro:  {{ enderecoprograma.logradouro }}<br/>
-    Número:  {{ enderecoprograma.numero }}<br/>
-    Complemento:  {{ enderecoprograma.complemento }}<br/>
-    Bairro:  {{ enderecoprograma.bairro }}<br/>
-    Municipio:  {{ enderecoprograma.municipio }}<br/>
-    Fax:  {{ enderecoprograma.fax }}<br/>
-    Telefone:  {{ enderecoprograma.telefone }}<br/>
-    Ramal:  {{ enderecoprograma.ramal }}<br/>
-    Email:  {{ enderecoprograma.email }}<br/>
-    Web Site:  {{ enderecoprograma.web_site }}<br/>
-    Inicio:  {{ enderecoprograma.inicio }}<br/>
-    Fim:  {{ enderecoprograma.fim }}<br/>
-    Latitude:  {{ enderecoprograma.latitude }}<br/>
-    Longitude:  {{ enderecoprograma.longitude }}<br/>
-    <br/>
-    <br/>
-    {% include 'common/back_button.html' %}
-{% endblock %}
+  <h3>Detalhes Endereço</h3>
 
 
+  <table class="table table-striped">
+    <thead>
+      <th>Nome:</th>
+      <th>{{enderecoprograma.programa_id}}</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>UF:</td>
+        <td>{{ enderecoprograma.estado_id }}</td>
+      </tr>
+      <tr>
+        <td>Cep:</td>
+        <td>{{ enderecoprograma.cep }}</td>
+      </tr>
+      <tr>
+        <td>Logradouro:</td>
+        <td>{{ enderecoprograma.logradouro }}</td>
+      </tr>
+      <tr>
+        <td>Número:</td>
+        <td>{{ enderecoprograma.numero }}</td>
+      </tr>
+      <tr>
+        <td>Complemento:</td>
+        <td>{{ enderecoprograma.complemento }}</td>
+      </tr>
+      <tr>
+        <td>Bairro:</td>
+        <td>{{ enderecoprograma.bairro }}</td>
+      </tr>
+      <tr>
+        <td>Municipio:</td>
+        <td>{{ enderecoprograma.municipio }}</td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td>{{ enderecoprograma.email }}</td>
+      </tr>
+      <tr>
+        <td>Web Site:</td>
+        <td>{{ enderecoprograma.web_site }}</td>
+      </tr>
+      <tr>
+        <td>Inicio:</td>
+        <td>{{ enderecoprograma.inicio }}</td>
+      </tr>
+      <tr>
+        <td>Fim:</td>
+        <td>{{ enderecoprograma.fim }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Telefones</h4>
+  {% include 'common/telefoneenderecoprograma_detail.html' %}
+  <br />
+  <br />
+  {% include 'common/back_button.html' %}
+  {% endblock %}

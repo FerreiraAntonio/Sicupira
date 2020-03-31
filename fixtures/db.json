@@ -1447,15 +1447,31 @@
             "complemento": null,
             "bairro": "PRAIA VERMELHA",
             "municipio": "Rio de Janeiro",
-            "fax": "0",
-            "telefone": "(21) 2546-7080",
-            "ramal": "6090",
             "email": "pgsc@ime.eb.br",
             "web_site": "http://www.comp.ime.eb.br",
             "inicio": "1971-01-01",
-            "fim": "2022-02-02",
-            "latitude": -22.95608,
-            "longitude": -43.16584
+            "fim": "2022-02-02"
+        }
+    },
+    {
+        "model": "sicupira.tipotelefone",
+        "pk": 1,
+        "fields": {
+            "tipo": "Fax"
+        }
+    },
+    {
+        "model": "sicupira.tipotelefone",
+        "pk": 2,
+        "fields": {
+            "tipo": "Telefone Fixo"
+        }
+    },
+    {
+        "model": "sicupira.tipotelefone",
+        "pk": 3,
+        "fields": {
+            "tipo": "Celular"
         }
     },
     {

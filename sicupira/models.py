@@ -366,15 +366,10 @@ class EnderecoPrograma(models.Model):
     complemento = CICharField(max_length=300, null=True, blank=True)
     bairro = CICharField(max_length=100)
     municipio = CICharField(max_length=100)
-    fax = CICharField(max_length=20, null=True, blank=True)
-    telefone = CICharField(max_length=20)
-    ramal = CICharField(max_length=20, null=True, blank=True)
     email = CIEmailField(max_length=255, null=True, blank=True)
-    web_site = CICharField(max_length=255,null=True, blank=True)
+    web_site = CICharField(max_length=255, null=True, blank=True)
     inicio = models.DateField()
     fim = models.DateField(null=True, blank=True)
-    latitude = models.FloatField(null=True, blank=True)
-    longitude = models.FloatField(null=True, blank=True)
 
     def __str__(self):
         return '%s, %d' % (self.logradouro, self.numero)
@@ -383,13 +378,25 @@ class EnderecoPrograma(models.Model):
         return reverse('enderecoprograma_edit', kwargs={'pk': self.pk})
 
 ##################################################
+# Inicio do Bloco [TipoTelefone]
+##################################################
+
+
+class TipoTelefone(models.Model):
+    tipo = CICharField(max_length=100, unique=True)
+
+    def __str__(self):
+        return self.tipo
+
+
+##################################################
 # Inicio do Bloco [Telefone Endereco Programa]
 ##################################################
 
 
 class TelefoneEnderecoPrograma(models.Model):
     endereco_id = models.ForeignKey(EnderecoPrograma, on_delete=models.CASCADE, related_name='EnderecoTelefone')
-    tipo = models.IntegerField()
+    tipo = models.ForeignKey(TipoTelefone, on_delete=models.CASCADE, related_name='TipoTelefone')
     ddd = models.IntegerField()
     numero = CICharField(max_length=10)
     ramal = CICharField(max_length=20, null=True, blank=True)
@@ -399,6 +406,7 @@ class TelefoneEnderecoPrograma(models.Model):
 
     def get_absolute_url(self):
         return reverse('telefoneenderecoprograma_edit', kwargs={'pk': self.pk})
+
 
 ##################################################
 # Inicio do Bloco [Curso]
