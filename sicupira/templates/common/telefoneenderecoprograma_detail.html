@@ -1,0 +1,28 @@
+ <table class="form table table-striped">
+     <thead>
+        <tr>
+          <th style="width:200px">Tipo</th>
+          <th style="width:200px">Telefone</th>
+          <th style="width:200px">DDD</th>
+          <th style="width:200px">Ramal</th>
+        </tr>
+     </thead>
+      <tbody>
+          {% for telefone in telefoneenderecoprograma %}
+          <tr>
+            <td>
+              {{ telefone.tipo }}
+            </td>              
+            <td>
+              {{ telefone.ddd }}
+            </td>              
+            <td>
+              {{ telefone.numero }}
+            </td>              
+            <td>
+              {{ telefone.ramal }}
+            </td>              
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>

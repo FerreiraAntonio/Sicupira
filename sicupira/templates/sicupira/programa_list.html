@@ -83,7 +83,7 @@
                 </select>
             </div>            
             <div class="form-group">
-                <label for="sel4">Sigla:</label>
+                <label for="sel4">Estado:</label>
                 <select class="form-control" id="sigla" name="sigla">
                 {% for programa in page_obj %}
                   <option value="{{ programa.estado_id.sigla }}">{{ programa.estado_id.sigla }}</option>

@@ -104,10 +104,16 @@ class EnderecoProgramaList(ListView):
         return queryset
 
 
-@method_decorator(login_required(login_url='login'), name='dispatch')
-class EnderecoProgramaView(DetailView):
-    model = EnderecoPrograma
+# @method_decorator(login_required(login_url='login'), name='dispatch')
+# class EnderecoProgramaView(DetailView):
+#     model = EnderecoPrograma
 
+@login_required()
+def enderecoprograma_detail_view(request, id):
+    enderecoprograma = get_object_or_404(EnderecoPrograma, pk=id)
+    telefoneenderecoprograma = TelefoneEnderecoPrograma.objects.filter(endereco_id= id)
+
+    return render(request, 'sicupira/enderecoprograma_detail.html', context={'enderecoprograma': enderecoprograma, 'telefoneenderecoprograma': telefoneenderecoprograma})
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class EnderecoProgramaCreate(CreateView):

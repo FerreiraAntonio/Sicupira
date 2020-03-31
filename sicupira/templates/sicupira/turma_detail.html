@@ -8,13 +8,36 @@
 {% load static %}
 
 <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Detalhes da Turma</h3>
-    <h4>Nome: {{ turma.nome_turma }}</h4>
-    Curso: {{ turma.curso_id }}<br/>
-    Créditos: {{ turma.disciplina_id.creditos }}</br>
-    Disciplina: {{ turma.disciplina_id.nome_disciplina }}<br/>
-    Ano: {{ turma.ano }}<br/>
-    Periodo Letivo: {{ turma.periodo_letivo_id }}<br/>
-    <br/>
-    <br/>
+    
+<table class="table table-striped">
+    <thead>
+        <th>Nome:</th>
+        <th>{{ turma.nome_turma }}</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Curso:</td>
+            <td>{{ turma.curso_id }}</td>
+        </tr>
+        <tr>
+            <td>Créditos:</td>
+            <td>{{ turma.disciplina_id.creditos }}</td>
+        </tr>
+        <tr>
+            <td>Disciplina:</td>
+            <td>{{ turma.disciplina_id.nome_disciplina }}</td>
+        </tr>
+        <tr>
+            <td>Ano:</td>
+            <td>{{ turma.ano }}</td>
+        </tr>
+        <tr>
+            <td>Periodo Letivo:</td>
+            <td>{{ turma.periodo_letivo_id }}</td>
+        </tr>
+    </tbody>
+</table>
+  
+    
     {% include 'common/back_button.html' %}
 {% endblock %}
