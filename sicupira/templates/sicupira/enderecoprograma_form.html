@@ -126,15 +126,16 @@
              </thead>
           {% endif %}
           <tbody>
-              <tr>
+              <tr>              
               {% for field in form.visible_fields %}
                 <td>
+                <br/>
                 {% if forloop.first %}
                   {% for hidden in form.hidden_fields %}
                   {{ hidden }}
                   {% endfor %}
                 {% endif %}
-                  {{ field.errors.as_ul }}
+                  {{ field.errors.as_ul }}                             
                   {{ field }}
                 </td>
               {% endfor %}

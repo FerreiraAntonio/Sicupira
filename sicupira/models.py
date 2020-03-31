@@ -378,13 +378,25 @@ class EnderecoPrograma(models.Model):
         return reverse('enderecoprograma_edit', kwargs={'pk': self.pk})
 
 ##################################################
+# Inicio do Bloco [TipoTelefone]
+##################################################
+
+
+class TipoTelefone(models.Model):
+    tipo = CICharField(max_length=100, unique=True)
+
+    def __str__(self):
+        return self.tipo
+
+
+##################################################
 # Inicio do Bloco [Telefone Endereco Programa]
 ##################################################
 
 
 class TelefoneEnderecoPrograma(models.Model):
     endereco_id = models.ForeignKey(EnderecoPrograma, on_delete=models.CASCADE, related_name='EnderecoTelefone')
-    tipo = models.IntegerField()
+    tipo = models.ForeignKey(TipoTelefone, on_delete=models.CASCADE, related_name='TipoTelefone')
     ddd = models.IntegerField()
     numero = CICharField(max_length=10)
     ramal = CICharField(max_length=20, null=True, blank=True)
@@ -394,6 +406,7 @@ class TelefoneEnderecoPrograma(models.Model):
 
     def get_absolute_url(self):
         return reverse('telefoneenderecoprograma_edit', kwargs={'pk': self.pk})
+
 
 ##################################################
 # Inicio do Bloco [Curso]

@@ -1450,7 +1450,28 @@
             "email": "pgsc@ime.eb.br",
             "web_site": "http://www.comp.ime.eb.br",
             "inicio": "1971-01-01",
-            "fim": "2022-02-02"            
+            "fim": "2022-02-02"
+        }
+    },
+    {
+        "model": "sicupira.tipotelefone",
+        "pk": 1,
+        "fields": {
+            "tipo": "Fax"
+        }
+    },
+    {
+        "model": "sicupira.tipotelefone",
+        "pk": 2,
+        "fields": {
+            "tipo": "Telefone Fixo"
+        }
+    },
+    {
+        "model": "sicupira.tipotelefone",
+        "pk": 3,
+        "fields": {
+            "tipo": "Celular"
         }
     },
     {
