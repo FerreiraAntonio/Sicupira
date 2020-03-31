@@ -3,7 +3,7 @@
 {% block breadcrumbs %}
     {{ block.super }} » 
 
-    {% if programa.id > 0 %}
+    {% if enderecoprograma.id > 0 %}
     <a href="{% url 'enderecoprograma_edit' enderecoprograma.id %}">Formulário do endereço do programa</a>
     {% else %}
     <a href="{% url 'enderecoprograma_new' %}">Formulário do endereço do programa</a>
@@ -23,7 +23,7 @@
     
     <div class="form-row">
       <div class="form-group">
-        {{ form.programa_id|as_crispy_field }}
+        {{ enderecoprograma_form.programa_id|as_crispy_field }}
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script>
           // Rotina para CRUD inline dentro de outro template
@@ -51,88 +51,102 @@
     </div>
     <div class="form-row">
       <div class="form-group">
-        {{ form.estado_id|as_crispy_field }}
+        {{ enderecoprograma_form.estado_id|as_crispy_field }}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        {{ form.cep|as_crispy_field }}
+        {{ enderecoprograma_form.cep|as_crispy_field }}
       </div>
     </div>
     <div class="form-row field-instituicao">
       <div class="form-group">
         <div class="related-widget-wrapper">
-          {{ form.logradouro|as_crispy_field }}
+          {{ enderecoprograma_form.logradouro|as_crispy_field }}
         </div>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        {{ form.numero|as_crispy_field }}
+        {{ enderecoprograma_form.numero|as_crispy_field }}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        {{ form.complemento|as_crispy_field }}
+        {{ enderecoprograma_form.complemento|as_crispy_field }}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        {{ form.bairro|as_crispy_field }}
+        {{ enderecoprograma_form.bairro|as_crispy_field }}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        {{ form.municipio|as_crispy_field }}
+        {{ enderecoprograma_form.municipio|as_crispy_field }}
+      </div>
+    </div>   
+    <div class="form-row">
+      <div class="form-group">
+        {{ enderecoprograma_form.email|as_crispy_field }}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        {{ form.fax|as_crispy_field }}
+        {{ enderecoprograma_form.web_site|as_crispy_field }}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        {{ form.telefone|as_crispy_field }}
+        {{ enderecoprograma_form.inicio|as_crispy_field }}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        {{ form.ramal|as_crispy_field }}
+        {{ enderecoprograma_form.fim|as_crispy_field }}
       </div>
     </div>
+       
     <div class="form-row">
       <div class="form-group">
-        {{ form.email|as_crispy_field }}
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        {{ form.web_site|as_crispy_field }}
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        {{ form.inicio|as_crispy_field }}
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        {{ form.fim|as_crispy_field }}
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        {{ form.latitude|as_crispy_field }}
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        {{ form.longitude|as_crispy_field }}
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
+
+        <h3>Telefones</h3>
+        {{ telefoneenderecoprograma_form.management_form }}
+        {{ telefoneenderecoprograma_form.non_form_errors.as_ul }}
+        <table id="formset_{{forloop.counter}}" class="form">
+        {% for form in telefoneenderecoprograma_form.forms %}
+          <!-- <a class="btn btn-info" id="add-item"><i class="fa fa-plus"></i> nova abreviatura</a> -->
+          {% if forloop.first %}
+             <thead>
+                <tr>
+                    {% for field in form.visible_fields %}
+                <th style="width:200px">{{ field.label|capfirst }}</th>
+                    {% endfor %}
+                 </tr>
+             </thead>
+          {% endif %}
+          <tbody>
+              <tr>
+              {% for field in form.visible_fields %}
+                <td>
+                {% if forloop.first %}
+                  {% for hidden in form.hidden_fields %}
+                  {{ hidden }}
+                  {% endfor %}
+                {% endif %}
+                  {{ field.errors.as_ul }}
+                  {{ field }}
+                </td>
+              {% endfor %}
+              </tr>
+          </tbody>
+        {% endfor %}
+        </table>
+
+
+
+
+
         {% include 'common/form_button.html' %}
       </div>
     </div>

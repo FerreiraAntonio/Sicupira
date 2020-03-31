@@ -74,15 +74,10 @@
                                 <th>complemento</th>
                                     <th>bairro</th>
                                         <th>municipio</th>
-                                            <th>fax</th>
-                                                <th>telefone</th>
-                                                    <th>ramal</th>
-                                                        <th>email</th>
-                                                            <th>web_site</th>
-                                                                <th>inicio</th>
-                                                                    <th>fim</th>
-                                                                        <th>latitude</th>
-                                                                            <th>longitude</th>
+                                            <th>email</th>
+                                                <th>web_site</th>
+                                                    <th>inicio</th>
+                                                        <th>fim</th>                      
                 <th>Ver</th>
                 <th>Alterar</th>
                 <th>Apagar</th>
@@ -99,15 +94,10 @@
             <td>{{ enderecoprograma.complemento }}</td>
             <td>{{ enderecoprograma.bairro }}</td>
             <td>{{ enderecoprograma.municipio }}</td>
-            <td>{{ enderecoprograma.fax }}</td>
-            <td>{{ enderecoprograma.telefone }}</td>
-            <td>{{ enderecoprograma.ramal }}</td>
             <td>{{ enderecoprograma.email }}</td>
             <td>{{ enderecoprograma.web_site }}</td>
             <td>{{ enderecoprograma.inicio }}</td>
             <td>{{ enderecoprograma.fim }}</td>
-            <td>{{ enderecoprograma.latitude }}</td>
-            <td>{{ enderecoprograma.longitude }}</td>
             
             <td><a href="{% url "enderecoprograma_view" enderecoprograma.id %}"><span class="label label-info">ver</span></a></td>
             <td><a href="{% url "enderecoprograma_edit" enderecoprograma.id %}"><span class="label label-warning">alterar</span></a></td>

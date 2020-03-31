@@ -1,4 +1,11 @@
-from django.shortcuts import render, redirect
+from django.db import transaction
+from django.forms import inlineformset_factory
+from django.template import RequestContext
+from django.template.context_processors import csrf
+
+from .forms import *
+
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -16,10 +23,10 @@ from sicupira.models import Turma
 from sicupira.models import Programa
 from sicupira.models import Curso
 
-
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from pessoa.services import LattesService
+
 
 def index(request):
     if request.user.is_authenticated:
@@ -105,14 +112,14 @@ class EnderecoProgramaView(DetailView):
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class EnderecoProgramaCreate(CreateView):
     model = EnderecoPrograma
-    fields = ['programa_id', 'estado_id', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'fax', 'telefone', 'ramal', 'email', 'web_site', 'inicio', 'fim', 'latitude', 'longitude']
+    fields = ['programa_id', 'estado_id', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'email', 'web_site', 'inicio', 'fim' ]
     success_url = reverse_lazy('enderecoprograma_list')
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class EnderecoProgramaUpdate(UpdateView):
     model = EnderecoPrograma
-    fields = ['programa_id', 'estado_id', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'fax', 'telefone', 'ramal', 'email', 'web_site', 'inicio', 'fim', 'latitude', 'longitude']
+    fields = ['programa_id', 'estado_id', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'email', 'web_site', 'inicio', 'fim']
     success_url = reverse_lazy('enderecoprograma_list')
 
 
@@ -120,6 +127,39 @@ class EnderecoProgramaUpdate(UpdateView):
 class EnderecoProgramaDelete(DeleteView):
     model = EnderecoPrograma
     success_url = reverse_lazy('enderecoprograma_list')
+
+
+@login_required
+def save_enderecoprograma(request, id=0, template_name='sicupira/enderecoprograma_form.html'):
+    if id > 0:
+        enderecoprograma = get_object_or_404(EnderecoPrograma, pk=id)
+    else:
+        enderecoprograma = EnderecoPrograma()
+
+    # Preparação dos forms
+    enderecoprograma_form = EnderecoProgramaForm(request.POST or None,instance=enderecoprograma)
+    TelefoneEnderecoProgramaFormSet = inlineformset_factory(EnderecoPrograma, TelefoneEnderecoPrograma, form=TelefoneEnderecoProgramaForm, extra=1)
+    telefoneenderecoprograma_form = TelefoneEnderecoProgramaFormSet(instance=enderecoprograma)
+
+    if request.method == 'POST' and enderecoprograma_form.is_valid():
+        # transação
+        with transaction.atomic():
+
+            enderecoprograma = enderecoprograma_form.save()
+
+            telefoneenderecoprograma_form = TelefoneEnderecoProgramaFormSet(request.POST, instance=enderecoprograma)
+            print(telefoneenderecoprograma_form.is_valid())
+            if telefoneenderecoprograma_form.is_valid():
+                telefoneenderecoprograma_form.save()
+
+        return redirect('enderecoprograma_list')
+
+    args = {}
+    args.update(csrf(request))
+    args['enderecoprograma_form'] = enderecoprograma_form
+    args['telefoneenderecoprograma_form'] = telefoneenderecoprograma_form
+
+    return render(request, template_name, args)
 
 ##################################################
 # Fim do Bloco [EnderecoPrograma]
