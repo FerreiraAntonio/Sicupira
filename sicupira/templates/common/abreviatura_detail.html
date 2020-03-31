@@ -1,0 +1,20 @@
+ <table class="form">
+     <thead>
+        <tr>
+        <th style="width:200px">Abreviaturas</th>
+        <th style="width:200px">Principal</th>
+         </tr>
+     </thead>
+      <tbody>
+          {% for abreviaura in abreviaturas %}
+          <tr>
+            <td>
+              {{ abreviaura.desc_abreviatura }}
+            </td>
+              <td>
+              {% if abreviaura.flg_principal %} X {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>

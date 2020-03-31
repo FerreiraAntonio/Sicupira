@@ -16,6 +16,7 @@
     Título: {{ docente.titulo_nivel.desc_nivel_graduacao }}<br/>
     Vínculo IES : {{ docente.vinculo_ies.desc_vinculo_ies }}<br/>
  <br/>
- <br/>
+ {% include 'common/abreviatura_detail.html' %}
  {% include 'common/back_button.html' %}
+
 {% endblock %}

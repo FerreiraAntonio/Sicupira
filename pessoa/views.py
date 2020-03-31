@@ -81,10 +81,16 @@ class DiscenteList(ListView):
         return queryset
 
 
-@method_decorator(login_required(login_url='login'), name='dispatch')
-class DiscenteView(DetailView):
-    model = Discente
+# @method_decorator(login_required(login_url='login'), name='dispatch')
+# class DiscenteView(DetailView):
+#     model = Discente
 
+@login_required()
+def discente_detail_view(request, id):
+    discente = get_object_or_404(Discente, pk=id)
+    abreviaturas = Abreviatura.objects.filter(pessoa_id= id)
+
+    return render(request, 'pessoa/discente_detail.html', context={'discente': discente, 'abreviaturas':abreviaturas})
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DiscenteCreate(CreateView):
@@ -194,10 +200,16 @@ class DocenteList(ListView):
         return queryset
 
 
-@method_decorator(login_required(login_url='login'), name='dispatch')
-class DocenteView(DetailView):
-    model = Docente
+# @method_decorator(login_required(login_url='login'), name='dispatch')
+# class DocenteView(DetailView):
+#     model = Docente, Abreviatura
 
+@login_required()
+def docente_detail_view(request, id):
+    docente = get_object_or_404(Docente, pk=id)
+    abreviaturas = Abreviatura.objects.filter(pessoa_id= id)
+
+    return render(request, 'pessoa/docente_detail.html', context={'docente': docente, 'abreviaturas':abreviaturas})
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DocenteCreate(CreateView):
