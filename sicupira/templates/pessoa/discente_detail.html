@@ -24,6 +24,10 @@
                 <td>{{ discente.pessoa.email }}</td>
             </tr>
             <tr>
+                <td>Nacionalidade:</td>
+                <td>{{ discente.pessoa.nacionalidade.nome_pais }}</td>
+            </tr>
+            <tr>
                 <td>Tipo documento:</td>
                 <td>{{ discente.pessoa.tipo_documento.desc_tipo_doc }}</td>
             </tr>
@@ -38,6 +42,18 @@
             <tr>
                 <td>Graduação:</td>
                 <td>{{ discente.nivel.desc_nivel_graduacao }}</td>
+            </tr>
+            <tr>
+                <td>Programa:</td>
+                <td>{{ discente.curso.programa_id.nome_programa }}</td>
+            </tr>
+            <tr>
+                <td>Instituição:</td>
+                <td>{{ discente.curso.programa_id.instituicao.nome }}</td>
+            </tr>
+            <tr>
+                <td>Ano Inicio:</td>
+                <td>{{ discente.ano }}</td>
             </tr>
         </tbody>
     </table>

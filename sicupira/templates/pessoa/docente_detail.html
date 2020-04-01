@@ -36,6 +36,26 @@
                 <td>{{ docente.titulo_nivel.desc_nivel_graduacao }}</td>
             </tr>
             <tr>
+                <td>Programa:</td>
+                <td>{{ docente.programa.nome_programa }}</td>
+            </tr>
+            <tr>
+                <td>Instituição:</td>
+                <td>{{ docente.programa.instituicao.nome }}</td>
+            </tr>
+            <tr>
+                <td>Ano Inicio:</td>
+                <td>{{ docente.ano }}</td>
+            </tr>
+            <tr>
+                <td>Categoria:</td>
+                <td>{{ docente.categoria.desc_categoria }}</td>
+            </tr>            
+            <tr>
+                <td>Regime:</td>
+                <td>{{ docente.regime_trabalho.desc_regime_trabalho }}</td>
+            </tr>
+            <tr>
                 <td>Vínculo IES:</td>
                 <td>{{ docente.vinculo_ies.desc_vinculo_ies }}</td>
             </tr>
