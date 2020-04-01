@@ -4,7 +4,7 @@
     {{ block.super }} »
 
     {% if docente.pessoa.id > 0 %}
-    <a href="{% url 'docente_edit' discente.pessoa.id %}">Formulário de Docente</a>
+    <a href="{% url 'docente_edit' docente.pessoa.id %}">Formulário de Docente</a>
     {% else %}
     <a href="{% url 'docente_new' %}">Formulário de Docente</a>
     {% endif %}
