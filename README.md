@@ -106,10 +106,12 @@ http://127.0.0.01:8000/admin
 | Desenvolvimento |                |                                                                        | Sprint 3     |
 | Desenvolvimento |                |                                                                        | Sprint 2     |
 | Testes          | Wagner Sodré   |                                                                        | Testes, Sprint 3 |
+| Testes          |  Michelle      |                                                                        | Sprint 4     |
 | Testes          |                |                                                                        | Sprint 4     |
-| Testes          |                |                                                                        | Sprint 4     |
-| Documentação    |                |                                                                        | Sprint 5     |
-| Documentação    |                |                                                                        | Sprint 5     |
+| Documentação    |  Michelle      |                                                                        | Sprint 5     |
+| Documentação    | Matheus Mattos |                                                                        | Sprint 5     |
+| Documentação    | Pedro Bernabé  |                                                                        | Sprint 5     |
+| Documentação    |     Diego      |                                                                        | Sprint 5     |
 | Apresentação    |                |                                                                        | Apresentação |
 | Apresentação    |                |                                                                        | Apresentação |
 
