@@ -9,7 +9,55 @@
 
 <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Apaga Endereço</h3>
 <form method="post">{% csrf_token %}
-    Voce realmente quer apagar "{{ enderecoprograma.nome_programa }}" ?<br/>
+    Voce realmente quer apagar o endereço de "{{ enderecoprograma.programa_id.instituicao }}" ?<br/>
+    
+    <h3>Detalhes Endereço</h3>
+
+
+    <table class="table table-striped">
+      <thead>
+        <th>Nome:</th>
+        <th>{{enderecoprograma.programa_id}}</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>UF:</td>
+          <td>{{ enderecoprograma.estado_id }}</td>
+        </tr>
+        <tr>
+          <td>Cep:</td>
+          <td>{{ enderecoprograma.cep }}</td>
+        </tr>
+        <tr>
+          <td>Logradouro:</td>
+          <td>{{ enderecoprograma.logradouro }}</td>
+        </tr>
+        <tr>
+          <td>Número:</td>
+          <td>{{ enderecoprograma.numero }}</td>
+        </tr>
+        <tr>
+          <td>Complemento:</td>
+          <td>{{ enderecoprograma.complemento }}</td>
+        </tr>
+        <tr>
+          <td>Bairro:</td>
+          <td>{{ enderecoprograma.bairro }}</td>
+        </tr>
+        <tr>
+          <td>Municipio:</td>
+          <td>{{ enderecoprograma.municipio }}</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>{{ enderecoprograma.email }}</td>
+        </tr>
+        <tr>
+          <td>Web Site:</td>
+          <td>{{ enderecoprograma.web_site }}</td>
+        </tr>
+      </tbody>
+    </table>
     {% include 'common/delete_button.html' %}
 </form>
 

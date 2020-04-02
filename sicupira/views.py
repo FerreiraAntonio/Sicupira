@@ -118,14 +118,14 @@ def enderecoprograma_detail_view(request, id):
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class EnderecoProgramaCreate(CreateView):
     model = EnderecoPrograma
-    fields = ['programa_id', 'estado_id', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'email', 'web_site', 'inicio', 'fim' ]
+    fields = ['programa_id', 'estado_id', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'email', 'web_site' ]
     success_url = reverse_lazy('enderecoprograma_list')
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class EnderecoProgramaUpdate(UpdateView):
     model = EnderecoPrograma
-    fields = ['programa_id', 'estado_id', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'email', 'web_site', 'inicio', 'fim']
+    fields = ['programa_id', 'estado_id', 'cep', 'logradouro', 'numero', 'complemento', 'bairro', 'municipio', 'email', 'web_site']
     success_url = reverse_lazy('enderecoprograma_list')
 
 

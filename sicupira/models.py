@@ -369,8 +369,8 @@ class EnderecoPrograma(models.Model):
     municipio = CICharField(max_length=100)
     email = CIEmailField(max_length=255, null=True, blank=True)
     web_site = CICharField(max_length=255, null=True, blank=True)
-    inicio = models.DateField()
-    fim = models.DateField(null=True, blank=True)
+    # inicio = models.DateField()
+    # fim = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return '%s, %d' % (self.logradouro, self.numero)

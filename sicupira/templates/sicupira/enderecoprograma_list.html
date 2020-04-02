@@ -80,8 +80,6 @@
                 <th>municipio</th>
                 <th>email</th>
                 <th>web_site</th>
-                <th>inicio</th>
-                <th>fim</th>
                 <th>Ver</th>
                 <th>Alterar</th>
                 <th>Apagar</th>
@@ -100,9 +98,6 @@
                 <td>{{ enderecoprograma.municipio }}</td>
                 <td>{{ enderecoprograma.email }}</td>
                 <td>{{ enderecoprograma.web_site }}</td>
-                <td>{{ enderecoprograma.inicio }}</td>
-                <td>{{ enderecoprograma.fim }}</td>
-
                 <td><a href="{% url "enderecoprograma_view" enderecoprograma.id %}"><span
                             class="label label-info">ver</span></a></td>
                 <td><a href="{% url "enderecoprograma_edit" enderecoprograma.id %}"><span
