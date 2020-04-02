@@ -106,9 +106,14 @@ http://127.0.0.01:8000/admin
 | Desenvolvimento |                |                                                                        | Sprint 3     |
 | Desenvolvimento |                |                                                                        | Sprint 2     |
 | Testes          | Wagner Sodré   |                                                                        | Testes, Sprint 3 |
+<<<<<<< README.md
 | Testes          | Mário Azevedo  | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Testes, Bugfix |
 | Documentação    | Michelle Mesquita | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Documentação |
 | Documentação    | Alessandro Rebello | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Documentação |
+| Documentação    | Matheus Mattos | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Sprint 5     |
+| Documentação    | Pedro Bernabé  | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Sprint 5     |
+| Documentação    |     Diego      | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Sprint 5     |
+>>>>>>> README.md
 | Apresentação    |                |                                                                        | Apresentação |
 | Apresentação    |                |                                                                        | Apresentação |
 
