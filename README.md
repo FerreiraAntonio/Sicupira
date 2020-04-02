@@ -95,7 +95,7 @@ http://127.0.0.01:8000/admin
 | Product Owner   | Ricardo Choren | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  |              |
 | PM/Scrum Master | Antonio Horta  | ![](https://www.gravatar.com/avatar/8e4c634fa51e80d59cad9fe9da5cbaf4)  | Planejamento, Prototipação, Modelagem, Documentação, Wiki, Apresentação |
 | Modelagem       | Treice Moreira | ![](https://www.gravatar.com/avatar/b3d9451c693674676811851277c69b98)  | Modelagem |
-| Modelagem       | Nicole Santos  | ![](https://www.gravatar.com/avatar/9e807b92146cb292cb311e5b449a8f64)  | Modelagem |
+| Modelagem       | Nicole Santos  | ![](https://www.gravatar.com/avatar/9e807b92146cb292cb311e5b449a8f64)  | Modelagem, Documentação |
 | Modelagem   | Ricardo Lopes  | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  | Modelagem, MER |
 | Modelagem   | Ricardo Villafan | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  | Modelagem, MER |
 | Desenvolvimento | Gilvan Almeida | ![](https://www.gravatar.com/avatar/9d9a022baf8aaa57e60df7a6c076fcbe)  | Prototipação, Wiki |
@@ -106,12 +106,14 @@ http://127.0.0.01:8000/admin
 | Desenvolvimento |                |                                                                        | Sprint 3     |
 | Desenvolvimento |                |                                                                        | Sprint 2     |
 | Testes          | Wagner Sodré   |                                                                        | Testes, Sprint 3 |
-| Testes          |  Michelle      |                                                                        | Sprint 4     |
-| Testes          |                |                                                                        | Sprint 4     |
-| Documentação    |  Michelle      |                                                                        | Sprint 5     |
-| Documentação    | Matheus Mattos |                                                                        | Sprint 5     |
-| Documentação    | Pedro Bernabé  |                                                                        | Sprint 5     |
-| Documentação    |     Diego      |                                                                        | Sprint 5     |
+<<<<<<< README.md
+| Testes          | Mário Azevedo  | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Testes, Bugfix |
+| Documentação    | Michelle Mesquita | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Documentação |
+| Documentação    | Alessandro Rebello | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Documentação |
+| Documentação    | Matheus Mattos | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Sprint 5     |
+| Documentação    | Pedro Bernabé  | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Sprint 5     |
+| Documentação    |     Diego      | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Sprint 5     |
+>>>>>>> README.md
 | Apresentação    |                |                                                                        | Apresentação |
 | Apresentação    |                |                                                                        | Apresentação |
 

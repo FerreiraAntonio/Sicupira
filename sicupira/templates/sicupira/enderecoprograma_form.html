@@ -1,49 +1,53 @@
 {% extends 'sicupira/base.html' %}
 
 {% block breadcrumbs %}
-    {{ block.super }} » 
+{{ block.super }} »
 
-    {% if enderecoprograma.id > 0 %}
-    <a href="{% url 'enderecoprograma_edit' enderecoprograma.id %}">Formulário do endereço do programa</a>
-    {% else %}
-    <a href="{% url 'enderecoprograma_new' %}">Formulário do endereço do programa</a>
-    {% endif %}
-    
+{% if enderecoprograma.id > 0 %}
+<a href="{% url 'enderecoprograma_edit' enderecoprograma.id %}">Formulário do endereço do programa</a>
+{% else %}
+<a href="{% url 'enderecoprograma_new' %}">Formulário do endereço do programa</a>
+{% endif %}
+
 {% endblock %}
+
 {% load crispy_forms_tags %}
 
 {% block content %}
-{% load static %} 
+{% load static %}
 
 <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Formulário de Endereço</h3>
 
 <div style="width: 90%;margin: auto;">
   <form method="post">
     {% csrf_token %}
-    
+
     <div class="form-row">
       <div class="form-group">
         {{ enderecoprograma_form.programa_id|as_crispy_field }}
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
         <script>
           // Rotina para CRUD inline dentro de outro template
-          $(document).ready(function(){
-              $("select.select").change(function(){
-                  var id_programa = $(this).children("option:selected").val();
-                  if (id_programa !== "") {                      
-                    document.getElementById('change_id_programa_id').href = '/admin/sicupira/programa/' + id_programa + '/change/?_to_field=id&_popup=1'
-                    document.getElementById('delete_id_programa_id').href = '/admin/sicupira/programa/' + id_programa + '/delete/?_to_field=id&_popup=1'
-                  }
-              });
+          $(document).ready(function () {
+            $("select.select").change(function () {
+              var id_programa = $(this).children("option:selected").val();
+              if (id_programa !== "") {
+                document.getElementById('change_id_programa_id').href = '/admin/sicupira/programa/' + id_programa + '/change/?_to_field=id&_popup=1'
+                document.getElementById('delete_id_programa_id').href = '/admin/sicupira/programa/' + id_programa + '/delete/?_to_field=id&_popup=1'
+              }
+            });
           });
-          </script>
-        <a class="related-widget-wrapper-link change-related" id="change_id_programa_id" href="/admin/sicupira/programa/add/?_to_field=id&_popup=1" title="Alterar programa selecionadoa">
+        </script>
+        <a class="related-widget-wrapper-link change-related" id="change_id_programa_id"
+          href="/admin/sicupira/programa/add/?_to_field=id&_popup=1" title="Alterar programa selecionadoa">
           <img src="/static/admin/img/icon-changelink.svg" alt="Modificar">
         </a>
-        <a class="related-widget-wrapper-link add-related" id="add_id_programa_id" href="/admin/sicupira/programa/add/?_to_field=id&_popup=1" title="Adicionar outro programa">
+        <a class="related-widget-wrapper-link add-related" id="add_id_programa_id"
+          href="/admin/sicupira/programa/add/?_to_field=id&_popup=1" title="Adicionar outro programa">
           <img src="/static/admin/img/icon-addlink.svg" alt="Adicionar">
         </a>
-        <a class="related-widget-wrapper-link delete-related" id="delete_id_programa_id" href="/admin/sicupira/programa/add/?_to_field=id&_popup=1" title="Excluir programa selecionado">
+        <a class="related-widget-wrapper-link delete-related" id="delete_id_programa_id"
+          href="/admin/sicupira/programa/add/?_to_field=id&_popup=1" title="Excluir programa selecionado">
           <img src="/static/admin/img/icon-deletelink.svg" alt="Apagar">
         </a>
 
@@ -85,7 +89,7 @@
       <div class="form-group">
         {{ enderecoprograma_form.municipio|as_crispy_field }}
       </div>
-    </div>   
+    </div>
     <div class="form-row">
       <div class="form-group">
         {{ enderecoprograma_form.email|as_crispy_field }}
@@ -106,7 +110,7 @@
         {{ enderecoprograma_form.fim|as_crispy_field }}
       </div>
     </div>
-       
+
     <div class="form-row">
       <div class="form-group">
 
@@ -114,34 +118,34 @@
         {{ telefoneenderecoprograma_form.management_form }}
         {{ telefoneenderecoprograma_form.non_form_errors.as_ul }}
         <table id="formset_{{forloop.counter}}" class="form">
-        {% for form in telefoneenderecoprograma_form.forms %}
+          {% for form in telefoneenderecoprograma_form.forms %}
           <!-- <a class="btn btn-info" id="add-item"><i class="fa fa-plus"></i> nova abreviatura</a> -->
           {% if forloop.first %}
-             <thead>
-                <tr>
-                    {% for field in form.visible_fields %}
-                <th style="width:200px">{{ field.label|capfirst }}</th>
-                    {% endfor %}
-                 </tr>
-             </thead>
+          <thead>
+            <tr>
+              {% for field in form.visible_fields %}
+              <th style="width:200px">{{ field.label|capfirst }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
           {% endif %}
           <tbody>
-              <tr>              
+            <tr>
               {% for field in form.visible_fields %}
-                <td>
-                <br/>
+              <td>
+                <br />
                 {% if forloop.first %}
-                  {% for hidden in form.hidden_fields %}
-                  {{ hidden }}
-                  {% endfor %}
+                {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+                {% endfor %}
                 {% endif %}
-                  {{ field.errors.as_ul }}                             
-                  {{ field }}
-                </td>
+                {{ field.errors.as_ul }}
+                {{ field }}
+              </td>
               {% endfor %}
-              </tr>
+            </tr>
           </tbody>
-        {% endfor %}
+          {% endfor %}
         </table>
 
 
@@ -151,8 +155,7 @@
         {% include 'common/form_button.html' %}
       </div>
     </div>
-    
+
   </form>
 </div>
 {% endblock %}
-  

@@ -1,13 +1,13 @@
 {% extends 'sicupira/base.html' %}
 
 {% block breadcrumbs %}
-    {{ block.super }} »
+{{ block.super }} »
 
-    {% if docente.pessoa.id > 0 %}
-    <a href="{% url 'docente_edit' docente.pessoa.id %}">Formulário de Docente</a>
-    {% else %}
-    <a href="{% url 'docente_new' %}">Formulário de Docente</a>
-    {% endif %}
+{% if docente.pessoa.id > 0 %}
+<a href="{% url 'docente_edit' docente.pessoa.id %}">Formulário de Docente</a>
+{% else %}
+<a href="{% url 'docente_new' %}">Formulário de Docente</a>
+{% endif %}
 
 {% endblock %}
 
@@ -19,45 +19,45 @@
 <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Formulário de Docente</h3>
 
 <div style="width: 90%;margin: auto;">
-    <form method="post"  >
-      {% csrf_token %}
-      {{ pessoa_form |crispy }}
-      {{ docente_form |crispy }}
+  <form method="post">
+    {% csrf_token %}
+    {{ pessoa_form |crispy }}
+    {{ docente_form |crispy }}
     <h3>Abreviaturas</h3>
     {{ abreviatura_form.management_form }}
     {{ abreviatura_form.non_form_errors.as_ul }}
     <table id="formset_{{forloop.counter}}" class="form">
-    {% for form in abreviatura_form.forms %}
+      {% for form in abreviatura_form.forms %}
       <!-- <a class="btn btn-info" id="add-item"><i class="fa fa-plus"></i> nova abreviatura</a> -->
       {% if forloop.first %}
-         <thead>
-            <tr>
-                {% for field in form.visible_fields %}
-            <th style="width:200px">{{ field.label|capfirst }}</th>
-                {% endfor %}
-             </tr>
-         </thead>
+      <thead>
+        <tr>
+          {% for field in form.visible_fields %}
+          <th style="width:200px">{{ field.label|capfirst }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
       {% endif %}
       <tbody>
-          <tr>
+        <tr>
           {% for field in form.visible_fields %}
-            <td>
+          <td>
             {% if forloop.first %}
-              {% for hidden in form.hidden_fields %}
-              {{ hidden }}
-              {% endfor %}
+            {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+            {% endfor %}
             {% endif %}
-              {{ field.errors.as_ul }}
-              {{ field }}
-            </td>
+            {{ field.errors.as_ul }}
+            {{ field }}
+          </td>
           {% endfor %}
-          </tr>
+        </tr>
       </tbody>
-    {% endfor %}
+      {% endfor %}
     </table>
-      <br/>
-        {% include 'common/form_button.html' %}
-    </form>
+    <br />
+    {% include 'common/form_button.html' %}
+  </form>
 </div>
 
 {% endblock %}
