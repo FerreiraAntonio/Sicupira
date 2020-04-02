@@ -22,9 +22,12 @@
 <div style="width: 90%;margin: auto;">
   <form method="post">
     {% csrf_token %}
+    
+    {% if linhapesquisa_form.errors %}
     <div class="alert alert-danger" role="alert">
       {{ linhapesquisa_form.errors }}
     </div>
+    {% endif %}
     
     <div class="form-row">
       <div class="form-group">
