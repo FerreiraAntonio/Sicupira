@@ -19,8 +19,33 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-<!-- jQuery library -->
+<!-- jQuery library
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ -->
+
+ <!-- datepicker  e crud inline -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- Mascara de campos -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
+
+<script>  
+$( function() {
+  dateinput = document.getElementsByClassName("dateinput form-control");
+  $( dateinput ).datepicker().attr("autocomplete", "off");
+  $( dateinput ).mask('00/00/0000');
+  //Até 5 telefones com mascara
+  $('#id_EnderecoTelefone-0-numero').mask('00000-0000');  
+  $('#id_EnderecoTelefone-1-numero').mask('00000-0000');  
+  $('#id_EnderecoTelefone-2-numero').mask('00000-0000');  
+  $('#id_EnderecoTelefone-3-numero').mask('00000-0000');  
+  $('#id_EnderecoTelefone-4-numero').mask('00000-0000');   
+} );
+</script>
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
