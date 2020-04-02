@@ -461,8 +461,8 @@ class ProgramaList(ListView):
         queryset = queryset.order_by("nome_programa")
         if 'codigo_programa' in self.request.GET:
             queryset = queryset.filter(codigo_programa__icontains=self.request.GET['codigo_programa'])
-        if 'nome_programa' in self.request.GET:
-            queryset = queryset.filter(nome_programa__icontains=self.request.GET['nome_programa'])
+        if 'nome' in self.request.GET:
+            queryset = queryset.filter(nome_programa__icontains=self.request.GET['nome'])
         if 'instituicao' in self.request.GET:
             queryset = queryset.filter(instituicao__nome__icontains=self.request.GET['instituicao'])
         if 'areabasica' in self.request.GET:
