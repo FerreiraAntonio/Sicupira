@@ -25,6 +25,8 @@ class LinhaPesquisaForm(ModelForm):
         cleaned_data = super().clean()
         data_inicio = cleaned_data.get("data_inicio")
         data_fim = cleaned_data.get("data_fim")
-        if data_inicio > data_fim:
-            msg = "Data inicio deve ser menor que data fim."
-            raise forms.ValidationError(msg)
+
+        if data_fim is not None:
+            if data_inicio > data_fim:
+                msg = "Data inicio deve ser menor que data fim."
+                raise forms.ValidationError(message=msg, code='invalid')

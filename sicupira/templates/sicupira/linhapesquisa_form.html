@@ -23,7 +23,7 @@
   <form method="post">
     {% csrf_token %}
     
-    {% if linhapesquisa_form.errors %}
+    {% if linhapesquisa_form.errors %}      
     <div class="alert alert-danger" role="alert">
       {{ linhapesquisa_form.errors }}
     </div>
