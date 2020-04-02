@@ -3,7 +3,7 @@
 {% block breadcrumbs %}
     {{ block.super }} » 
 
-    {% if programa.id > 0 %}
+    {% if linhapesquisa.id > 0 %}
     <a href="{% url 'linhapesquisa_edit' linhapesquisa.id %}">Formulário de linha de pesquisa</a>
     {% else %}
     <a href="{% url 'linhapesquisa_new' %}">Formulário de linha de pesquisa</a>
@@ -22,29 +22,32 @@
 <div style="width: 90%;margin: auto;">
   <form method="post">
     {% csrf_token %}
-
+    <div class="alert alert-danger" role="alert">
+      {{ linhapesquisa_form.errors }}
+    </div>
+    
     <div class="form-row">
       <div class="form-group">
-        {{ form.nome_linha_pesquisa|as_crispy_field }}
+        {{ linhapesquisa_form.nome_linha_pesquisa|as_crispy_field }}
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        {{ form.data_inicio|as_crispy_field }}
+        {{ linhapesquisa_form.data_inicio|as_crispy_field }}
       </div>
       <div class="form-row">
         <div class="form-group">
-          {{ form.data_fim|as_crispy_field }}
+          {{ linhapesquisa_form.data_fim|as_crispy_field }}
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
-          {{ form.desc_linha_pesquisa|as_crispy_field }}
+          {{ linhapesquisa_form.desc_linha_pesquisa|as_crispy_field }}
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
-          {{ form.area_concentracao_id|as_crispy_field }}
+          {{ linhapesquisa_form.area_concentracao_id|as_crispy_field }}
           <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
           <script>
             // Rotina para CRUD inline dentro de outro template

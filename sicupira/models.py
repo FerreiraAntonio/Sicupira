@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.core.validators import MinValueValidator
 
 ###########################################################
 # ATENÇÃO: CADA DESENVOLVEDOR DEVE DUPLICAR               #
@@ -484,7 +485,7 @@ class Turma(models.Model):
     nome_turma = CICharField(max_length=45)
     curso_id = models.ForeignKey(Curso, on_delete=models.CheckConstraint, related_name='TurmaCurso')
     disciplina_id = models.ForeignKey(Disciplina, on_delete=models.CheckConstraint, related_name='TurmaDiscipliana')
-    ano = models.IntegerField(default=0)
+    ano = models.IntegerField(default=0, validators=[MinValueValidator(1950)])
     periodo_letivo_id = models.ForeignKey(PeriodoLetivo, on_delete=models.CheckConstraint, related_name='TurmaPeriodoLeitivo')
 
     def __str__(self):

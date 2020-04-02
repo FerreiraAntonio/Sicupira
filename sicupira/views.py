@@ -285,6 +285,31 @@ class LinhaPesquisaDelete(DeleteView):
     model = LinhaPesquisa
     success_url = reverse_lazy('linhapesquisa_list')
 
+
+@login_required
+def save_linhapesquisa(request, id=0, template_name='sicupira/linhapesquisa_form.html'):
+    if id > 0:
+        linhapesquisa = get_object_or_404(LinhaPesquisa, pk=id)
+    else:
+        linhapesquisa = LinhaPesquisa()
+
+    # Preparação dos forms
+    linhapesquisa_form = LinhaPesquisaForm(request.POST or None, instance=linhapesquisa)
+
+    if request.method == 'POST' and linhapesquisa_form.is_valid():
+        # transação
+        with transaction.atomic():
+
+            linhapesquisa = linhapesquisa_form.save()
+
+        return redirect('linhapesquisa_list')
+
+    args = {}
+    args.update(csrf(request))
+    args['linhapesquisa_form'] = linhapesquisa_form
+
+    return render(request, template_name, args)
+
 ##################################################
 # Fim do Bloco [LinhaPesquisa]
 ##################################################
