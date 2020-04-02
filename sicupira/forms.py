@@ -4,6 +4,7 @@ from sicupira.models import TelefoneEnderecoPrograma
 from sicupira.models import LinhaPesquisa
 from django import forms
 
+
 class EnderecoProgramaForm(ModelForm):
     class Meta:
         model = EnderecoPrograma

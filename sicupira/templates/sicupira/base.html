@@ -38,7 +38,8 @@ $( function() {
   dateinput = document.getElementsByClassName("dateinput form-control");
   $( dateinput ).datepicker({dateFormat: 'dd/mm/yy'}).attr("autocomplete", "off");
   $( dateinput ).mask('00/00/0000');
-  //Até 5 telefones com mascara
+  $('#id_cep').mask('00000-000');  
+  //Até 5 telefones com mascara  
   $('#id_EnderecoTelefone-0-numero').mask('00000-0000');  
   $('#id_EnderecoTelefone-1-numero').mask('00000-0000');  
   $('#id_EnderecoTelefone-2-numero').mask('00000-0000');  

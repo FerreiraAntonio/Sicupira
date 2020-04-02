@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.core.validators import MinValueValidator
+from django.core.validators import MaxValueValidator
 
 ###########################################################
 # ATENÇÃO: CADA DESENVOLVEDOR DEVE DUPLICAR               #
@@ -361,16 +362,14 @@ class LinhaPesquisa(models.Model):
 class EnderecoPrograma(models.Model):
     programa_id = models.ForeignKey(Programa,on_delete=models.CASCADE, related_name='ProgramaEndereco')
     estado_id = models.ForeignKey(Estado, on_delete=models.SET_NULL, null=True)
-    cep = models.IntegerField()
+    cep = CICharField(max_length=9)
     logradouro = CICharField(max_length=200)
-    numero = CICharField(max_length=20)
+    numero = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     complemento = CICharField(max_length=300, null=True, blank=True)
     bairro = CICharField(max_length=100)
     municipio = CICharField(max_length=100)
     email = CIEmailField(max_length=255, null=True, blank=True)
     web_site = CICharField(max_length=255, null=True, blank=True)
-    # inicio = models.DateField()
-    # fim = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return '%s, %d' % (self.logradouro, self.numero)
@@ -398,9 +397,9 @@ class TipoTelefone(models.Model):
 class TelefoneEnderecoPrograma(models.Model):
     endereco_id = models.ForeignKey(EnderecoPrograma, on_delete=models.CASCADE, related_name='EnderecoTelefone')
     tipo = models.ForeignKey(TipoTelefone, on_delete=models.CASCADE, related_name='TipoTelefone')
-    ddd = models.IntegerField()
+    ddd = models.IntegerField(default=0, blank=True, validators=[MinValueValidator(0), MaxValueValidator(99)])
     numero = CICharField(max_length=10)
-    ramal = CICharField(max_length=20, null=True, blank=True)
+    ramal = models.IntegerField(default=0, blank=True, validators=[MinValueValidator(0), MaxValueValidator(9999)])
 
     def __str__(self):
         return '%d - %s' % (self.ddd, self.numero)
