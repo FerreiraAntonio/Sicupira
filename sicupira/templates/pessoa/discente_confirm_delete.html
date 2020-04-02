@@ -10,7 +10,60 @@
     <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Apaga Discente</h3>
     <form method="post">{% csrf_token %}
         Voce realmente quer apagar "{{ discente.pessoa.nome }}" ?
-        <br/>
+        <br/><br/>
+
+        <h4> Detalhes do Discente</h4>
+        
+        <table class="table table-striped">
+            <thead>
+                <th>Nome:</th>
+                <th>{{discente.pessoa.nome}}</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sexo:</td>
+                    <td>{{ discente.pessoa.sexo.desc_sexo }}</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>{{ discente.pessoa.email }}</td>
+                </tr>
+                <tr>
+                    <td>Nacionalidade:</td>
+                    <td>{{ discente.pessoa.nacionalidade.nome_pais }}</td>
+                </tr>
+                <tr>
+                    <td>Tipo documento:</td>
+                    <td>{{ discente.pessoa.tipo_documento.desc_tipo_doc }}</td>
+                </tr>
+                <tr>
+                    <td>Número documento:</td>
+                    <td>{{ discente.pessoa.numero_documento }}</td>
+                </tr>
+                <tr>
+                    <td>Curso:</td>
+                    <td>{{ discente.curso.nome_curso }}</td>
+                </tr>
+                <tr>
+                    <td>Graduação:</td>
+                    <td>{{ discente.nivel.desc_nivel_graduacao }}</td>
+                </tr>
+                <tr>
+                    <td>Programa:</td>
+                    <td>{{ discente.curso.programa_id.nome_programa }}</td>
+                </tr>
+                <tr>
+                    <td>Instituição:</td>
+                    <td>{{ discente.curso.programa_id.instituicao.nome }}</td>
+                </tr>
+                <tr>
+                    <td>Ano Inicio:</td>
+                    <td>{{ discente.ano }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
         {% include 'common/delete_button.html' %}
     </form>
 

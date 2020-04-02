@@ -9,9 +9,9 @@
 
 <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Apaga Endereço</h3>
 <form method="post">{% csrf_token %}
-    Voce realmente quer apagar o endereço de "{{ enderecoprograma.programa_id.instituicao }}" ?<br/>
+    Voce realmente quer apagar o endereço de "{{ enderecoprograma.programa_id.instituicao }}" ?<br/><br/>
     
-    <h3>Detalhes Endereço</h3>
+    <h4>Detalhes Endereço</h4>
 
 
     <table class="table table-striped">

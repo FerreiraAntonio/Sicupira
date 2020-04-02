@@ -9,7 +9,49 @@
 
     <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Apaga Curso</h3>
     <form method="post">{% csrf_token %}
-        Voce realmente quer apagar "{{ curso.nome }}" ?<br/>
+        Voce realmente quer apagar "{{ curso.nome_curso }}" ?<br/><br/>
+        <h4> Detalhes do Curso</h4>
+        <table class="table table-striped">
+        <thead>
+            <th>Nome:</th>
+            <th>{{curso.nome_curso}}</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Programa:</td>
+                <td>{{curso.programa_id.nome_programa}}</td>
+            </tr>
+            <tr>
+                <td>Nível: </td>
+                <td>{{curso.nivel_id.desc_nivel_graduacao}}</td>
+            </tr>
+            <tr>
+                <td>Situação:</td>
+                <td>{{curso.situacao_id.desc_situacao}}</td>
+            </tr>
+            <tr>
+                <td>Créditos Titulação:</td>
+                <td>{{curso.creditos_titulacao}}</td>
+            </tr>
+            <tr>
+                <td>Disciplinas:</td>
+                <td>{{curso.disciplina}}</td>
+            </tr>
+            <tr>
+                <td>Trabalho de conclusão:</td>
+                <td>{{curso.trabalho_conclusao}}</td>
+            </tr>
+            <tr>
+                <td>Outros:</td>
+                <td>{{curso.outros}}</td>
+            </tr>
+            <tr>
+                <td>Equivalência hora:</td>
+                <td>{{curso.equivalencia_hora}}</td>
+            </tr>
+        </tbody>
+    </table>
+
         {% include 'common/delete_button.html' %}
     </form>
 

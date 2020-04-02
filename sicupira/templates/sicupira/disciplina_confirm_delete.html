@@ -8,8 +8,43 @@
 {% load static %} 
 
     <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Apaga Disciplina</h3>
+
+    
     <form method="post">{% csrf_token %}
-        Voce realmente quer apagar "{{ disciplina.nome_disciplina }}" ?<br/>
+        Voce realmente quer apagar "{{ disciplina.nome_disciplina }}" ?<br/><br/>
+
+        <h4> Detalhes da Disciplina</h4>
+    
+        <table class="table table-striped">
+            <thead>
+                <th>Nome:</th>
+                <th>{{disciplina.nome_disciplina}}</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sigla:</td>
+                    <td>{{ disciplina.sigla }}</td>
+                </tr>
+                <tr>
+                    <td>Número:</td>
+                    <td>{{ disciplina.numero }}</td>
+                </tr>
+                <tr>
+                    <td>Créditos:</td>
+                    <td>{{ disciplina.creditos }}</td>
+                </tr>
+                <tr>
+                    <td>Ementa:</td>
+                    <td>{{ disciplina.ementa }}</td>
+                </tr>
+                <tr>
+                    <td>Bibliografia</td>
+                    <td>{{ disciplina.bibliografia }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
         {% include 'common/delete_button.html' %}
     </form>
 

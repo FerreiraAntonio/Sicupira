@@ -9,7 +9,73 @@
 
     <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Apaga Programa</h3>
     <form method="post">{% csrf_token %}
-        Voce realmente quer apagar "{{ programa.nome_programa }}" ?<br/>
+        Voce realmente quer apagar "{{ programa.nome_programa }}" ?<br/><br/>
+
+        <h4> Detalhes da Programa</h4>
+
+
+        <table class="table table-striped">
+            <thead>
+                <th>Nome:</th>
+                <th>{{ programa.nome_programa}}</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Código Programa:</td>
+                    <td>{{ programa.codigo_programa }}</td>
+                </tr>
+                <tr>
+                    <td>Instituição:</td>
+                    <td>{{ programa.instituicao.nome }}</td>
+                </tr>
+                <tr>
+                    <td>Nome Inglês:</td>
+                    <td>{{ programa.nome_ingles }}</td>
+                </tr>
+                <tr>
+                    <td>Nota:</td>
+                    <td>{{ programa.nota }}</td>
+                </tr>
+                <tr>
+                    <td>Flag Cooperação:</td>
+                    <td>{{ programa.flg_cooperacao }}</td>
+                </tr>
+                <tr>
+                    <td>Flag rede:</td>
+                    <td>{{ programa.flg_rede }}</td>
+                </tr>
+                <tr>
+                    <td>Modalidade:</td>
+                    <td>{{ programa.modalidade_id }}</td>
+                </tr>
+                <tr>
+                    <td>Area Avaliação:</td>
+                    <td>{{ programa.area_avaliacao.area_avaliacao }}</td>
+                </tr>
+                <tr>
+                    <td>Area Básica:</td>
+                    <td>{{ programa.area_basica.desc_area_basica }}</td>
+                </tr>
+                <tr>
+                    <td>Regime Letivo:</td>
+                    <td>{{ programa.regime_letivo_id }}</td>
+                </tr>
+                <tr>
+                    <td>Estado:</td>
+                    <td>{{ programa.estado_id }}</td>
+                </tr>
+                <tr>
+                    <td>Região:</td>
+                    <td>{{ programa.regiao_id }}</td>
+                </tr>
+                <tr>
+                    <td>Situação:</td>
+                    <td>{{ programa.situacao_id }}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+
         {% include 'common/delete_button.html' %}
     </form>
 

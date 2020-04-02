@@ -9,7 +9,39 @@
 
     <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Apaga Turma</h3>
     <form method="post">{% csrf_token %}
-        Voce realmente quer apagar "{{ turma.nome_turma }}" ?<br/>
+        Voce realmente quer apagar "{{ turma.nome_turma }}" ?<br/><br/>
+
+        <h4>Detalhes da Turma</h4>
+    
+        <table class="table table-striped">
+            <thead>
+                <th>Nome:</th>
+                <th>{{ turma.nome_turma }}</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Curso:</td>
+                    <td>{{ turma.curso_id }}</td>
+                </tr>
+                <tr>
+                    <td>Créditos:</td>
+                    <td>{{ turma.disciplina_id.creditos }}</td>
+                </tr>
+                <tr>
+                    <td>Disciplina:</td>
+                    <td>{{ turma.disciplina_id.nome_disciplina }}</td>
+                </tr>
+                <tr>
+                    <td>Ano:</td>
+                    <td>{{ turma.ano }}</td>
+                </tr>
+                <tr>
+                    <td>Periodo Letivo:</td>
+                    <td>{{ turma.periodo_letivo_id }}</td>
+                </tr>
+            </tbody>
+        </table>
+
         {% include 'common/delete_button.html' %}
     </form>
 
