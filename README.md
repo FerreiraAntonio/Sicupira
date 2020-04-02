@@ -21,10 +21,6 @@ Dentro de https://sucupira.capes.gov.br/sucupira/
 
 O DEMO do projeto está disponível em [https://ajhorta.pythonanywhere.com](https://ajhorta.pythonanywhere.com)
 
-# Estrutura de dados do sistema Sicupira
-
-![mer_sicupira_v3](uploads/00c081f58407a43e7e2f054c844a2239/mer_sicupira_v3.png)
-
 # Executando o sistema
 
 Tenha certeza que o python está instalado no sistema
@@ -45,6 +41,10 @@ pip install -r requirements.txt
 Crie o banco de dados
 
 ```
+
+rm -Rf db.sqlite3
+rm -Rf ./pessoa/migrations/*
+rm -Rf ./sicupira/migrations/*
 
 ./manage.py makemigrations sicupira
 ./manage.py makemigrations pessoa
@@ -106,14 +106,12 @@ http://127.0.0.01:8000/admin
 | Desenvolvimento |                |                                                                        | Sprint 3     |
 | Desenvolvimento |                |                                                                        | Sprint 2     |
 | Testes          | Wagner Sodré   |                                                                        | Testes, Sprint 3 |
-<<<<<<< README.md
 | Testes          | Mário Azevedo  | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Testes, Bugfix |
 | Documentação    | Michelle Mesquita | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Documentação |
 | Documentação    | Alessandro Rebello | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Documentação |
 | Documentação    | Matheus Mattos | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Sprint 5     |
 | Documentação    | Pedro Bernabé  | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Sprint 5     |
 | Documentação    |     Diego      | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Sprint 5     |
->>>>>>> README.md
 | Apresentação    |                |                                                                        | Apresentação |
 | Apresentação    |                |                                                                        | Apresentação |
 
