@@ -19,6 +19,13 @@
 <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Formulário de Discente</h3>
 
 <div style="width: 90%;margin: auto;">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="myfile" class="btn btn-default">
+        <br/>
+        <button type="submit" name="import_xml" lass="btn btn-primary">Upload</button>
+    </form>
+    <br/>
     <form method="post"  >
       {% csrf_token %}      
       {{ pessoa_form |crispy }}

@@ -1,3 +1,4 @@
+from django.core import serializers
 from django.db import transaction
 from django.forms import inlineformset_factory
 from django.shortcuts import render, redirect, get_object_or_404
@@ -16,6 +17,7 @@ from pessoa.models import Docente
 # from pessoa.models import Vinculo
 # from pessoa.models import Orienta
 from pessoa.models import Abreviatura
+from sicupira.models import Pais
 
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -23,7 +25,7 @@ from pessoa.services import LattesService
 
 
 @login_required
-def importaxml2(request):
+def importaxml(request):
     if request.method == 'POST' and bool(request.FILES.get('myfile', False)):
         myfile = request.FILES['myfile']
         data = myfile.read()
@@ -32,9 +34,11 @@ def importaxml2(request):
         #uploaded_file_url = fs.url(filename)
 
         obj = LattesService.importXML(data)
-        teste = obj.nome
-        return render(request, 'sicupira/importaxml.html', {
-            'data': data,
+        teste = obj.nome_pessoa
+
+        request.session['pessoa_xml'] = obj
+        return render(request, 'pessoa/discente.html', {
+            'pessoaXML': obj,
             'obj': teste
         })
 
@@ -110,7 +114,34 @@ def save_discente(request, id=0, template_name='pessoa/discente_form.html'):
         discente = Discente()
         pessoa = Pessoa()
 
-    # Preparação dos forms
+    if request.method == 'POST' and "import_xml" in request.POST and bool(request.FILES.get('myfile', False)):
+        myfile = request.FILES['myfile']
+        data = myfile.read()
+        pessoa_xml = LattesService.importXMLMemory(data)
+        request.session["pessoa_xml"] = pessoa_xml
+        print(pessoa_xml)
+        return  redirect("discente_new")
+
+
+    pessoa_xml = request.session.get("pessoa_xml", None)
+    if pessoa_xml:
+        pessoa.nome = pessoa_xml["nome"]
+        if  pessoa_xml["nacionalidade"]:
+            pessoa.nacionalidade =  get_object_or_404( Pais, pk=pessoa_xml["nacionalidade"])
+
+        if pessoa_xml["abrevs"]:
+            first = True
+            items = pessoa_xml["abrevs"].split(';')
+            for item in items:
+                abreviatura = Abreviatura()
+                abreviatura.pessoa = pessoa
+                abreviatura.desc_abreviatura = item
+                abreviatura.flg_principal = first if 1 else 0
+
+        request.session["pessoa_xml"] = None
+
+
+     # Preparação dos forms
     pessoa_form = PessoaForm(request.POST or None,instance=pessoa)
     discente_form = DiscenteForm(request.POST or None, instance=discente)
     AbreviaturaFormSet = inlineformset_factory(Pessoa, Abreviatura, form=AbreviaturaForm, extra=1)

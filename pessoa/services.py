@@ -45,6 +45,26 @@ class LattesService:
         except:
             return None
 
+    def importXMLMemory(xml):
+        obj = xmltodict.parse(xml, process_namespaces=True)
+
+        ret = {'nome':None, "nacionalidade":None, "abrevs":[]}
+
+        ret["nome"] = obj['CURRICULO-VITAE']['DADOS-GERAIS']['@NOME-COMPLETO']
+
+        # Tratamento de país
+        paises = Pais.objects.filter(Q(nome_pais=obj['CURRICULO-VITAE']['DADOS-GERAIS']['@PAIS-DE-NACIONALIDADE']))
+        if paises.exists():
+            print(paises[0])
+            ret["nacionalidade"] = paises[0].id
+
+        # tratamento de abreviação
+        ret["abrevs"] = obj['CURRICULO-VITAE']['DADOS-GERAIS']['@NOME-EM-CITACOES-BIBLIOGRAFICAS']
+
+        return ret
+
+
+
     @staticmethod
     def save(obj):
         pass

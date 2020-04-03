@@ -40,16 +40,11 @@ def importaxml(request):
         if request.method == 'POST' and bool(request.FILES.get('myfile', False)):
             myfile = request.FILES['myfile']
             data = myfile.read()
-            #fs = FileSystemStorage()
-            #filename = fs.save(myfile.name, myfile)
-            #uploaded_file_url = fs.url(filename)
 
             obj = LattesService.importXML(data)
-            teste = obj.nome
-            return render(request, 'sicupira/importaxml.html', {
-                'data': data,
-                'obj': teste
-            })
+            request.session['pessoa_xml'] = obj
+            return redirect('discente_new')
+
         return render(request, 'sicupira/importaxml.html', {})
     else:
         return redirect('login')
