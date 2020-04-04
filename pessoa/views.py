@@ -119,27 +119,17 @@ def save_discente(request, id=0, template_name='pessoa/discente_form.html'):
     if request.method == 'POST' and "import_xml" in request.POST and bool(request.FILES.get('myfile', False)):
         myfile = request.FILES['myfile']
         data = myfile.read()
-        pessoa_xml = LattesService.importXMLMemory(data)
+        pessoa_xml = LattesService.import_xml_memory(data)
         request.session["discente_pessoa_xml"] = pessoa_xml
         return  redirect("discente_new")
 
     dict_abrevs = []
     pessoa_xml = request.session.get("discente_pessoa_xml", None)
     if pessoa_xml:
-        pessoa.nome = pessoa_xml["nome"]
-        messages.success(request, 'Currículo de(a), %s importado com sucesso.' % pessoa.nome)
-        if  pessoa_xml["nacionalidade"]:
-            pessoa.nacionalidade =  get_object_or_404( Pais, pk=pessoa_xml["nacionalidade"])
-
-        if pessoa_xml["abrevs"]:
-            first = True
-            items = pessoa_xml["abrevs"].split(';')
-            for item in items:
-                dict_abrevs.append({'desc_abreviatura' : item,
-                'flg_principal': first if 1 else 0 })
-                first = False
-
+        messages.success(request, 'Currículo de(a), %s importado com sucesso.' % pessoa_xml["nome"])
+        LattesService.fill_pessoa(pessoa, pessoa_xml, dict_abrevs)
         request.session["discente_pessoa_xml"] = None
+
     # FIM tramento para importar xml lates
 
      # Preparação dos forms
@@ -155,7 +145,6 @@ def save_discente(request, id=0, template_name='pessoa/discente_form.html'):
     if request.method == 'POST' and pessoa_form.is_valid() and discente_form.is_valid():
         # transação
         with transaction.atomic():
-
             pessoa = pessoa_form.save()
             discente = discente_form.save(False)
 
@@ -252,30 +241,21 @@ def save_docente(request, id=0, template_name='pessoa/docente_form.html'):
         pessoa = Pessoa()
 
     # tramento para importar xml lates
+    dict_abrevs = []
     if request.method == 'POST' and "import_xml" in request.POST and bool(request.FILES.get('myfile', False)):
         myfile = request.FILES['myfile']
         data = myfile.read()
-        pessoa_xml = LattesService.importXMLMemory(data)
+        pessoa_xml = LattesService.import_xml_memory(data)
         request.session["docente_pessoa_xml"] = pessoa_xml
+
         return redirect("docente_new")
 
-    dict_abrevs = []
     pessoa_xml = request.session.get("docente_pessoa_xml", None)
     if pessoa_xml:
-        pessoa.nome = pessoa_xml["nome"]
-        messages.success(request, 'Currículo de(a), %s importado com sucesso.'% pessoa.nome)
-        if pessoa_xml["nacionalidade"]:
-            pessoa.nacionalidade = get_object_or_404(Pais, pk=pessoa_xml["nacionalidade"])
-
-        if pessoa_xml["abrevs"]:
-            first = True
-            items = pessoa_xml["abrevs"].split(';')
-            for item in items:
-                dict_abrevs.append({'desc_abreviatura': item,
-                                    'flg_principal': first if 1 else 0})
-                first = False
-
+        messages.success(request, 'Currículo de(a), %s importado com sucesso.' % pessoa_xml["nome"])
+        LattesService.fill_pessoa(pessoa, pessoa_xml, dict_abrevs)
         request.session["docente_pessoa_xml"] = None
+
     # FIM tramento para importar xml lates
 
     # Preparação dos forms

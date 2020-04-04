@@ -30,7 +30,12 @@
             <button type="submit" name="import_xml" lass="btn btn-primary">Upload</button>
         </form>
         <br/>
-     {% endif %}
+     {% else %}
+        <div>
+            <a href="{{docente.pessoa.lattes_id}}" target="_blank">Veja o curriculos lattes</a>
+        </div>
+       <br/>
+    {% endif %}
   <form method="post">
     {% csrf_token %}
     {{ pessoa_form |crispy }}

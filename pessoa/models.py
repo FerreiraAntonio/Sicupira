@@ -5,9 +5,12 @@ from sicupira import models as SicupiraModel
 ##################################################
 # Inicio do Bloco [Pessoa]
 ##################################################
+from sicupira.models import Pais
+
 
 class Pessoa(models.Model):
     nome =  SicupiraModel.CICharField(max_length=100)
+    resumo = models.TextField(blank=True, null=True)
     sexo = models.ForeignKey(SicupiraModel.Sexo,
                                       on_delete=models.SET_NULL,
                                       null=True, blank=True,
@@ -28,11 +31,22 @@ class Pessoa(models.Model):
                                       null=True, blank=True,
                                       related_name='NacionalidadePessoa')
 
+    lattes_id = models.CharField(max_length=45,blank=True, null=True)
+
     def __str__(self):
         return self.nome
 
     def get_absolute_url(self):
         return reverse('pessoa_edit', kwargs={'pk': self.pk})
+
+    def fill_from_xml(self, pessoa_xml):
+        self.nome = pessoa_xml["nome"]
+        self.lattes_id = pessoa_xml["lattes_id"]
+        print(self.lattes_id)
+        self.resumo = pessoa_xml["resumo_cv"]
+
+        if pessoa_xml["nacionalidade"]:
+            self.nacionalidade = SicupiraModel.Pais.objects.get(pk=pessoa_xml["nacionalidade"])
 
 
 ##################################################

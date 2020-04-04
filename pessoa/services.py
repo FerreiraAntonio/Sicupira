@@ -2,6 +2,8 @@
 #import untangle
 import xmltodict
 from django.db.models import Q
+from django.shortcuts import get_object_or_404, redirect
+
 from pessoa.models import Pessoa
 from pessoa.models import Abreviatura
 from sicupira.models import Pais
@@ -45,17 +47,22 @@ class LattesService:
         except:
             return None
 
-    def importXMLMemory(xml):
+    def import_xml_memory(xml):
         obj = xmltodict.parse(xml, process_namespaces=True)
 
-        ret = {'nome':None, "nacionalidade":None, "abrevs":[]}
+        ret = {'nome':None, "nacionalidade":None, "abrevs":[],'lattes_id' :None, 'resumo_cv':None}
 
         ret["nome"] = obj['CURRICULO-VITAE']['DADOS-GERAIS']['@NOME-COMPLETO']
+        ret["lattes_id"] = obj['CURRICULO-VITAE']['@NUMERO-IDENTIFICADOR']
+
+        dados_gerais = obj['CURRICULO-VITAE']['DADOS-GERAIS']
+        resumo_cv = dict.get(dados_gerais,'RESUMO-CV', None)
+        if resumo_cv:
+           ret["resumo_cv"] = resumo_cv['@TEXTO-RESUMO-CV-RH']
 
         # Tratamento de país
         paises = Pais.objects.filter(Q(nome_pais=obj['CURRICULO-VITAE']['DADOS-GERAIS']['@PAIS-DE-NACIONALIDADE']))
         if paises.exists():
-            print(paises[0])
             ret["nacionalidade"] = paises[0].id
 
         # tratamento de abreviação
@@ -63,8 +70,14 @@ class LattesService:
 
         return ret
 
-
-
     @staticmethod
-    def save(obj):
-        pass
+    def fill_pessoa(pessoa, pessoa_xml, dict_abrevs ):
+        pessoa.fill_from_xml(pessoa_xml)
+
+        if pessoa_xml["abrevs"]:
+            first = True
+            items = pessoa_xml["abrevs"].split(';')
+            for item in items:
+                dict_abrevs.append({'desc_abreviatura': item,
+                                    'flg_principal': first if 1 else 0})
+                first = False
