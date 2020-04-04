@@ -490,14 +490,14 @@ class ProgramaView(DetailView):
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class ProgramaCreate(CreateView):
     model = Programa
-    fields = ['codigo_programa', 'nome_programa', 'nome_ingles', 'nota', 'flg_cooperacao', 'flg_rede', 'modalidade_id', 'regime_letivo_id', 'estado_id', 'regiao_id', 'situacao_id', 'instituicao', 'area_avaliacao', 'area_basica']
+    fields = ['codigo_programa', 'nome_programa', 'nome_ingles', 'ano', 'nota', 'flg_cooperacao', 'flg_rede', 'modalidade_id', 'regime_letivo_id', 'estado_id', 'regiao_id', 'situacao_id', 'instituicao', 'area_avaliacao', 'area_basica']
     success_url = reverse_lazy('programa_list')
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class ProgramaUpdate(UpdateView):
     model = Programa
-    fields = ['codigo_programa', 'nome_programa', 'nome_ingles', 'nota', 'flg_cooperacao', 'flg_rede', 'modalidade_id', 'regime_letivo_id', 'estado_id', 'regiao_id', 'situacao_id', 'instituicao', 'area_avaliacao', 'area_basica']
+    fields = ['codigo_programa', 'nome_programa', 'nome_ingles', 'ano', 'nota', 'flg_cooperacao', 'flg_rede', 'modalidade_id', 'regime_letivo_id', 'estado_id', 'regiao_id', 'situacao_id', 'instituicao', 'area_avaliacao', 'area_basica']
     success_url = reverse_lazy('programa_list')
 
 

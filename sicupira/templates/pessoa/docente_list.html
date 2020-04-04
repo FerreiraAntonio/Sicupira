@@ -19,7 +19,7 @@
                 <input type="input" class="form-control" id="ano" name="ano" value="" list="lista_ano">                
                 <datalist id="lista_ano">
                     {% for docente in page_obj %}
-                        <option value="{{ docente.ano }}"></option>
+                        <option value="{{ docente.programa.ano }}"></option>
                     {% endfor %}
                 </datalist>
             </div>

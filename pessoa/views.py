@@ -203,7 +203,7 @@ class DocenteList(ListView):
         if 'programa' in self.request.GET:
             queryset = queryset.filter(programa__nome_programa__icontains=self.request.GET['programa'])
         if 'ano' in self.request.GET:
-            queryset = queryset.filter(ano__icontains=self.request.GET['ano'])
+            queryset = queryset.filter(programa__ano__icontains=self.request.GET['ano'])
         if 'regime_trabalho' in self.request.GET:
             queryset = queryset.filter(regime_trabalho__desc_regime_trabalho__icontains=self.request.GET['regime_trabalho'])
         if 'categoria' in self.request.GET:
@@ -226,14 +226,14 @@ def docente_detail_view(request, id):
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DocenteCreate(CreateView):
     model = Docente
-    fields = ['pessoa', 'titulo_nivel', 'data_titulacao', 'titulo_pais', 'regime_trabalho', 'vinculo_ies', 'programa', 'ano', 'categoria']
+    fields = ['pessoa', 'titulo_nivel', 'data_titulacao', 'titulo_pais', 'regime_trabalho', 'vinculo_ies', 'programa', 'categoria']
     success_url = reverse_lazy('docente_list')
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DocenteUpdate(UpdateView):
     model = Docente
-    fields = ['pessoa', 'titulo_nivel', 'data_titulacao', 'titulo_pais', 'regime_trabalho', 'vinculo_ies', 'programa', 'ano', 'categoria']
+    fields = ['pessoa', 'titulo_nivel', 'data_titulacao', 'titulo_pais', 'regime_trabalho', 'vinculo_ies', 'programa', 'categoria']
     success_url = reverse_lazy('docente_list')
 
 
