@@ -71,7 +71,6 @@ class Discente(models.Model):
                                     on_delete=models.SET_NULL,
                                     null=True, blank=True,
                                     related_name='SituacaoMatricula')
-    ano = models.IntegerField(blank=True, null=True)
     data_situacao = models.DateField()
     nivel = models.ForeignKey(SicupiraModel.NivelGraduacao,
                                  on_delete=models.SET_NULL,
@@ -108,7 +107,6 @@ class Docente(models.Model):
                                            on_delete=models.SET_NULL,
                                            null=True, blank=True,
                                            related_name='ProgramaDocente')
-    ano = models.IntegerField(blank=True, null=True)
     categoria = models.ForeignKey(SicupiraModel.CategoriaDocente,
                                      on_delete=models.SET_NULL,
                                      null=True, blank=True,

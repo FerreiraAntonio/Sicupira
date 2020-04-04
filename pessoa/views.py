@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.core import serializers
 from django.db import transaction
 from django.forms import inlineformset_factory
@@ -114,18 +115,19 @@ def save_discente(request, id=0, template_name='pessoa/discente_form.html'):
         discente = Discente()
         pessoa = Pessoa()
 
+    # tramento para importar xml lates
     if request.method == 'POST' and "import_xml" in request.POST and bool(request.FILES.get('myfile', False)):
         myfile = request.FILES['myfile']
         data = myfile.read()
         pessoa_xml = LattesService.importXMLMemory(data)
-        request.session["pessoa_xml"] = pessoa_xml
-        print(pessoa_xml)
+        request.session["discente_pessoa_xml"] = pessoa_xml
         return  redirect("discente_new")
 
-
-    pessoa_xml = request.session.get("pessoa_xml", None)
+    dict_abrevs = []
+    pessoa_xml = request.session.get("discente_pessoa_xml", None)
     if pessoa_xml:
         pessoa.nome = pessoa_xml["nome"]
+        messages.success(request, 'Currículo de(a), %s importado com sucesso.' % pessoa.nome)
         if  pessoa_xml["nacionalidade"]:
             pessoa.nacionalidade =  get_object_or_404( Pais, pk=pessoa_xml["nacionalidade"])
 
@@ -133,19 +135,22 @@ def save_discente(request, id=0, template_name='pessoa/discente_form.html'):
             first = True
             items = pessoa_xml["abrevs"].split(';')
             for item in items:
-                abreviatura = Abreviatura()
-                abreviatura.pessoa = pessoa
-                abreviatura.desc_abreviatura = item
-                abreviatura.flg_principal = first if 1 else 0
+                dict_abrevs.append({'desc_abreviatura' : item,
+                'flg_principal': first if 1 else 0 })
+                first = False
 
-        request.session["pessoa_xml"] = None
-
+        request.session["discente_pessoa_xml"] = None
+    # FIM tramento para importar xml lates
 
      # Preparação dos forms
     pessoa_form = PessoaForm(request.POST or None,instance=pessoa)
     discente_form = DiscenteForm(request.POST or None, instance=discente)
-    AbreviaturaFormSet = inlineformset_factory(Pessoa, Abreviatura, form=AbreviaturaForm, extra=1)
+    AbreviaturaFormSet = inlineformset_factory(Pessoa, Abreviatura, form=AbreviaturaForm, extra=len(dict_abrevs)+1 )
     abreviatura_form = AbreviaturaFormSet(instance=pessoa)
+
+    #inicializa o form com as abreviaturas do xml latters
+    for subform, data in zip(abreviatura_form.forms, dict_abrevs):
+        subform.initial = data
 
     if request.method == 'POST' and pessoa_form.is_valid() and discente_form.is_valid():
         # transação
@@ -162,7 +167,6 @@ def save_discente(request, id=0, template_name='pessoa/discente_form.html'):
             if abreviatura_form.is_valid():
                 abreviatura_form.save()
 
-        #return render(request, "pessoa/discente_list.html")
         return redirect('discente_list')
 
     args = {}
@@ -170,6 +174,7 @@ def save_discente(request, id=0, template_name='pessoa/discente_form.html'):
     args['pessoa_form'] = pessoa_form
     args['discente_form'] = discente_form
     args['abreviatura_form'] = abreviatura_form
+    args['is_new'] = id <= 0
 
     return render(request, template_name, args)
 
@@ -246,11 +251,42 @@ def save_docente(request, id=0, template_name='pessoa/docente_form.html'):
         docente = Docente()
         pessoa = Pessoa()
 
+    # tramento para importar xml lates
+    if request.method == 'POST' and "import_xml" in request.POST and bool(request.FILES.get('myfile', False)):
+        myfile = request.FILES['myfile']
+        data = myfile.read()
+        pessoa_xml = LattesService.importXMLMemory(data)
+        request.session["docente_pessoa_xml"] = pessoa_xml
+        return redirect("docente_new")
+
+    dict_abrevs = []
+    pessoa_xml = request.session.get("docente_pessoa_xml", None)
+    if pessoa_xml:
+        pessoa.nome = pessoa_xml["nome"]
+        messages.success(request, 'Currículo de(a), %s importado com sucesso.'% pessoa.nome)
+        if pessoa_xml["nacionalidade"]:
+            pessoa.nacionalidade = get_object_or_404(Pais, pk=pessoa_xml["nacionalidade"])
+
+        if pessoa_xml["abrevs"]:
+            first = True
+            items = pessoa_xml["abrevs"].split(';')
+            for item in items:
+                dict_abrevs.append({'desc_abreviatura': item,
+                                    'flg_principal': first if 1 else 0})
+                first = False
+
+        request.session["docente_pessoa_xml"] = None
+    # FIM tramento para importar xml lates
+
     # Preparação dos forms
     pessoa_form = PessoaForm(request.POST or None,instance=pessoa)
     docente_form = DocenteForm(request.POST or None, instance=docente)
     AbreviaturaFormSet = inlineformset_factory(Pessoa, Abreviatura, form=AbreviaturaForm, extra=1)
     abreviatura_form = AbreviaturaFormSet(instance=pessoa)
+
+    # inicializa o form com as abreviaturas do xml latters
+    for subform, data in zip(abreviatura_form.forms, dict_abrevs):
+        subform.initial = data
 
     if request.method == 'POST' and pessoa_form.is_valid() and docente_form.is_valid():
         # transação
@@ -274,6 +310,7 @@ def save_docente(request, id=0, template_name='pessoa/docente_form.html'):
     args['pessoa_form'] = pessoa_form
     args['docente_form'] = docente_form
     args['abreviatura_form'] = abreviatura_form
+    args['is_new'] = id <= 0
 
     return render(request, template_name, args)
 
