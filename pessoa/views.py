@@ -10,15 +10,12 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
-# from .models import *
 from .forms import *
 from pessoa.models import Pessoa
 from pessoa.models import Discente
 from pessoa.models import Docente
-# from pessoa.models import Vinculo
-# from pessoa.models import Orienta
 from pessoa.models import Abreviatura
-from sicupira.models import Pais
+from sicupira.models import Programa, Curso
 
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -60,14 +57,21 @@ class DiscenteList(ListView):
         queryset = super(DiscenteList, self).get_queryset()
         queryset = queryset.order_by("pessoa__nome")
 
+        if 'ano' in self.request.GET:
+            programas = Programa.objects.filter(ano=self.request.GET['ano'])
+            if programas.exists():
+                programa_ids =[]
+                for id in programas:
+                    programa_ids.append(id)
+
+                queryset = queryset.filter(curso__programa_id__in=programa_ids)
+
         if 'nome' in self.request.GET:
             queryset = queryset.filter(pessoa__nome__icontains=self.request.GET['nome'])
         if 'instituicao' in self.request.GET:
             queryset = queryset.filter(curso__programa_id__instituicao__nome__icontains=self.request.GET['instituicao'])
         if 'programa' in self.request.GET:
             queryset = queryset.filter(curso__programa_id__nome_programa__icontains=self.request.GET['programa'])
-        if 'ano' in self.request.GET:
-            queryset = queryset.filter(ano__icontains=self.request.GET['ano'])
         if 'situacao' in self.request.GET:
             queryset = queryset.filter(situacao__desc_situacao_matricula__icontains=self.request.GET['situacao'])
         if 'nivel' in self.request.GET:
