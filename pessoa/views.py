@@ -67,6 +67,7 @@ class DiscenteList(ListView):
                 queryset = queryset.filter(curso__programa_id__in=programa_ids)
             else:
                 queryset = queryset.filter(curso__programa_id=0)
+
         if 'nome' in self.request.GET:
             queryset = queryset.filter(pessoa__nome__icontains=self.request.GET['nome'])
         if 'instituicao' in self.request.GET:
