@@ -29,12 +29,7 @@
             <br />
             <button type="submit" name="import_xml" lass="btn btn-primary">Upload</button>
         </form>
-        <br/>
-    {% else %}
-        <div>
-            <a href="{{discente.pessoa.lattes_id}}" target="_blank">Veja o curriculos lattes</a>
-        </div>
-       <br/>
+        <br />
     {% endif %}
     <form method="post"  >
       {% csrf_token %}      
