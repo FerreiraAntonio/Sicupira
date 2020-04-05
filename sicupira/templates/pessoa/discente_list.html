@@ -96,6 +96,7 @@
                 <th>Nome</th>
                 <th>Nível</th>
                 <th>Situação</th>
+                <th>Lattes ID:</th>
                 <th>Ver</th>
                 <th>Alterar</th>
                 <th>Apagar</th>
@@ -106,7 +107,8 @@
             <tr>
             <td>{{ discente.pessoa.nome }}</td>
             <td>{{ discente.nivel.desc_nivel_graduacao }}</td>
-            <td>{{ discente.situacao.desc_situacao_matricula }}</td>
+            <td>{{ discente.situacao.desc_situacao_matricula }}</td>            
+            <td><a href="#" target="popup" onclick="window.open('http://lattes.cnpq.br/{{ discente.pessoa.lattes_id }}','name','width=800,height=600')">{{ discente.pessoa.lattes_id }}</a></td>
             <td><a href="{% url "discente_view" discente.pessoa.id %}"><span class="label label-info">ver</span></a></td>
             <td><a href="{% url "discente_edit" discente.pessoa.id %}"><span class="label label-warning">alterar</span></a></td>
             <td><a href="{% url "discente_delete" discente.pessoa.id %}"><span class="label label-danger">apagar</span></a></td>

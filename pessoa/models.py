@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from sicupira import models as SicupiraModel
+from django.core.validators import MinValueValidator
 
 ##################################################
 # Inicio do Bloco [Pessoa]

@@ -85,7 +85,7 @@
             <tr>
                 <th>Nome</th>
                 <th>Categoria</th>
-                
+                <th>Lattes ID:</th>                
                 <th>Ver</th>
                 <th>Alterar</th>
                 <th>Apagar</th>
@@ -96,6 +96,7 @@
             <tr>
             <td>{{ docente.pessoa.nome }}</td>
             <td>{{ docente.categoria.desc_categoria }}</td>
+            <td><a href="#" target="popup" onclick="window.open('http://lattes.cnpq.br/{{ docente.pessoa.lattes_id }}','name','width=800,height=600')">{{ docente.pessoa.lattes_id }}</a></td>
             <td><a href="{% url "docente_view" docente.pessoa.id %}"><span class="label label-info">ver</span></a></td>
             <td><a href="{% url "docente_edit" docente.pessoa.id %}"><span class="label label-warning">alterar</span></a></td>
             <td><a href="{% url "docente_delete" docente.pessoa.id %}"><span class="label label-danger">apagar</span></a></td>

@@ -20,6 +20,14 @@
                 <td>{{ discente.pessoa.sexo.desc_sexo }}</td>
             </tr>
             <tr>
+                <td>Lattes ID:</td>
+                <td><a href="#" target="popup" onclick="window.open('http://lattes.cnpq.br/{{ discente.pessoa.lattes_id }}','name','width=800,height=600')">{{ discente.pessoa.lattes_id }}</a></td>
+            </tr>
+            <tr>
+                <td>Resumo:</td>
+                <td>{{ discente.pessoa.resumo }}</td>
+            </tr>
+            <tr>
                 <td>Email:</td>
                 <td>{{ discente.pessoa.email }}</td>
             </tr>
@@ -50,10 +58,6 @@
             <tr>
                 <td>Instituição:</td>
                 <td>{{ discente.curso.programa_id.instituicao.nome }}</td>
-            </tr>
-            <tr>
-                <td>Ano Inicio:</td>
-                <td>{{ discente.ano }}</td>
             </tr>
         </tbody>
     </table>
