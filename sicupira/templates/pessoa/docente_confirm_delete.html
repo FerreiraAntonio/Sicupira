@@ -21,6 +21,14 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>Lattes ID:</td>
+                    <td><a href="#" target="popup" onclick="window.open('http://lattes.cnpq.br/{{ docente.pessoa.lattes_id }}','name','width=800,height=600')">{{ docente.pessoa.lattes_id }}</a></td>
+                </tr>
+                <tr>
+                    <td>Resumo:</td>
+                    <td>{{ docente.pessoa.resumo }}</td>
+                </tr>
+                <tr>
                     <td>Sexo:</td>
                     <td>{{ docente.pessoa.sexo.desc_sexo }}</td>
                 </tr>
@@ -50,7 +58,7 @@
                 </tr>
                 <tr>
                     <td>Ano Inicio:</td>
-                    <td>{{ docente.ano }}</td>
+                    <td>{{ docente.programa.ano }}</td>
                 </tr>
                 <tr>
                     <td>Categoria:</td>

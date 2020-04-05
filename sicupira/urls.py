@@ -25,7 +25,7 @@ from . import views
 
 urlpatterns = [
     path('index', views.index, name='index'),
-    path('importaxml', views.importaxml, name='importaxml'),
+    # path('importaxml', views.importaxml, name='importaxml'),
     path('programa', views.ProgramaList.as_view(), name='programa_list'),
     path('programa/view/<int:pk>', views.ProgramaView.as_view(), name='programa_view'),
     path('programa/new', views.ProgramaCreate.as_view(), name='programa_new'),

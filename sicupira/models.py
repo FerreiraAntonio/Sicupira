@@ -305,6 +305,7 @@ class Programa(models.Model):
     instituicao = models.ForeignKey(Instituicao, on_delete=models.SET_NULL, null=True, related_name='NomeInstituicao')
     area_avaliacao = models.ForeignKey(AreaAvaliacao, on_delete=models.SET_NULL, null=True, related_name='AreaAvaliacao')
     nota = models.ForeignKey(Nota, on_delete=models.SET_NULL, null=True, related_name='NotaPrograma')
+    ano = models.IntegerField(default=2020, null=False, blank=False, validators=[MinValueValidator(1950)])
     flg_cooperacao = models.BooleanField(default=False)
     flg_rede = models.BooleanField(default=False)
     modalidade_id = models.ForeignKey(Modalidade, on_delete=models.SET_NULL, null=True, related_name='ModlidadePrograma')
