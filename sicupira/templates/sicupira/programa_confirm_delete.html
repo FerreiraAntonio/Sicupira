@@ -1,13 +1,13 @@
 {% extends 'sicupira/base.html' %}
 
 {% block breadcrumbs %}
-    {{ block.super }} » <a href="{% url 'programa_delete' programa.id %}">Apagar programa</a>
+    {{ block.super }} » <a href="{% url 'programa_delete' programa.id %}">Apagar programa - Dados cadastrais básicos</a></a>
 {% endblock %}
 
 {% block content %}
 {% load static %} 
 
-    <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Apaga Programa</h3>
+    <h3> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px;"> Apaga Programa - Dados cadastrais básicos</a></h3>
     <form method="post">{% csrf_token %}
         Voce realmente quer apagar "{{ programa.nome_programa }}" ?<br/><br/>
 
