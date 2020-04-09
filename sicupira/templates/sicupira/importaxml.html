@@ -11,7 +11,8 @@
 <div style="width: 90%;margin: auto;">
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <input type="file" name="myfile" class="btn btn-default">
+    <input type="file"  accept=".xml" name="myfile" class="btn btn-default" label="ss">
+	<p>Selecionar apenas arquivos XML</p>
     <br/>
     <button type="submit" class="btn btn-primary">Upload</button>   
   </form>
