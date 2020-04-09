@@ -104,7 +104,7 @@ http://127.0.0.01:8000/admin
 | Desenvolvimento | Guilherme Bernieri  | ![](https://www.gravatar.com/avatar/dba1855aee0c6b1debf88d02bf2f3ada)  | Linha de Pesquisa, Wiki  |
 | Desenvolvimento | Rafael Macedo  | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000)  | Turma, Wiki, Testes  |
 | Desenvolvimento |                |                                                                        | Sprint 3     |
-| Desenvolvimento |                |                                                                        | Sprint 2     |
+| Desenvolvimento | Antonio Ferreira |![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Sprint 2     |
 | Testes          | Wagner Sodré   |                                                                        | Testes, Sprint 3 |
 | Testes          | Mário Azevedo  | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Testes, Bugfix |
 | Documentação    | Michelle Mesquita | ![](https://www.gravatar.com/avatar/00000000000000000000000000000000) | Documentação |
