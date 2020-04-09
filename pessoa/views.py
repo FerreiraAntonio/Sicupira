@@ -120,17 +120,26 @@ def save_discente(request, id=0, template_name='pessoa/discente_form.html'):
     # tramento para importar xml lates
     if request.method == 'POST' and "import_xml" in request.POST and bool(request.FILES.get('myfile', False)):
         myfile = request.FILES['myfile']
-        data = myfile.read()
-        pessoa_xml = LattesService.import_xml_memory(data)
-        request.session["discente_pessoa_xml"] = pessoa_xml
-        return  redirect("discente_new")
+
+        if myfile.name.endswith('.xml'):
+            data = myfile.read()
+            pessoa_xml = LattesService.import_xml_memory(data)
+            request.session["discente_pessoa_xml"] = pessoa_xml
+        else:
+            pessoa_xml = "Erro"
+
+        return redirect("discente_new")
 
     dict_abrevs = []
     pessoa_xml = request.session.get("discente_pessoa_xml", None)
     if pessoa_xml:
-        messages.success(request, 'Currículo de(a), %s importado com sucesso.' % pessoa_xml["nome"])
-        LattesService.fill_pessoa(pessoa, pessoa_xml, dict_abrevs)
-        request.session["discente_pessoa_xml"] = None
+        if pessoa_xml is not "Erro":
+            messages.success(request, 'Currículo de(a), %s importado com sucesso.' % pessoa_xml["nome"])
+            LattesService.fill_pessoa(pessoa, pessoa_xml, dict_abrevs)
+            request.session["discente_pessoa_xml"] = None
+        else:
+            messages.success(request, 'Arquivo não é XML. Apenas arquivos XML podem ser importados!')
+            request.session["discente_pessoa_xml"] = None
 
     # FIM tramento para importar xml lates
 
