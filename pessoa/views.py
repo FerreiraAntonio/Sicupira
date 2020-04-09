@@ -26,10 +26,8 @@ from pessoa.services import LattesService
 def importaxml(request):
     if request.method == 'POST' and bool(request.FILES.get('myfile', False)):
         myfile = request.FILES['myfile']
+
         data = myfile.read()
-        #fs = FileSystemStorage()
-        #filename = fs.save(myfile.name, myfile)
-        #uploaded_file_url = fs.url(filename)
 
         obj = LattesService.importXML(data)
         teste = obj.nome_pessoa
@@ -39,8 +37,6 @@ def importaxml(request):
             'pessoaXML': obj,
             'obj': teste
         })
-
-    return render(request, 'sicupira/importaxml.html', {})
 
 
 ##################################################
@@ -250,17 +246,25 @@ def save_docente(request, id=0, template_name='pessoa/docente_form.html'):
     dict_abrevs = []
     if request.method == 'POST' and "import_xml" in request.POST and bool(request.FILES.get('myfile', False)):
         myfile = request.FILES['myfile']
-        data = myfile.read()
-        pessoa_xml = LattesService.import_xml_memory(data)
-        request.session["docente_pessoa_xml"] = pessoa_xml
+
+        if myfile.name.endswith('.xml'):
+            data = myfile.read()
+            pessoa_xml = LattesService.import_xml_memory(data)
+            request.session["docente_pessoa_xml"] = pessoa_xml
+        else:
+            pessoa_xml = "Erro"
 
         return redirect("docente_new")
 
     pessoa_xml = request.session.get("docente_pessoa_xml", None)
     if pessoa_xml:
-        messages.success(request, 'Currículo de(a), %s importado com sucesso.' % pessoa_xml["nome"])
-        LattesService.fill_pessoa(pessoa, pessoa_xml, dict_abrevs)
-        request.session["docente_pessoa_xml"] = None
+        if pessoa_xml is not "Erro":
+            messages.success(request, 'Currículo de(a), %s importado com sucesso.' % pessoa_xml["nome"])
+            LattesService.fill_pessoa(pessoa, pessoa_xml, dict_abrevs)
+            request.session["docente_pessoa_xml"] = None
+        else:
+            messages.success(request, 'Arquivo não é XML. Apenas arquivos XML podem ser importados!')
+            request.session["docente_pessoa_xml"] = None
 
     # FIM tramento para importar xml lates
 
