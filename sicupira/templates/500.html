@@ -1,0 +1,15 @@
+ {% extends 'sicupira/base.html' %}
+
+{% block content %}
+{% load static %}
+
+    <h1> <img src="{% static "images\logo.png" %}" alt="My image" style="height: 70px; font-size:36px;">Opps!</h1>
+    <p >
+        <br />
+        <br />
+        <h3 style="text-align: center;">Não foi possível realizar essa operação! Entre em contato com o administrador do sistema.</h3>
+        <br />
+        <br />
+        {% include 'common/back_button.html' %}
+    </p>
+{% endblock %}
