@@ -19,7 +19,7 @@ class Pessoa(models.Model):
                                        default=1)
 
     data_nascimento = models.DateField()
-    numero_documento = models.CharField(max_length=20)
+    numero_documento = models.CharField(max_length=20, unique=True)
     tipo_documento = models.ForeignKey(SicupiraModel.TipoDocumento,
                                       on_delete=models.SET_NULL,
                                       null=True, blank=True,
